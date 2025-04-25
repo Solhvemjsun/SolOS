@@ -123,8 +123,8 @@
       # Environment Variables
       env = [
         "NIXOS_OZONE_WL,1"
-        "HYPRCURSOR_SIZE,64"
-        "XCURSOR_SIZE,64"
+        "HYPRCURSOR_SIZE,32"
+        "XCURSOR_SIZE,32"
         "HYPRSHOT_DIR,Nextcloud/Pictures/Screenshots"
       ];
 
