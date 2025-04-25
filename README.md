@@ -4,12 +4,12 @@ Fiat Lux!
 
 ## About
 
-This is my NixOS configurations for multiple computers includes my server and dev boards in the future.
+This is my NixOS configurations for multiple computers includes my server and dev boards.
 
 ## User environment
 
 - Shell: Zsh
-- DE: Hyprland
+- WM: Hyprland
 
 ## Installation
 
