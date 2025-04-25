@@ -217,17 +217,20 @@
   ##################
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-gtk
+      fcitx5-chinese-addons
+      fcitx5-pinyin-zhwiki
+      fcitx5-pinyin-moegirl
+      fcitx5-pinyin-minecraft
       fcitx5-rime
-      fcitx5-mozc
-      fcitx5-nord
       rime-ls
-      rime-zhwiki
       rime-data
       rime-zhwiki
+      rime-japanese
     ];
   };
 }
