@@ -9,7 +9,7 @@ This is my NixOS configurations for multiple computers includes my server and de
 ## User environment
 
 - Shell: Zsh
-- DE: Hyprland
+- WM: Hyprland
 
 ## Installation
 
