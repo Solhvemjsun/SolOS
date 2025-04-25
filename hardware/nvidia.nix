@@ -1,0 +1,31 @@
+{ config, pkgs, ... }:
+{
+  boot = {
+    kernelModules = [ "nvidia_uvm" ];
+    kernelParams = [ "nvidia-drm.modeset=1" ];
+  };
+
+  hardware.graphics = {
+    enable = true; # Enable OpenGL
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+
+    powerManagement.enable = true;
+
+    powerManagement.finegrained = false;
+
+    open = true;
+
+    nvidiaSettings = true;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  environment.systemPackages = with pkgs; [
+    nvitop
+  ];
+}
