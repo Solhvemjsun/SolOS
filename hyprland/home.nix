@@ -129,8 +129,8 @@
       # Environment Variables
       env = [
         "NIXOS_OZONE_WL,1"
-        "HYPRCURSOR_SIZE,32"
-        "XCURSOR_SIZE,32"
+        "HYPRCURSOR_SIZE,64"
+        "XCURSOR_SIZE,64"
         "HYPRSHOT_DIR,Nextcloud/Pictures/Screenshots"
       ];
 
@@ -493,11 +493,13 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    cursor.package = (pkgs.callPackage ../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
-    cursor.name = "breeze-hacked-cursor-theme";
-    cursor.size = 32;
     image = ./nixos.png;
     imageScalingMode = "fit";
+    cursor = {
+      package = (pkgs.callPackage ../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
+      name = "Breeze_Hacked";
+      size = 64;
+    };
     iconTheme = {
       enable = true;
       dark = "Sweet-Rainbow";

@@ -173,6 +173,11 @@
   stylix = {
     enable = true;
     polarity = "dark";
+    cursor = {
+      package = (pkgs.callPackage ../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
+      name = "Breeze_Hacked";
+      size = 64;
+    };
     base16Scheme = {
       system = "base24";
       name = "Eclipse";
