@@ -15,6 +15,10 @@ This is my NixOS configurations for multiple computers includes my server and de
 
 In the folder:
 ```console
+nix-shell
+```
+Then:
+```console
 make
 ```
 
