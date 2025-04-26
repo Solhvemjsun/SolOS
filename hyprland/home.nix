@@ -23,6 +23,12 @@
       enable = true;
       pictures = "${config.home.homeDirectory}/Nextcloud/Pictures";
     };
+    # mimeApps = {
+    #   enable = true;
+    #   defaultApplications = {
+    #     "x-terminal-emulator" = ["kitty.desktop"];
+    #   };
+    # };
   };
 
   ###########
@@ -487,16 +493,15 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    cursor.package = pkgs.breeze-hacked-cursor-theme;
+    cursor.package = (pkgs.callPackage ../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
     cursor.name = "breeze-hacked-cursor-theme";
     cursor.size = 32;
     image = ./nixos.png;
     imageScalingMode = "fit";
     iconTheme = {
       enable = true;
-      package = pkgs.candy-icons;
-      dark = "candy-icons";
-      light = "candy-icons";
+      dark = "Sweet-Rainbow";
+      light = "Sweet-Rainbow";
     };
     base16Scheme = {
       system = "base24";

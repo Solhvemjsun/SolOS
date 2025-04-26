@@ -75,6 +75,7 @@
   environment.systemPackages = with pkgs; [
     amberol
     brightnessctl
+    candy-icons
     firefox
     gparted
     google-chrome
@@ -92,10 +93,11 @@
     libsForQt5.kamoso
     light
     mediainfo-gui
-    nemo-with-extensions
     neovide
     nextcloud-client
     ntfs3g
+    nautilus
+    nautilus-open-any-terminal
     onlyoffice-desktopeditors
     kdePackages.okular
     pamixer
@@ -104,6 +106,7 @@
     samba
     seahorse
     selectdefaultapplication
+    sweet-folders
     wayvnc
     wl-screenrec
     zathura
@@ -170,11 +173,6 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    cursor.package = pkgs.breeze-hacked-cursor-theme;
-    cursor.name = "breeze-hacked-cursor-theme";
-    cursor.size = 32;
-    image = ./nixos.png;
-    imageScalingMode = "fit";
     base16Scheme = {
       system = "base24";
       name = "Eclipse";
