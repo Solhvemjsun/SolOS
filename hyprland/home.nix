@@ -122,13 +122,13 @@
       # Autostart
       exec-once = [
         "systemctl --user start hyprpolkitagent"
-        "systemd-inhibit --who=\"Hyprland config\" --why=\"wlogout keybind\" --what=handle-power-key --mode=block sleep infinity & echo $! > /tmp/.hyprland-systemd-inhibit"
+        "systemd-inhibit --who=\"Hyprland config\" --why=\"wofi power menu keybind\" --what=handle-power-key --mode=block sleep infinity & echo $! > /tmp/.hyprland-systemd-inhibit"
       ];
       exec-shutdown = "kill -9 \"$(cat /tmp/.hyprland-systemd-inhibit)";
 
       # Environment Variables
       env = [
-        "NIXOS_OZONE_WL,1"
+        # "NIXOS_OZONE_WL,1"
         "HYPRCURSOR_SIZE,64"
         "XCURSOR_SIZE,64"
         "HYPRSHOT_DIR,Nextcloud/Pictures/Screenshots"
@@ -301,8 +301,10 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-        # Function keys
+        # Poweroff menu
+        ", XF86PowerOff, exec, zsh -c 'action=$(echo -e \"Lock\\nLogout\\nSuspend\\nReboot\\nShutdown\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac'"
 
+        # Function keys
         ", xf86AudioLowerVolume, exec, zsh -c 'pamixer -d 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500'"
         ", xf86AudioRaiseVolume, exec, zsh -c 'pamixer -i 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500'"
 
@@ -320,8 +322,6 @@
         ", xf86Display, exec, $menu"
 
         # Keybindings by lines
-
-        ", XF86PowerOff, exec, wlogout"
 
         "$mainMod, tab, scroller:toggleoverview"
         "$mainMod $shiftMod, tab, hyprexpo:expo, toggle"
@@ -422,21 +422,6 @@
         swap_font_color = true;
       };
     };
-  };
-
-  programs.wlogout = {
-    enable = true;
-    style = ''
-      window{ background-color: rgba(12,12,12,0.9); }
-      button {
-        color: #00FFFF;
-        background-color: #000000;
-      }
-      button:focus, button:active {
-        background-color: #008888;
-        outline-style: none;
-      }
-    '';
   };
 
   programs.kitty = {
