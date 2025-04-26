@@ -128,7 +128,6 @@
 
       # Environment Variables
       env = [
-        # "NIXOS_OZONE_WL,1"
         "HYPRCURSOR_SIZE,64"
         "XCURSOR_SIZE,64"
         "HYPRSHOT_DIR,Nextcloud/Pictures/Screenshots"
@@ -302,7 +301,7 @@
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         # Poweroff menu
-        ", XF86PowerOff, exec, zsh -c 'action=$(echo -e \"Lock\\nLogout\\nSuspend\\nReboot\\nShutdown\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac'"
+        ", XF86PowerOff, exec, zsh -c 'action=$(echo -e \"Shutdown\\nReboot\\nLock\\nLogout\\nSuspend\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac'"
 
         # Function keys
         ", xf86AudioLowerVolume, exec, zsh -c 'pamixer -d 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500'"
