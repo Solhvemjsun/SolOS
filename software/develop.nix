@@ -31,9 +31,6 @@
     # Octave
     (octaveFull .withPackages (ps: with ps; [ video ]))
 
-    # Website
-    zola
-
     # Video
     ffmpeg
     opencv
