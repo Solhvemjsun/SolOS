@@ -34,5 +34,21 @@
       };
     };
   };
+  
+  ############################
+  ## LOW POWER NOTIFICATION ##
+  ############################
+  
+  environment.systemPackages = with pkgs; [
+    poweralertd
+  ];
 
+  systemd.user.services.poweralertd = {
+    description = "Poweralertd battery monitoring daemon";
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.poweralertd}/bin/poweralertd --low 15 --critical 5";
+      Restart = "always";
+    };
+  };
 }
