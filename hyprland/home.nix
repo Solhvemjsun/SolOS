@@ -451,6 +451,10 @@
         margin: 5px;
         color: white
       }
+      #text:selected {
+        margin: 5px;
+        color: black
+      }
       #entry:selected {
         background-color: rgba(31,95,127,0.5);
         background: linear-gradient(45deg, #88ffff, #4488ff);
