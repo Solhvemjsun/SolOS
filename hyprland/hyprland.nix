@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+  ##################
+  ## HOME MANAGER ##
+  ##################
+
+  home-manager.sharedModules = [ ./home.nix ];
+
   ################
   ## GRUB THEME ##
   ################

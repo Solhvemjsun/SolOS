@@ -1,4 +1,4 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, lib, name, ... }:
 
 {
   ##########
@@ -10,7 +10,7 @@
   home.stateVersion = "24.11";
 
   home = {
-    username = username;
+    username = name;
     homeDirectory = "/home/${config.home.username}";
   };
 
