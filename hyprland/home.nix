@@ -449,7 +449,7 @@
       }
       #text { 
         margin: 5px;
-        color: whiteinfinity icon
+        color: white
       }
       #entry:selected {
         background-color: rgba(31,95,127,0.5);
