@@ -13,13 +13,19 @@ This is my NixOS configurations for multiple computers includes my server and de
 
 ## Installation
 
+Clone the repo:
+```console
+$ git clone https://github.com/Solhvemjsun/SolOS
+```
+Edit if needed, then install with the config you need in flake.nix:
+```console
+$ sudo nixos-install --root /mnt --flake github:Solhvemjsun/SolOS#<hostName>
+```
+## Update
+
 In the folder:
 ```console
-nix-shell
-```
-Then:
-```console
-make
+$ make
 ```
 
 ## Wallpaper
