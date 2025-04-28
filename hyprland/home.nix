@@ -239,10 +239,6 @@
       "$altMod" = "ALT";
 
       bindm = [
-        # Move/resize windows with mainMod + Alt/Ctrl and dragging
-        "$mainMod, $altMod, movewindow"
-        "$mainMod, $ctrlMod, resizewindow"
-
         # Move/resize windows with mainMod + LMB/RMB and dragging on touchpad
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
@@ -261,25 +257,35 @@
         "$mainMod, A, scroller:movefocus, l"
         "$mainMod, D, scroller:movefocus, r"
 
-        # Move window with mainMod + shiftMod + WASD
-        "$mainMod $shiftMod, Z, scroller:admitwindow"
-        "$mainMod $shiftMod, X, scroller:expelwindow"
+        # Move window with mainMod + shiftMod + WASDZX
         "$mainMod $shiftMod, W, scroller:movewindow, u"
         "$mainMod $shiftMod, S, scroller:movewindow, d"
         "$mainMod $shiftMod, A, scroller:movewindow, l"
         "$mainMod $shiftMod, D, scroller:movewindow, r"
+        "$mainMod $shiftMod, X, scroller:admitwindow"
+        "$mainMod $shiftMod, C, scroller:expelwindow"
 
-        # Align active window with mainMod + ctrl + WASD
+        # Align active window with mainMod + ctrl + WASDC
         "$mainMod $ctrlMod, W, scroller:alignwindow, d"
         "$mainMod $ctrlMod, S, scroller:alignwindow, u"
         "$mainMod $ctrlMod, A, scroller:alignwindow, r"
         "$mainMod $ctrlMod, D, scroller:alignwindow, l"
+        "$mainMod $ctrlMod, Z, scroller:alignwindow, m"
 
-        # Resize window with mainMod + arrow keys
-        "$mainMod, up, scroller:alignwindow, d"
-        "$mainMod, down, scroller:alignwindow, u"
-        "$mainMod, left, scroller:alignwindow, r"
-        "$mainMod, right, scroller:alignwindow, l"
+        # Set mode by Z
+        "$mainMod, Z, scroller:setmode, row"
+        "$mainMod $shiftMod, Z, scroller:setmode, column"
+
+        # Resize window with mainMod + XCF
+        "$mainMod, X, scroller:cycleheight, +1"
+        "$mainMod, C, scroller:cyclewidth, +1"
+
+        "$mainMod, F, fullscreen"
+        "$mainMod $shiftMod, F, togglefloating"
+        
+        # Change mode with mainMod + ctrl + ZX
+        "$mainMod $ctrlMod, X, scroller:setmode, row"
+        "$mainMod $ctrlMod, C, scroller:setmode, col"
 
         # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
@@ -305,6 +311,18 @@
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
+        # Tag for overviews
+        "$mainMod, tab, scroller:toggleoverview"
+        "$mainMod $shiftMod, tab, hyprexpo:expo, toggle"
+        "$mainMod $ctrlMod, tab, scroller:jump"
+
+        # Open and close windows
+        "$mainMod, Q, killactive,"
+        "$mainMod, E, exec, $menu"
+        "$mainMod $shiftMod, E, exec, $runlist"
+        "$mainMod, T, exec, $terminal"
+        "$mainMod, Return, exec, $terminal"
+
         # Poweroff menu
         ", XF86PowerOff, exec, zsh -c 'action=$(echo -e \"Shutdown\\nReboot\\nLock\\nLogout\\nSuspend\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac'"
 
@@ -323,26 +341,7 @@
         "$shiftMod, Print, exec, hyprshot -m region"
         "$mainMod, Print, exec, hyprshot -m window"
 
-        ", xf86Display, exec, $menu"
-
-        # Keybindings by lines
-
-        "$mainMod, tab, scroller:toggleoverview"
-        "$mainMod $shiftMod, tab, hyprexpo:expo, toggle"
-        "$mainMod, Q, killactive,"
-        "$mainMod, E, exec, $menu"
-        "$mainMod, R, exec, $runlist"
-        "$mainMod, T, exec, $terminal"
-
-        "$mainMod, F, scroller:fitsize, active"
-        "$mainMod $shiftMod, F, fullscreen"
-        "$mainMod $ctrlMod, F, togglefloating"
-        "$mainMod, Return, exec, $terminal"
-
-        "$mainMod, Z, scroller:setmode, col"
-        "$mainMod, X, scroller:setmode, row"
-        "$mainMod, C, scroller:cyclesize, +1"
-        "$mainMod $ctrlMod, C, scroller:alignwindow, c"
+        ", xf86Display, exec, $menu" # To change
       ];
 
       windowrulev2 = [
