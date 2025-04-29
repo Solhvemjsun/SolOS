@@ -28,4 +28,6 @@
   environment.systemPackages = with pkgs; [
     nvitop
   ];
+  
+  environment.sessionVariables.NIXOS_OZONE_WL = "0"; # Fix the glitching of electron apps
 }
