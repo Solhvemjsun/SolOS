@@ -25,7 +25,7 @@
       pictures = "${config.home.homeDirectory}/Nextcloud/Pictures";
       videos = "${config.home.homeDirectory}/Nextcloud/Videos";
       documents = "${config.home.homeDirectory}/Documents";
-      download = "${config.home.homeDirectory}/Download";
+      download = "${config.home.homeDirectory}/Downloads";
       desktop = "${config.home.homeDirectory}/Desktop";
     };
     # mimeApps = {
