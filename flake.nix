@@ -23,16 +23,19 @@
       ./hyprland/hyprland.nix
     ];
     personalModules = [
-      ./software/develop.nix
       ./software/gaming.nix
       ./software/personal.nix
       ./software/tor.nix 
+    ];
+    workModules = [
+      ./software/office.nix
+      ./software/develop.nix
     ];
   in {
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ personalModules ++ [
+        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "SolXPS"; }
           { home-manager.users.Sol = {}; }
           ./device/XPS13.nix
@@ -42,7 +45,7 @@
 
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ personalModules ++ [
+        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "SolITX"; }
           { home-manager.users.Sol = {}; }
           ./device/MeshlessAIO.nix
@@ -53,11 +56,11 @@
 
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ [
+        modules = commonModules ++ hyprlandModules ++ workModules ++ [
           { networking.hostName = "XuLab"; }
           ./device/XuLab.nix
           { home-manager.users.Sol = {}; }
-          { home-manager.users.XuLab = {}; }
+          # { home-manager.users.XuLab = {}; }
           ./hardware/nvidia.nix
           ./software/develop.nix
 

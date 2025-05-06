@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  ####################
-  ## REMOTE DESKTOP ##
-  ####################
+  ###############
+  ## EMULATION ##
+  ###############
 
-  services.teamviewer.enable = true;
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   #############
   ## PACKAGE ##
@@ -14,6 +14,9 @@
   environment.systemPackages = with pkgs; [
     # Management
     github-desktop
+
+    # Write Image
+    isoimagewriter
 
     # Programming
     # Rust

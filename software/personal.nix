@@ -7,8 +7,6 @@
     element-desktop
     nextcloud-talk-desktop
     qq
-    slack
     telegram-desktop
-    zoom-us
   ];
 }
