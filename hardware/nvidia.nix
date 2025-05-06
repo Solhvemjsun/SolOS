@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   boot = {
     kernelModules = [ "nvidia_uvm" ];
@@ -29,5 +29,5 @@
     nvitop
   ];
   
-  environment.sessionVariables.NIXOS_OZONE_WL = "0"; # Fix the glitching of electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = lib.mkForce "0"; # Fix the glitching of electron apps
 }
