@@ -266,10 +266,10 @@
         "$mainMod $shiftMod, C, scroller:expelwindow"
 
         # Align active window with mainMod + ctrl + WASDC
-        "$mainMod $ctrlMod, W, scroller:alignwindow, d"
-        "$mainMod $ctrlMod, S, scroller:alignwindow, u"
-        "$mainMod $ctrlMod, A, scroller:alignwindow, r"
-        "$mainMod $ctrlMod, D, scroller:alignwindow, l"
+        "$mainMod $ctrlMod, W, scroller:alignwindow, u"
+        "$mainMod $ctrlMod, S, scroller:alignwindow, d"
+        "$mainMod $ctrlMod, A, scroller:alignwindow, l"
+        "$mainMod $ctrlMod, D, scroller:alignwindow, r"
         "$mainMod $ctrlMod, Z, scroller:alignwindow, m"
 
         # Set mode by Z
@@ -368,18 +368,6 @@
         ignore_dbus_inhibit = false;
         lock_cmd = "pidof hyprlock || hyprlock";
       };
-
-      # listener = [
-      #   {
-      #     timeout = 900;
-      #     on-timeout = "hyprlock";
-      #   }
-      #   {
-      #     timeout = 1200;
-      #     on-timeout = "hyprctl dispatch dpms off";
-      #     on-resume = "hyprctl dispatch dpms on";
-      #   }
-      # ];
     };
   };
 
@@ -471,11 +459,6 @@
     backgroundColor = "#000000FF";
     borderSize = 2;
     borderColor = "#00FFFFFF";
-  };
-
-  services.nextcloud-client = {
-    enable = true;
-    startInBackground = true;
   };
 
   ############

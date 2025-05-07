@@ -243,10 +243,6 @@
 
       treesitter.enable = true;
     };
-
-    extraPackages = with pkgs; [
-      wl-clipboard
-    ];
   };
 
 }

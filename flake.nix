@@ -9,9 +9,7 @@
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 
-  outputs = { nixpkgs, nixvim, home-manager, stylix, minegrub-theme, ... }: 
-
-  let 
+  outputs = { nixpkgs, nixvim, home-manager, stylix, minegrub-theme, ... }: let 
     commonModules = [
       nixvim.nixosModules.nixvim
       stylix.nixosModules.stylix
@@ -36,8 +34,10 @@
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
-          { networking.hostName = "SolXPS"; }
-          { home-manager.users.Sol = {}; }
+          {
+            networking.hostName = "SolXPS";
+            home-manager.users.Sol = {};
+          }
           ./device/XPS13.nix
           ./hardware/laptop.nix
         ];
@@ -46,8 +46,10 @@
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
-          { networking.hostName = "SolITX"; }
-          { home-manager.users.Sol = {}; }
+          {
+            networking.hostName = "SolITX";
+            home-manager.users.Sol = {};
+          }
           ./device/MeshlessAIO.nix
           ./hardware/nvidia.nix
           ./hardware/razer.nix
@@ -57,10 +59,12 @@
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ hyprlandModules ++ workModules ++ [
-          { networking.hostName = "XuLab"; }
+          {
+            networking.hostName = "XuLab";
+            home-manager.users.Sol = {};
+            # home-manager.users.XuLab = {};
+          }
           ./device/XuLab.nix
-          { home-manager.users.Sol = {}; }
-          # { home-manager.users.XuLab = {}; }
           ./hardware/nvidia.nix
           ./software/develop.nix
 
@@ -70,8 +74,10 @@
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ hyprlandModules ++ [
-          { networking.hostName = "SolBase"; }
-          { home-manager.users.Sol = {}; }
+          {
+            networking.hostName = "SolBase";
+            home-manager.users.Sol = {};
+          }
           ./device/SolBase.nix
           ./service/miniserver.nix
         ];
@@ -80,12 +86,31 @@
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ hyprlandModules ++ [
-          { networking.hostName = "MachenikeMini"; }
-          { home-manager.users.Sol = {}; }
+          {
+            networking.hostName = "MachenikeMini";
+            home-manager.users.Sol = {};
+          }
           ./device/MachenikeMini.nix
         ];
       };
 
+    };
+
+    images.DarkSol = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = commonModules ++ [
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          {
+            networking.hostName = "DarkSol";
+          }
+          ./core/rpi4.nix
+        ];
+      };
+
+    devShells = {
+      aarch64-linux.default = nixpkgs.legacyPackages.aarch64-linux.mkShell {
+        buildInputs = [ nixpkgs.legacyPackages.aarch64-linux.qemu ];
+      };
     };
 
   };
