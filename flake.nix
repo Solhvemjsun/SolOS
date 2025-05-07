@@ -11,10 +11,17 @@
 
   outputs = { nixpkgs, nixvim, home-manager, stylix, minegrub-theme, ... }: let 
     commonModules = [
-      nixvim.nixosModules.nixvim
       stylix.nixosModules.stylix
       ./core/nixos.nix
       ./users/Sol.nix
+    ];
+    guiModules = [
+      ./gui/common.nix
+    ];
+    terminalModules = [
+      nixvim.nixosModules.nixvim
+      ./software/nixvim.nix
+      ./software/terminalutils.nix
     ];
     hyprlandModules = [
       minegrub-theme.nixosModules.default
@@ -34,7 +41,7 @@
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ guiModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolXPS";
             home-manager.users.Sol = {};
@@ -63,9 +70,10 @@
           {
             networking.hostName = "XuLab";
             home-manager.users.Sol = {};
-            # home-manager.users.XuLab = {};
+            home-manager.users.XuLab = {};
           }
           ./device/XuLab.nix
+          ./users/XuLab.nix
           ./hardware/nvidia.nix
           ./software/develop.nix
 

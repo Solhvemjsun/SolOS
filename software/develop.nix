@@ -120,10 +120,10 @@
           };
         };
       };
- 
-      extraPackages = with pkgs; [
-        wl-clipboard
-      ];
     };
+ 
+    extraPackages = with pkgs; [
+      wl-clipboard
+    ];
   };
 }
