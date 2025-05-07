@@ -98,7 +98,6 @@
       "DarkSol" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = commonModules ++ [
-          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
           {
             networking.hostName = "DarkSol";
           }
