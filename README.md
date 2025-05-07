@@ -21,6 +21,10 @@ Edit if needed, then install with the config you need in flake.nix:
 ```console
 $ sudo nixos-install --root /mnt --flake github:Solhvemjsun/SolOS#<hostName>
 ```
+If already have installation on the device, e.g the standard aarch64 nixos on Raspberry pi:
+```console
+$ sudo nixos-rebuild switch --flake .#DarkSol
+```
 ## Update
 
 In the folder:
