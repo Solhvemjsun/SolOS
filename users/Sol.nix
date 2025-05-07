@@ -3,6 +3,6 @@
 {
   users.users.Sol = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "netwoekmanager" ];
+    extraGroups = [ "wheel" "audio" "networkmanager" ];
   };
 }
