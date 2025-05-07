@@ -15,17 +15,16 @@
       ./core/nixos.nix
       ./users/Sol.nix
     ];
-    guiModules = [
-      ./gui/common.nix
-    ];
     terminalModules = [
       nixvim.nixosModules.nixvim
+      ./software/zsh.nix
       ./software/nixvim.nix
       ./software/terminalutils.nix
     ];
     hyprlandModules = [
       minegrub-theme.nixosModules.default
       home-manager.nixosModules.home-manager
+      ./gui/common.nix
       ./hyprland/hyprland.nix
     ];
     personalModules = [
@@ -41,7 +40,7 @@
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ guiModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolXPS";
             home-manager.users.Sol = {};
