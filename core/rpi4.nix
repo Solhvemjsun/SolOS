@@ -2,7 +2,7 @@
 
 {
   boot = lib.mkForce {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_rpi4;
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
