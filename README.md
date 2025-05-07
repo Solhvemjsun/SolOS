@@ -13,13 +13,14 @@ This is my NixOS configurations for multiple computers includes my server and de
 
 ## Installation
 
-Clone the repo:
+Clone the repo and go to the folder:
 ```console
+$ cd SolOS
 $ git clone https://github.com/Solhvemjsun/SolOS
 ```
 Edit if needed, then install with the config you need in flake.nix:
 ```console
-$ sudo nixos-install --root /mnt --flake github:Solhvemjsun/SolOS#<hostName>
+$ sudo nixos-install --root /mnt --flake .#<hostName>
 ```
 If already have installation on the device, e.g the standard aarch64 nixos on Raspberry pi:
 ```console
