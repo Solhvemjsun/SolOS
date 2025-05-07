@@ -103,6 +103,7 @@
             networking.hostName = "DarkSol";
           }
           ./core/rpi4.nix
+          ./device/DarkSol.nix
         ];
       };
     };
