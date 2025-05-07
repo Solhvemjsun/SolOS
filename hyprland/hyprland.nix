@@ -127,15 +127,6 @@
     '';
   };
 
-  ##########
-  ## USER ##
-  ##########
-
-  users.users.Sol = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "networkmanager" ];
-  };
-
   ##############
   ## HYPRLAND ##
   ##############

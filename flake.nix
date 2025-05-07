@@ -14,6 +14,7 @@
       nixvim.nixosModules.nixvim
       stylix.nixosModules.stylix
       ./core/nixos.nix
+      ./users/Sol.nix
     ];
     hyprlandModules = [
       minegrub-theme.nixosModules.default
@@ -94,9 +95,7 @@
         ];
       };
 
-    };
-
-    images.DarkSol = nixpkgs.lib.nixosSystem {
+      "DarkSol" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = commonModules ++ [
           "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
@@ -106,7 +105,7 @@
           ./core/rpi4.nix
         ];
       };
-
+    };
     devShells = {
       aarch64-linux.default = nixpkgs.legacyPackages.aarch64-linux.mkShell {
         buildInputs = [ nixpkgs.legacyPackages.aarch64-linux.qemu ];
