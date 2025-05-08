@@ -80,7 +80,6 @@
           ./hardware/devices/XuLab.nix
           ./users/XuLab.nix
           ./hardware/nvidia.nix
-          ./software/develop.nix
 
         ]; 
       };
