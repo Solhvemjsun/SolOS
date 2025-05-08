@@ -62,6 +62,7 @@
     haruna
     kiwix
     libsForQt5.kamoso
+    kdePackages.okular
     mediainfo-gui
     neovide
     nextcloud-client
@@ -69,7 +70,6 @@
     nautilus-open-any-terminal
     ntfs3g
     onlyoffice-desktopeditors
-    kdePackages.okular
     remmina
     samba
   ];

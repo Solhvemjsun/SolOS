@@ -37,7 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.bluedevil
-    kdePackages.okular
+    # kdePackages.okular
     where-is-my-sddm-theme
     kitty
 
@@ -76,5 +76,8 @@
   ## HOME MANAGER ##
   ##################
 
-  home-manager.sharedModules = [ ./home.nix ];
+  home-manager = {
+    sharedModules = [ ./home.nix ];
+    backupFileExtension = "bak";
+  };
 }

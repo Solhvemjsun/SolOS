@@ -1,9 +1,20 @@
-{ config, pkgs, lib, name, ... }:
+{ config, pkgs, name, ... }:
 
 {
   ##########
   ## HOME ##
   ##########
+
+  programs.plasma = {
+    enable = true;
+    # workspace = {
+    #   wallpaper = {
+    #     picture = "nixos.png";
+    #   };
+    # };
+  };
+
+  programs.okular.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   

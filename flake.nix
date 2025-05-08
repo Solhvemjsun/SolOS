@@ -5,7 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     home-manager.url = "github:nix-community/home-manager";
-    plasma-manager.url = "github:nix-community/plasma-manager";
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.home-manager.follows = "home-manager";
+    };
     stylix.url = "github:danth/stylix";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
@@ -32,7 +35,12 @@
     kdeModules = [
       minegrub-theme.nixosModules.default
       home-manager.nixosModules.home-manager
-      # plasma-manager.homeManagerModules.plasma-manager
+      {
+        home-manager = {
+          users.Sol = {};
+          sharedModules = [ plasma-manager.homeManagerModules.plasma-manager];
+        };  
+      }
       ./gui/common.nix
       ./gui/kde/kde.nix
     ];
