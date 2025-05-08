@@ -31,7 +31,7 @@
     kdeModules = [
       minegrub-theme.nixosModules.default
       home-manager.nixosModules.home-manager
-      plasma-manager.homeManagerModules.plasma-manager
+      # plasma-manager.homeManagerModules.plasma-manager
       ./gui/common.nix
       ./gui/kde/kde.nix
     ];
@@ -102,7 +102,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ [
+        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
             home-manager.users.Sol = {};
