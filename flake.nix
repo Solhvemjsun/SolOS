@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     home-manager.url = "github:nix-community/home-manager";
-    # plasma-manager.url = "github:nix-community/plasma-manager";
+    plasma-manager.url = "github:nix-community/plasma-manager";
     stylix.url = "github:danth/stylix";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
