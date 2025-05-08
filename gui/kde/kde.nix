@@ -33,6 +33,8 @@
   ##############
 
   environment.systemPackages = with pkgs; [
+    kdePackages.bluedevil
+    kdePackages.konsole
     kdePackages.okular
     where-is-my-sddm-theme
   ];

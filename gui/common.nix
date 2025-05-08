@@ -40,6 +40,15 @@
     supportedFilesystems = [ "ntfs" ];
   };
 
+  #############
+  ## DRIVERS ##
+  #############
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+
   ##############
   ## PACKAGES ##
   ##############
