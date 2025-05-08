@@ -13,11 +13,11 @@
     commonModules = [
       ./core/nixos.nix
       ./users/Sol.nix
-      ./terminal/zsh.nix
     ];
     terminalModules = [
       nixvim.nixosModules.nixvim
       ./terminal/nixvim.nix
+      ./terminal/zsh.nix
       ./terminal/packages.nix
     ];
     hyprlandModules = [
