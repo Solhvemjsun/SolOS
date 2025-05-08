@@ -40,7 +40,7 @@
     kdePackages.okular
     where-is-my-sddm-theme
 
-    kdePackages.kdeApplications
+    kdePackages
 
     kdePackages.plasma-workspace
     kdePackages.plasma-desktop
@@ -62,6 +62,7 @@
     kdePackages.filelight
     kdePackages.kdenlive
     kdePackages.kdeconnect-kde
+    kdePackages.yakuake
 
     # Other tools
     kdePackages.partitionmanager
