@@ -29,7 +29,6 @@
     ];
     kdeModules = [
       minegrub-theme.nixosModules.default
-      home-manager.nixosModules.home-manager
       ./gui/common.nix
       ./gui/kde/kde.nix
     ];
