@@ -13,8 +13,6 @@
     commonModules = [
       ./core/nixos.nix
       ./users/Sol.nix
-    ];
-    terminalModules = [
       nixvim.nixosModules.nixvim
       ./terminal/zsh.nix
       ./terminal/nixvim.nix
@@ -46,7 +44,7 @@
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolXPS";
             home-manager.users.Sol = {};
@@ -58,7 +56,7 @@
 
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolITX";
             home-manager.users.Sol = {};
@@ -71,7 +69,7 @@
 
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ workModules ++ [
+        modules = commonModules ++ hyprlandModules ++ workModules ++ [
           {
             networking.hostName = "XuLab";
             home-manager.users.Sol = {};
@@ -86,7 +84,7 @@
 
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ [
+        modules = commonModules ++ hyprlandModules ++ [
           {
             networking.hostName = "SolBase";
             home-manager.users.Sol = {};
@@ -98,7 +96,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
+        modules = commonModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
             home-manager.users.Sol = {};
@@ -109,7 +107,7 @@
 
       "DarkSol" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        modules = commonModules ++ terminalModules ++ [
+        modules = commonModules ++ [
           {
             networking.hostName = "DarkSol";
           }
