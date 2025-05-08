@@ -25,6 +25,7 @@
       stylix.nixosModules.stylix
       minegrub-theme.nixosModules.default
       home-manager.nixosModules.home-manager
+      { home-manager.users.Sol = {}; }
       ./gui/common.nix
       ./gui/hyprland/hyprland.nix
     ];
@@ -52,7 +53,6 @@
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolXPS";
-            home-manager.users.Sol = {};
           }
           ./hardware/devices/XPS13.nix
           ./hardware/laptop.nix
@@ -64,7 +64,6 @@
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolITX";
-            home-manager.users.Sol = {};
           }
           ./hardware/devices/MeshlessAIO.nix
           ./hardware/nvidia.nix
@@ -77,7 +76,6 @@
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ workModules ++ [
           {
             networking.hostName = "XuLab";
-            home-manager.users.Sol = {};
             home-manager.users.XuLab = {};
           }
           ./hardware/devices/XuLab.nix
@@ -92,7 +90,6 @@
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ [
           {
             networking.hostName = "SolBase";
-            home-manager.users.Sol = {};
           }
           ./hardware/devices/SolBase.nix
           ./service/miniserver.nix
@@ -105,7 +102,6 @@
         modules = commonModules ++ terminalModules ++ [
           {
             networking.hostName = "MachenikeMini";
-            home-manager.users.Sol = {};
           }
           ./hardware/devices/MachenikeMini.nix
         ];
