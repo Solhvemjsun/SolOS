@@ -471,7 +471,7 @@
     image = ./nixos.png;
     imageScalingMode = "fit";
     cursor = {
-      package = (pkgs.callPackage ../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
+      package = (pkgs.callPackage ../../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
       name = "Breeze_Hacked";
       size = 64;
     };

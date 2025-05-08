@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    any-nix-shell
+  ];
+
   programs.zsh = {
     enable = true;
     promptInit = ''
@@ -97,6 +101,4 @@
 
   };
   users.defaultUserShell = pkgs.zsh;
-
-    
 }

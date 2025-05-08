@@ -7,40 +7,6 @@
 
   home-manager.sharedModules = [ ./home.nix ];
 
-  ################
-  ## GRUB THEME ##
-  ################
-
-  boot = {
-    loader.grub.minegrub-theme = {
-      enable = true;
-      splash = "Fiat Lux!";
-      boot-options-count = 7;
-    };
-    
-    plymouth = {
-      enable = true;
-      theme = "dna";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "dna" ];
-        })
-      ];
-    };
-
-    consoleLogLevel = 0;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "boot.shell_on_fail"
-      "loglevel=3"
-      "rd.systemd.show_status=false"
-      "rd.udev.log_level=3"
-      "udev.log_priority=3"
-    ];
-  };
-
   #############
   ## DRIVERS ##
   #############
@@ -79,14 +45,8 @@
   ##############
 
   environment.systemPackages = with pkgs; [
-    amberol
     brightnessctl
     candy-icons
-    firefox
-    gparted
-    google-chrome
-    haruna
-    home-manager
     hyprland-qtutils
     hyprnotify
     hyprpaper
@@ -94,22 +54,10 @@
     hyprpolkitagent
     hyprshot
     imv
-    kiwix
     libnotify
-    libsForQt5.kamoso
     light
-    mediainfo-gui
-    neovide
-    nextcloud-client
-    ntfs3g
-    nautilus
-    nautilus-open-any-terminal
-    onlyoffice-desktopeditors
-    kdePackages.okular
     pamixer
     playerctl
-    remmina
-    samba
     seahorse
     selectdefaultapplication
     sweet-folders
@@ -117,15 +65,6 @@
     wl-screenrec
     zathura
   ];
-
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
 
   ##############
   ## HYPRLAND ##
@@ -181,7 +120,7 @@
     enable = true;
     polarity = "dark";
     cursor = {
-      package = (pkgs.callPackage ../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
+      package = (pkgs.callPackage ../../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
       name = "Breeze_Hacked";
       size = 64;
     };
@@ -222,22 +161,4 @@
     };
   }; 
 
-  ##################
-  ## INPUT METHOD ##
-  ##################
-
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk
-      fcitx5-rime
-      fcitx5-mozc
-      rime-ls
-      rime-data
-      rime-zhwiki
-      rime-japanese
-    ];
-  };
 }

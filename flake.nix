@@ -11,30 +11,36 @@
 
   outputs = { nixpkgs, nixvim, home-manager, stylix, minegrub-theme, ... }: let 
     commonModules = [
-      stylix.nixosModules.stylix
       ./core/nixos.nix
       ./users/Sol.nix
     ];
     terminalModules = [
       nixvim.nixosModules.nixvim
-      ./software/zsh.nix
-      ./software/nixvim.nix
-      ./software/terminalutils.nix
+      ./terminal/zsh.nix
+      ./terminal/nixvim.nix
+      ./terminal/packages.nix
     ];
     hyprlandModules = [
+      stylix.nixosModules.stylix
       minegrub-theme.nixosModules.default
       home-manager.nixosModules.home-manager
       ./gui/common.nix
-      ./hyprland/hyprland.nix
+      ./gui/hyprland/hyprland.nix
+    ];
+    kdeModules = [
+      minegrub-theme.nixosModules.default
+      home-manager.nixosModules.home-manager
+      ./gui/common.nix
+      ./gui/kde/kde.nix
     ];
     personalModules = [
-      ./software/gaming.nix
-      ./software/personal.nix
-      ./software/tor.nix 
+      ./gui/softwares/gaming.nix
+      ./gui/softwares/personal.nix
+      ./gui/softwares/tor.nix 
     ];
     workModules = [
-      ./software/office.nix
-      ./software/develop.nix
+      ./gui/softwares/office.nix
+      ./gui/softwares/develop.nix
     ];
   in {
     nixosConfigurations = {
@@ -45,19 +51,19 @@
             networking.hostName = "SolXPS";
             home-manager.users.Sol = {};
           }
-          ./device/XPS13.nix
+          ./hardware/devices/XPS13.nix
           ./hardware/laptop.nix
         ];
       };
 
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolITX";
             home-manager.users.Sol = {};
           }
-          ./device/MeshlessAIO.nix
+          ./hardware/devices/MeshlessAIO.nix
           ./hardware/nvidia.nix
           ./hardware/razer.nix
         ]; 
@@ -65,13 +71,13 @@
 
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ workModules ++ [
           {
             networking.hostName = "XuLab";
             home-manager.users.Sol = {};
             home-manager.users.XuLab = {};
           }
-          ./device/XuLab.nix
+          ./hardware/devices/XuLab.nix
           ./users/XuLab.nix
           ./hardware/nvidia.nix
           ./software/develop.nix
@@ -81,38 +87,39 @@
 
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ [
           {
             networking.hostName = "SolBase";
             home-manager.users.Sol = {};
           }
-          ./device/SolBase.nix
+          ./hardware/devices/SolBase.nix
           ./service/miniserver.nix
         ];
       };
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ [
+        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
             home-manager.users.Sol = {};
           }
-          ./device/MachenikeMini.nix
+          ./hardware/devices/MachenikeMini.nix
         ];
       };
 
       "DarkSol" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        modules = commonModules ++ [
+        modules = commonModules ++ terminalModules ++ [
           {
             networking.hostName = "DarkSol";
           }
           ./core/rpi4.nix
-          ./device/DarkSol.nix
+          ./hardware/devices/DarkSol.nix
         ];
       };
     };
+
     devShells = {
       aarch64-linux.default = nixpkgs.legacyPackages.aarch64-linux.mkShell {
         buildInputs = [ nixpkgs.legacyPackages.aarch64-linux.qemu ];
