@@ -37,4 +37,10 @@
     kdePackages.okular
     where-is-my-sddm-theme
   ];
+
+  ##################
+  ## HOME MANAGER ##
+  ##################
+
+  home-manager.sharedModules = [ ./home.nix ];
 }
