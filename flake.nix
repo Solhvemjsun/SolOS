@@ -101,7 +101,6 @@
         modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
-            home-manager.users.Sol = {};
           }
           ./hardware/devices/MachenikeMini.nix
         ];
