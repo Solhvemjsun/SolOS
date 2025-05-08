@@ -91,6 +91,7 @@
           }
           ./hardware/devices/SolBase.nix
           ./service/miniserver.nix
+          ./service/ssh.nix
         ];
       };
 
@@ -113,6 +114,7 @@
           }
           ./core/rpi4.nix
           ./hardware/devices/DarkSol.nix
+          ./service/ssh.nix
         ];
       };
     };
