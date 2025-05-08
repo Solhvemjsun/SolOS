@@ -40,8 +40,6 @@
     kdePackages.okular
     where-is-my-sddm-theme
 
-    kdePackages
-
     kdePackages.plasma-workspace
     kdePackages.plasma-desktop
     kdePackages.plasma-integration
