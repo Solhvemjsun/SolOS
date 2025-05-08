@@ -5,11 +5,12 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
     home-manager.url = "github:nix-community/home-manager";
+    plasma-manager.url = "github:nix-community/plasma-manager";
     stylix.url = "github:danth/stylix";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
   };
 
-  outputs = { nixpkgs, nixvim, home-manager, stylix, minegrub-theme, ... }: let 
+  outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, ... }: let 
     commonModules = [
       ./core/nixos.nix
       ./users/Sol.nix
@@ -30,7 +31,8 @@
     ];
     kdeModules = [
       minegrub-theme.nixosModules.default
-      # home-manager.nixosModules.home-manager
+      home-manager.nixosModules.home-manager
+      plasma-manager.homeManagerModules.plasma-manager
       ./gui/common.nix
       ./gui/kde/kde.nix
     ];
@@ -103,7 +105,7 @@
         modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
-            # home-manager.users.Sol = {};
+            home-manager.users.Sol = {};
           }
           ./hardware/devices/MachenikeMini.nix
         ];

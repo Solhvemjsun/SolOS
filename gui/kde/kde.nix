@@ -45,6 +45,7 @@
     kdePackages.plasma-integration
     kdePackages.kdeplasma-addons
     kdePackages.kwallet-pam
+    kdePackages.kmenuedit
     kdePackages.knewstuff
     kdePackages.sddm-kcm
 
@@ -74,5 +75,5 @@
   ## HOME MANAGER ##
   ##################
 
-  # home-manager.sharedModules = [ ./home.nix ];
+  home-manager.sharedModules = [ ./home.nix ];
 }
