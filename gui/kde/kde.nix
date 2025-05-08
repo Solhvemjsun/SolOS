@@ -78,6 +78,6 @@
 
   home-manager = {
     sharedModules = [ ./home.nix ];
-    backupFileExtension = "bak";
+    backupFileExtension = "backup";
   };
 }
