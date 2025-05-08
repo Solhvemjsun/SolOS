@@ -13,8 +13,10 @@
     commonModules = [
       ./core/nixos.nix
       ./users/Sol.nix
-      nixvim.nixosModules.nixvim
       ./terminal/zsh.nix
+    ];
+    terminalModules = [
+      nixvim.nixosModules.nixvim
       ./terminal/nixvim.nix
       ./terminal/packages.nix
     ];
@@ -44,7 +46,7 @@
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolXPS";
             home-manager.users.Sol = {};
@@ -56,7 +58,7 @@
 
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "SolITX";
             home-manager.users.Sol = {};
@@ -69,7 +71,7 @@
 
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ workModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ workModules ++ [
           {
             networking.hostName = "XuLab";
             home-manager.users.Sol = {};
@@ -84,7 +86,7 @@
 
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ hyprlandModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ [
           {
             networking.hostName = "SolBase";
             home-manager.users.Sol = {};
@@ -97,7 +99,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ kdeModules ++ personalModules ++ [
+        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
             home-manager.users.Sol = {};
