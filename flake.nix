@@ -27,7 +27,6 @@
       home-manager.nixosModules.home-manager
       ./gui/common.nix
       ./gui/hyprland/hyprland.nix
-      ./gui/softwares/nextcloud.nix
     ];
     kdeModules = [
       minegrub-theme.nixosModules.default
@@ -40,6 +39,7 @@
       ./gui/softwares/gaming.nix
       ./gui/softwares/personal.nix
       ./gui/softwares/tor.nix 
+      ./gui/softwares/nextcloud.nix
     ];
     workModules = [
       ./gui/softwares/office.nix
@@ -102,7 +102,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
+        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
             home-manager.users.Sol = {};

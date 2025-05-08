@@ -39,6 +39,7 @@
     kdePackages.bluedevil
     kdePackages.okular
     where-is-my-sddm-theme
+    kitty
 
     kdePackages.plasma-workspace
     kdePackages.plasma-desktop
