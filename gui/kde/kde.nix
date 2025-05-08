@@ -64,7 +64,6 @@
     # Other tools
     kdePackages.partitionmanager
     kdePackages.plasma-systemmonitor
-    kdePackages.ksysguard
     kdePackages.plasma-browser-integration
   ];
 
