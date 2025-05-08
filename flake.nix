@@ -26,10 +26,11 @@
       home-manager.nixosModules.home-manager
       ./gui/common.nix
       ./gui/hyprland/hyprland.nix
+      ./gui/softwares/nextcloud.nix
     ];
     kdeModules = [
       minegrub-theme.nixosModules.default
-      home-manager.nixosModules.home-manager
+      # home-manager.nixosModules.home-manager
       ./gui/common.nix
       ./gui/kde/kde.nix
     ];
@@ -102,7 +103,7 @@
         modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
           {
             networking.hostName = "MachenikeMini";
-            home-manager.users.Sol = {};
+            # home-manager.users.Sol = {};
           }
           ./hardware/devices/MachenikeMini.nix
         ];
