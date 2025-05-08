@@ -99,7 +99,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ [
+        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ workModules ++ [
           {
             networking.hostName = "MachenikeMini";
           }
