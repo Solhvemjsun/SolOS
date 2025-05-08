@@ -8,7 +8,12 @@
   services.xserver.enable = true; # optional
   services.displayManager.sddm = {
     enable = true;
+    package = pkgs.kdePackages.sddm;
+    extraPackages = [
+      pkgs.kdePackages.qt5compat
+    ];
     wayland.enable = true;
+    theme = "where_is_my_sddm_theme";
     settings = {
       General.DisplayServer = "wayland";
     };
@@ -30,5 +35,6 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.okular
+    where-is-my-sddm-theme
   ];
 }
