@@ -8,7 +8,10 @@
     home-manager.url = "github:nix-community/home-manager";
     plasma-manager.url = "github:nix-community/plasma-manager";
     stylix.url = "github:danth/stylix";
-    nix-on-droid.url = "github:nix-community/nix-on-droid";
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    };
   };
 
   outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
