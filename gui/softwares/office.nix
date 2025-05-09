@@ -7,5 +7,7 @@
     slack
     zoom-us
     onedrive
+    onedriver
+    onedrivegui
   ];
 }
