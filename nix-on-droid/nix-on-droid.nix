@@ -3,10 +3,12 @@
 {
   # Simply install just the packages
   environment.packages = with pkgs; [
-    neovim
-    git
-    gnumake
-    openssh
+    vim
+
+    # neovim
+    # git
+    # gnumake
+    # openssh
 
     # Some common stuff that people expect to have
     #procps

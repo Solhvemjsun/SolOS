@@ -31,12 +31,6 @@
       };
     };
     kernelPackages = pkgs.linuxPackages_zen;
-    # kernelPackages = pkgs.linuxPackages_zen.override {
-    #   argsOverride = {
-    #     version = "6.14.4";
-    #     sha256 = "186rrmsi5y1nwhrd0f1bxjmkr5bhlagr0ih6pfdp5ks25is721ca";
-    #   };
-    # };
   };
 
   #################
