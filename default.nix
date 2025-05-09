@@ -20,13 +20,11 @@
   time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8"; # Language coding locale
 
-  #############
-  ## PACKAGE ##
-  #############
+  ##############
+  ## PACKAGES ##
+  ##############
 
   system.stateVersion = "24.05"; # The first version of NixOS on this particular machine.
-  
-  nixpkgs.config.allowUnfree = true;
 
   ##################
   ## HOME MANAGER ##
