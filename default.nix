@@ -12,8 +12,6 @@
   #############
 
   system.stateVersion = "24.05"; # The first version of NixOS on this particular machine.
-  
-  nixpkgs.config.allowUnfree = true;
 
   ##################
   ## HOME MANAGER ##
