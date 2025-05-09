@@ -1,12 +1,6 @@
 { pkgs, ... }:
 
 {
-  #################
-  ## ENVIRONMENT ##
-  #################
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
   #########
   ## NIX ##
   #########
@@ -39,15 +33,24 @@
     kernelPackages = pkgs.linuxPackages_zen;
   };
 
+  #################
+  ## ENVIRONMENT ##
+  #################
+
+  time.timeZone = "America/Los_Angeles";
+  i18n.defaultLocale = "en_US.UTF-8"; # Language coding locale
+
   #############
   ## DRIVERS ##
   #############
 
   networking.networkmanager.enable = true; # Network
 
-  ##############
-  ## PACKAGES ##
-  ##############
+  #############
+  ## PACKAGE ##
+  #############
+
+  system.stateVersion = "24.05"; # The first version of NixOS on this particular machine.
   
   nixpkgs.config.allowUnfree = true;
 
@@ -59,26 +62,6 @@
     openssh
     ranger
     tree
-    
-    # neovim
-
-    # Some common stuff that people expect to have
-    #procps
-    #killall
-    #diffutils
-    #findutils
-    #utillinux
-    #tzdata
-    #hostname
-    #man
-    #gnugrep
-    #gnupg
-    #gnused
-    #gnutar
-    #bzip2
-    #gzip
-    #xz
-    #zip
-    #unzip
   ];
+
 }
