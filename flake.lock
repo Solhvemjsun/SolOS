@@ -394,10 +394,7 @@
           "nix-on-droid",
           "nixpkgs"
         ],
-        "nmd": [
-          "nix-on-droid",
-          "nmd"
-        ],
+        "nmd": "nmd",
         "nmt": "nmt"
       },
       "locked": {
@@ -421,18 +418,19 @@
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-docs": "nixpkgs-docs",
         "nixpkgs-for-bootstrap": "nixpkgs-for-bootstrap",
-        "nmd": "nmd"
+        "nmd": "nmd_2"
       },
       "locked": {
-        "lastModified": 1725658585,
-        "narHash": "sha256-P29z4Gt89n5ps1U7+qmIrj0BuRXGZQSIaOe2+tsPgfw=",
+        "lastModified": 1720396533,
+        "narHash": "sha256-UFzk/hZWO1VkciIO5UPaSpJN8s765wsngUSvtJM6d5Q=",
         "owner": "nix-community",
         "repo": "nix-on-droid",
-        "rev": "5d88ff2519e4952f8d22472b52c531bb5f1635fc",
+        "rev": "f3d3b8294039f2f9a8fb7ea82c320f29c6b0fe25",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "release-24.05",
         "repo": "nix-on-droid",
         "type": "github"
       }
@@ -503,16 +501,15 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1735563628,
-        "narHash": "sha256-OnSAY7XDSx7CtDoqNh8jwVwh4xNL/2HaJxGjryLWzX8=",
+        "lastModified": 1746776429,
+        "narHash": "sha256-rWthYVYktjmWdiB+NhKeY+5pkqZNml6mHsPqrlhbOm0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b134951a4c9f3c995fd7be05f3243f8ecd65d798",
+        "rev": "328e8197c5f0e813ed4c8322662d4be6798e09a3",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -602,6 +599,22 @@
       }
     },
     "nmd": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680213367,
+        "narHash": "sha256-NbSXxpFAK5IMcsQTK0vSGy099HExx3SEagqW4Lpc+X8=",
+        "owner": "rycee",
+        "repo": "nmd",
+        "rev": "abb15317ebd17e5a0a7dd105e2ce52f2700185a8",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "rycee",
+        "repo": "nmd",
+        "type": "gitlab"
+      }
+    },
+    "nmd_2": {
       "inputs": {
         "nixpkgs": [
           "nix-on-droid",

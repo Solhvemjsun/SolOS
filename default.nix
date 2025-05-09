@@ -66,7 +66,6 @@
   home-manager = {
     backupFileExtension = ".bak";
     useGlobalPkgs = true;
-    config.home.stateVersion = "24.05";
   };
   
 }
