@@ -1,6 +1,18 @@
 { pkgs, ... }:
 
 {
+  #########
+  ## NIX ##
+  #########
+
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  programs.nh = {
+    enable = true;
+  };
+
   ################
   ## BOOTLOADER ##
   ################
@@ -30,8 +42,6 @@
   ##############
   ## PACKAGES ##
   ##############
-  
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     btop

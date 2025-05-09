@@ -13,10 +13,10 @@
 
   outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
     commonModules = [
-      home-manager.nixosModules.home-manager
       ./default.nix
     ];
     nixosModules = [
+      home-manager.nixosModules.home-manager
       ./system/nixos.nix
       ./users/Sol.nix
     ];
