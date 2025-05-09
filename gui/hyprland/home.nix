@@ -456,11 +456,14 @@
 
   services.mako = {
     enable = true;
-    settings = {
-      background-color = "#000000FF";
-      border-size = 2;
-      border-color = "#00FFFFFF";
-    };
+    # settings = {
+    #   background-color = "#000000FF";
+    #   border-size = 2;
+    #   border-color = "#00FFFFFF";
+    # };
+    backgroundColor = "#000000FF";
+    borderSize = 2;
+    borderColor = "#00FFFFFF";
   };
 
   ############
