@@ -1,6 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
+  #########
+  ## NIX ##
+  #########
+
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   environment.packages = with pkgs; [
     btop
     fastfetch
