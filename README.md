@@ -22,6 +22,12 @@ Edit if needed, then install with the config you need in flake.nix:
 ```console
 $ sudo nixos-install --root /mnt --flake .#<hostName>
 ```
+## Update
+
+In the folder:
+```console
+$ make
+```
 If already have installation on the device, e.g the standard aarch64 nixos on Raspberry pi:
 ```console
 $ sudo nixos-rebuild switch --flake .#DarkSol
@@ -30,19 +36,13 @@ For nix-on-droid app:
 ```console
 $ nix-on-droid switch --flake .
 ```
-## Update
-
-In the folder:
-```console
-$ make
-```
 
 ## Wallpaper
 
 ### NixOS
 
 <figure>
-    <img src="./hyprland/nixos.png" alt="NixOS" width=100%>
+    <img src="./gui/hyprland/nixos.png" alt="NixOS" width=100%>
     <figcaption>
         <p>
             Classical and minimalist NixOS logo.
