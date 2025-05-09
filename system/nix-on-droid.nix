@@ -1,14 +1,20 @@
 { config, lib, pkgs, ... }:
 
 {
-  # packages
-  # environment.packages = with pkgs; [
-  #   vim
-  # ];
+  environment.packages = with pkgs; [
+    btop
+    fastfetch
+    git
+    gnumake
+    openssh
+    ranger
+    tree
+  ];
 
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
-  home-manager.config = { config, lib, pkgs, ... }:
+  home-manager.config =
+  { config, lib, pkgs, ... }:
   {
     home.stateVersion = "24.05";
   };
