@@ -4,13 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     home-manager.url = "github:nix-community/home-manager";
     plasma-manager.url = "github:nix-community/plasma-manager";
     stylix.url = "github:danth/stylix";
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+    nix-on-droid.url = "github:nix-community/nix-on-droid";
   };
 
-  outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, ... }: let 
+  outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
     commonModules = [
       ./core/nixos.nix
       ./users/Sol.nix
@@ -52,13 +53,26 @@
       ./gui/softwares/develop.nix
     ];
   in {
+
+    nixOnDroidConfigurations = {
+      default = nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [
+            nix-on-droid.overlays.default
+          ];
+        };
+        modules = [
+          ./nix-on-droid/nix-on-droid.nix
+        ];
+      };
+    };
+
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
-          {
-            networking.hostName = "SolXPS";
-          }
+          { networking.hostName = "SolXPS"; }
           ./hardware/devices/XPS13.nix
           ./hardware/laptop.nix
         ];
@@ -67,9 +81,7 @@
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
-          {
-            networking.hostName = "SolITX";
-          }
+          { networking.hostName = "SolITX"; }
           ./hardware/devices/MeshlessAIO.nix
           ./hardware/nvidia.nix
           ./hardware/razer.nix
@@ -93,9 +105,7 @@
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ terminalModules ++ hyprlandModules ++ [
-          {
-            networking.hostName = "SolBase";
-          }
+          { networking.hostName = "SolBase"; }
           ./hardware/devices/SolBase.nix
           ./service/miniserver.nix
           ./service/ssh.nix
@@ -105,9 +115,7 @@
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ workModules ++ [
-          {
-            networking.hostName = "MachenikeMini";
-          }
+          { networking.hostName = "MachenikeMini"; }
           ./hardware/devices/MachenikeMini.nix
         ];
       };
@@ -115,9 +123,7 @@
       "DarkSol" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = commonModules ++ [
-          {
-            networking.hostName = "DarkSol";
-          }
+          { networking.hostName = "DarkSol"; }
           ./core/rpi4.nix
           ./hardware/devices/DarkSol.nix
           ./service/ssh.nix
