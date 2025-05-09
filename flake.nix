@@ -8,10 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
     plasma-manager.url = "github:nix-community/plasma-manager";
     stylix.url = "github:danth/stylix";
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid";
-      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    };
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
   };
 
   outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
@@ -39,7 +36,7 @@
       {
         home-manager = {
           users.Sol = {};
-          sharedModules = [ plasma-manager.homeManagerModules.plasma-manager];
+          sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         };  
       }
       ./gui/common.nix
@@ -68,6 +65,7 @@
         modules = [
           ./nix-on-droid/nix-on-droid.nix
         ];
+        home-manager-path = home-manager.outPath;
       };
     };
 
