@@ -63,7 +63,7 @@
           ];
         };
         modules = [
-          ./nix-on-droid/nix-on-droid.nix
+          ./core/nix-on-droid.nix
         ];
         home-manager-path = home-manager.outPath;
       };
