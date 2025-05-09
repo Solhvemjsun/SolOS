@@ -13,7 +13,9 @@
 
   outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
     commonModules = [
-      ./core/nixos.nix
+      home-manager.nixosModules.home-manager
+      ./default.nix
+      ./system/nixos.nix
       ./users/Sol.nix
     ];
     terminalModules = [
@@ -25,14 +27,12 @@
     hyprlandModules = [
       stylix.nixosModules.stylix
       minegrub-theme.nixosModules.default
-      home-manager.nixosModules.home-manager
       { home-manager.users.Sol = {}; }
       ./gui/common.nix
       ./gui/hyprland/hyprland.nix
     ];
     kdeModules = [
       minegrub-theme.nixosModules.default
-      home-manager.nixosModules.home-manager
       {
         home-manager = {
           users.Sol = {};
@@ -63,7 +63,7 @@
           ];
         };
         modules = [
-          ./nix-on-droid/nix-on-droid.nix
+          ./system/nix-on-droid.nix
         ];
         home-manager-path = home-manager.outPath;
       };
@@ -125,7 +125,7 @@
         system = "aarch64-linux";
         modules = commonModules ++ [
           { networking.hostName = "DarkSol"; }
-          ./core/rpi4.nix
+          ./kernel/rpi4.nix
           ./hardware/devices/DarkSol.nix
           ./service/ssh.nix
         ];

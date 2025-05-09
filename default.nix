@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   #########
@@ -13,38 +13,12 @@
     enable = true;
   };
 
-  ################
-  ## BOOTLOADER ##
-  ################
-
-  # Bootloader
-  boot = {
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
-      };
-      grub = {
-        enable = true;
-        efiSupport = true;
-        devices = [ "nodev" ];
-      };
-    };
-    kernelPackages = pkgs.linuxPackages_zen;
-  };
-
   #################
   ## ENVIRONMENT ##
   #################
 
   time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8"; # Language coding locale
-
-  #############
-  ## DRIVERS ##
-  #############
-
-  networking.networkmanager.enable = true; # Network
 
   #############
   ## PACKAGE ##
@@ -62,6 +36,37 @@
     openssh
     ranger
     tree
+    
+    # neovim
+
+    # Some common stuff that people expect to have
+    #procps
+    #killall
+    #diffutils
+    #findutils
+    #utillinux
+    #tzdata
+    #hostname
+    #man
+    #gnugrep
+    #gnupg
+    #gnused
+    #gnutar
+    #bzip2
+    #gzip
+    #xz
+    #zip
+    #unzip
   ];
 
+  ##################
+  ## HOME MANAGER ##
+  ##################
+
+  home-manager = {
+    backupFileExtension = ".bak";
+    useGlobalPkgs = true;
+    config.home.stateVersion = "24.05";
+  };
+  
 }
