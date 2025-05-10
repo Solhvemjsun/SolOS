@@ -63,7 +63,9 @@
           ];
         };
         modules = [
+          nixvim.homeManagerModules.nixvim
           ./core/nix-on-droid.nix
+          ./terminal/nixvim.nix
         ];
         home-manager-path = home-manager.outPath;
       };
