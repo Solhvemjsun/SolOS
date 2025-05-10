@@ -19,8 +19,10 @@
   ## HOME MANAGER ##
   ##################
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.sharedModules = [
-    ./home.nix
-  ];
+  home-manager = {
+    useGlobalPkgs = true;
+    sharedModules = [
+      ./home.nix
+    ];
+  };
 }
