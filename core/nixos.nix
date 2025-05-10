@@ -64,4 +64,11 @@
     tree
   ];
 
+  ##################
+  ## HOME MANAGER ##
+  ##################
+
+  home-manager.sharedModules = [ ./home.nix ];
+
+
 }

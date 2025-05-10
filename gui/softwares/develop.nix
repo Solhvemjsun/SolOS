@@ -24,6 +24,8 @@
     gcc
     rustc
 
+    # Blog
+
     # LSP
     pyright
     nodePackages.typescript-language-server
