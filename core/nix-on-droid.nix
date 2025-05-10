@@ -2,17 +2,19 @@
 
 {
   # Simply install just the packages
-  environment.packages = with pkgs; [
-    vim
-    zsh
-    nyancat
-    neovim
-    git
-    gnumake
-    openssh
-    fastfetch
-    aircrack-ng
-    any-nix-shell
+  environment = {
+    etcBackupExtension = ".bak"; 
+    packages = with pkgs; [
+      vim
+      zsh
+      nyancat
+      neovim
+      git
+      gnumake
+      openssh
+      fastfetch
+      aircrack-ng
+      any-nix-shell
 
     # Some common stuff that people expect to have
     #procps
@@ -32,12 +34,12 @@
     #xz
     #zip
     #unzip
-  ];
+    ];
+  };
 
-  user.shell = pkgs.zsh
+  user.shell = pkgs.zsh;
 
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
-  environment.etcBackupExtension = ".bak";
 
   system.stateVersion = "24.05";
 
