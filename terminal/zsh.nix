@@ -34,7 +34,6 @@
 
         configure_prompt() {
 
-
             if [[ $UID == 0 || $EUID == 0 ]]; then
                 FGPROMPT="%F{red}"
                 CYANPROMPT="%F{blue}"
@@ -98,7 +97,6 @@
         cursor-matchingbracket = "standout";
       };
     };
-
   };
   users.defaultUserShell = pkgs.zsh;
 }

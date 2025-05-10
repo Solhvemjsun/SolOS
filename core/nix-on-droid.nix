@@ -4,6 +4,7 @@
   # Simply install just the packages
   environment.packages = with pkgs; [
     vim
+    zsh
     nyancat
     neovim
     git
@@ -11,6 +12,7 @@
     openssh
     fastfetch
     aircrack-ng
+    any-nix-shell
 
     # Some common stuff that people expect to have
     #procps
@@ -31,6 +33,8 @@
     #zip
     #unzip
   ];
+
+  user.shell = pkgs.zsh
 
   # Backup etc files instead of failing to activate generation if a file already exists in /etc
   environment.etcBackupExtension = ".bak";
