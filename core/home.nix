@@ -8,11 +8,7 @@
   home.stateVersion = "24.05";
 
   nixpkgs.config.allowUnfree = true;
-  
-  home = {
-    username = name;
-    homeDirectory = "/home/${config.home.username}";
-  };
+
 
   ###########
   ## SHELL ##

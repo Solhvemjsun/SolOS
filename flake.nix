@@ -17,7 +17,9 @@
       ./users/Sol.nix
     ];
     terminalModules = [
+      home-manager.nixosModules.home-manager
       nixvim.nixosModules.nixvim
+      ./core/user.nix
       ./terminal/nixvim.nix
       ./terminal/zsh.nix
       ./terminal/packages.nix
@@ -25,14 +27,12 @@
     hyprlandModules = [
       stylix.nixosModules.stylix
       minegrub-theme.nixosModules.default
-      home-manager.nixosModules.home-manager
       { home-manager.users.Sol = {}; }
       ./gui/common.nix
       ./gui/hyprland/hyprland.nix
     ];
     kdeModules = [
       minegrub-theme.nixosModules.default
-      home-manager.nixosModules.home-manager
       {
         home-manager = {
           users.Sol = {};

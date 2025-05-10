@@ -1,15 +1,6 @@
 { config, pkgs, lib, name, ... }:
 
 {
-  ##########
-  ## HOME ##
-  ##########
-
-  home = {
-    username = name;
-    homeDirectory = "/home/${config.home.username}";
-  };
-
   #########
   ## XDG ##
   #########
