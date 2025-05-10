@@ -1,13 +1,8 @@
-{ config, name, ... }:
+{ config, ... }:
 
 {
+  home-manager.useGlobalPkgs = true;
   home-manager.sharedModules = [
     ./home.nix
-    {  
-      home = {
-        username = name;
-        homeDirectory = "/home/${config.home.username}";
-      };
-    }
   ];
 }

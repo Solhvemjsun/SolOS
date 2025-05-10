@@ -5,10 +5,11 @@
   ## HOME ##
   ##########
 
-  home.stateVersion = "24.05";
-
-  nixpkgs.config.allowUnfree = true;
-
+  home = lib.mkDefault {
+    stateVersion = "24.05";
+    username = name;
+    homeDirectory = "/home/${config.home.username}";
+  };
 
   ###########
   ## SHELL ##
