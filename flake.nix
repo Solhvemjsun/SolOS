@@ -16,13 +16,12 @@
       ./core/nixos.nix
       ./users/Sol.nix
     ];
-    terminalModules = [
+    userModules = [
       home-manager.nixosModules.home-manager
       nixvim.nixosModules.nixvim
       ./core/user.nix
       ./terminal/nixvim.nix
       ./terminal/zsh.nix
-      ./terminal/packages.nix
     ];
     hyprlandModules = [
       stylix.nixosModules.stylix
@@ -63,9 +62,7 @@
           ];
         };
         modules = [
-          nixvim.homeManagerModules.nixvim
           ./core/nix-on-droid.nix
-          ./terminal/nixvim.nix
         ];
         home-manager-path = home-manager.outPath;
       };
@@ -74,7 +71,7 @@
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ userModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "SolXPS"; }
           ./hardware/devices/XPS13.nix
           ./hardware/laptop.nix
@@ -83,7 +80,7 @@
 
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ userModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "SolITX"; }
           ./hardware/devices/MeshlessAIO.nix
           ./hardware/nvidia.nix
@@ -93,7 +90,7 @@
 
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ workModules ++ [
+        modules = commonModules ++ userModules ++ hyprlandModules ++ workModules ++ [
           {
             networking.hostName = "XuLab";
             home-manager.users.XuLab = {};
@@ -107,7 +104,7 @@
 
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ hyprlandModules ++ [
+        modules = commonModules ++ userModules ++ hyprlandModules ++ [
           { networking.hostName = "SolBase"; }
           ./hardware/devices/SolBase.nix
           ./service/miniserver.nix
@@ -117,7 +114,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ terminalModules ++ kdeModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ userModules ++ kdeModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "MachenikeMini"; }
           ./hardware/devices/MachenikeMini.nix
         ];

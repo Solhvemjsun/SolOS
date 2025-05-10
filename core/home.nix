@@ -5,10 +5,13 @@
   ## HOME ##
   ##########
 
-  home = lib.mkDefault {
+  home = {
     stateVersion = "24.05";
-    username = name;
-    homeDirectory = "/home/${config.home.username}";
+    username = lib.mkDefault name;
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    packages = with pkgs; [
+      any-nix-shell
+    ];
   };
 
   ###########
@@ -71,5 +74,11 @@
     userName = "Solhvemjsun";
     userEmail = "solhvemjsun@gmail.com";
   };
+
+  ##############
+  ## PACKAGES ##
+  ##############
+
+
 
 }
