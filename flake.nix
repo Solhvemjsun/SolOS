@@ -1,5 +1,5 @@
 {
-  description = "Sol's OS";
+  description = "Sol's OS, Fiat Nix";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";

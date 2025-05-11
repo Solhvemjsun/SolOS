@@ -3,6 +3,9 @@
 {
   # Simply install just the packages
   environment = {
+    motd = ''
+      Fiat Nix!
+    '';
     etcBackupExtension = ".bak"; 
     packages = with pkgs; [
       vim
@@ -36,10 +39,7 @@
     ];
   };
 
-  user = {
-    userName = "Sol";
-    shell = "${pkgs.zsh}/bin/zsh";
-  };
+  user.shell = "${pkgs.zsh}/bin/zsh";
 
   system.stateVersion = "24.05";
 
