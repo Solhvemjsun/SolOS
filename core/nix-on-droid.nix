@@ -50,7 +50,12 @@
   time.timeZone = "America/Los_Angeles";
 
   home-manager = {
-    config = ./home-on-droid.nix;
+    config = { lib, ... }:
+    {
+      imports = [
+        ./home.nix
+      ];
+    };
     backupFileExtension = "backup";
     useGlobalPkgs = true;
   };
