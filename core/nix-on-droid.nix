@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixvim, ... }:
 
 {
-  # Simply install just the packages
+  system.stateVersion = "24.05";
+
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
+  time.timeZone = "America/Los_Angeles";
+
   environment = {
     motd = ''
       Fiat Nix!
@@ -41,19 +48,13 @@
 
   user.shell = "${pkgs.zsh}/bin/zsh";
 
-  system.stateVersion = "24.05";
-
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
-
-  time.timeZone = "America/Los_Angeles";
-
   home-manager = {
-    config = { lib, ... }:
+    config = { lib, nixvim, ... }:
     {
       imports = [
         ./home.nix
+        nixvim.homeManagerModules.nixvim
+        ../terminal/nixvim.nix
       ];
     };
     backupFileExtension = "backup";
