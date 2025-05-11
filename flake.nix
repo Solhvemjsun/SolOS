@@ -21,7 +21,7 @@
       nixvim.nixosModules.nixvim
       ./terminal/nixvim.nix
       ./core/user.nix
-      ./terminal/zsh.nix
+      # ./terminal/zsh.nix
     ];
     hyprlandModules = [
       stylix.nixosModules.stylix
