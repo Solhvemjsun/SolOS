@@ -3,7 +3,7 @@
 {
   home.stateVersion = lib.mkDefault "24.05";
   imports = [
-    # ./home.nix
-    ../terminal/nixvim.nix
+    ./home.nix
+    # ../terminal/nixvim.nix
   ];
 }
