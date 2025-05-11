@@ -16,30 +16,27 @@
       aircrack-ng
       any-nix-shell
 
-    # Some common stuff that people expect to have
-    #procps
-    #killall
-    #diffutils
-    #findutils
-    #utillinux
-    #tzdata
-    #hostname
-    #man
-    #gnugrep
-    #gnupg
-    #gnused
-    #gnutar
-    #bzip2
-    #gzip
-    #xz
-    #zip
-    #unzip
+      #procps
+      #killall
+      #diffutils
+      #findutils
+      #utillinux
+      #tzdata
+      #hostname
+      #man
+      #gnugrep
+      #gnupg
+      #gnused
+      #gnutar
+      #bzip2
+      #gzip
+      #xz
+      #zip
+      #unzip
     ];
   };
 
-  user.shell = pkgs.zsh;
-
-  # Backup etc files instead of failing to activate generation if a file already exists in /etc
+  user.shell = "${pkgs.zsh}/bin/zsh";
 
   system.stateVersion = "24.05";
 
@@ -50,7 +47,7 @@
   time.timeZone = "America/Los_Angeles";
 
   home-manager = {
-    config = ./home.nix;
+    config = ./home-on-droid.nix;
     backupFileExtension = "backup";
     useGlobalPkgs = true;
   };

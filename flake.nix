@@ -3,12 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixvim.url = "github:nix-community/nixvim";
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
-    home-manager.url = "github:nix-community/home-manager";
-    plasma-manager.url = "github:nix-community/plasma-manager";
-    stylix.url = "github:danth/stylix";
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    home-manager.url = "github:nix-community/home-manager";
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+    nixvim.url = "github:nix-community/nixvim";
+    stylix.url = "github:danth/stylix";
+    plasma-manager.url = "github:nix-community/plasma-manager";
   };
 
   outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
@@ -19,8 +19,8 @@
     userModules = [
       home-manager.nixosModules.home-manager
       nixvim.nixosModules.nixvim
-      ./core/user.nix
       ./terminal/nixvim.nix
+      ./core/user.nix
       ./terminal/zsh.nix
     ];
     hyprlandModules = [
@@ -62,6 +62,8 @@
           ];
         };
         modules = [
+          stylix.nixOnDroidModules.stylix
+          nixvim.homeManagerModules.nixvim
           ./core/nix-on-droid.nix
         ];
         home-manager-path = home-manager.outPath;
