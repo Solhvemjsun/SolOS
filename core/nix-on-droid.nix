@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nixvim, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   system.stateVersion = "24.05";
@@ -49,11 +49,10 @@
   user.shell = "${pkgs.zsh}/bin/zsh";
 
   home-manager = {
-    config = { lib, nixvim, ... }:
+    config = { pkgs, ... }:
     {
       imports = [
         ./home.nix
-        nixvim.homeManagerModules.nixvim
         ../terminal/nixvim.nix
       ];
     };
