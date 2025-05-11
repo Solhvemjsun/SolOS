@@ -36,7 +36,10 @@
     ];
   };
 
-  user.shell = "${pkgs.zsh}/bin/zsh";
+  user = {
+    userName = "Sol";
+    shell = "${pkgs.zsh}/bin/zsh";
+  };
 
   system.stateVersion = "24.05";
 
