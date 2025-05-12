@@ -127,7 +127,7 @@
         };
         modules = [
           stylix.nixOnDroidModules.stylix
-          nixvim.homeManagerModules.nixvim
+          # nixvim.homeManagerModules.nixvim
           ./core/nix-on-droid.nix
         ];
         home-manager-path = home-manager.outPath;
