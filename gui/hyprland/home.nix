@@ -1,4 +1,4 @@
-{ config, pkgs, lib, name, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   #########
@@ -396,7 +396,7 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    image = ./nixos.png;
+    image = ../../assets/nixos.png;
     imageScalingMode = "fit";
     cursor = {
       package = (pkgs.callPackage ../../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});

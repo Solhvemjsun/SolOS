@@ -52,23 +52,6 @@
     ];
   in {
 
-    nixOnDroidConfigurations = {
-      default = nix-on-droid.lib.nixOnDroidConfiguration {
-        pkgs = import nixpkgs {
-          system = "aarch64-linux";
-          overlays = [
-            nix-on-droid.overlays.default
-          ];
-        };
-        modules = [
-          # stylix.nixOnDroidModules.stylix
-          nixvim.homeManagerModules.nixvim
-          ./core/nix-on-droid.nix
-        ];
-        home-manager-path = home-manager.outPath;
-      };
-    };
-
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -131,6 +114,23 @@
           ./hardware/devices/DarkSol.nix
           ./service/ssh.nix
         ];
+      };
+    };
+
+    nixOnDroidConfigurations = {
+      default = nix-on-droid.lib.nixOnDroidConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-linux";
+          overlays = [
+            nix-on-droid.overlays.default
+          ];
+        };
+        modules = [
+          stylix.nixOnDroidModules.stylix
+          nixvim.homeManagerModules.nixvim
+          ./core/nix-on-droid.nix
+        ];
+        home-manager-path = home-manager.outPath;
       };
     };
 
