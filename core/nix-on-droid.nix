@@ -92,8 +92,5 @@
       base16 = "0000ff";
       base17 = "ff00ff";
     };
-    targets = {
-      vim = false;
-    };
   };
 }
