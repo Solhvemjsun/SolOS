@@ -62,18 +62,6 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    image = ../assets/nixos.png;
-    imageScalingMode = "fit";
-    cursor = {
-      package = (pkgs.callPackage ../../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
-      name = "Breeze_Hacked";
-      size = 64;
-    };
-    iconTheme = {
-      enable = true;
-      dark = "Sweet-Rainbow";
-      light = "Sweet-Rainbow";
-    };
     base16Scheme = {
       system = "base24";
       name = "Eclipse";
@@ -105,11 +93,6 @@
       base17 = "ff00ff";
     };
     targets = {
-      kitty.enable = false;
-      mako.enable = false;
-      wofi.enable = false;
-      hyprland.enable = false;
-      hyprlock.enable = false;
       nixvim.enable = false;
     };
   };
