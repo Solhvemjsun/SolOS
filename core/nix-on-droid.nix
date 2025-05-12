@@ -93,7 +93,6 @@
       base17 = "ff00ff";
     };
     targets = {
-      nixvim.enable = false;
     };
   };
 }
