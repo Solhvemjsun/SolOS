@@ -52,7 +52,6 @@
     {
       imports = [
         ./home.nix
-        ../terminal/nixvim.nix
       ];
     };
     backupFileExtension = "backup";
