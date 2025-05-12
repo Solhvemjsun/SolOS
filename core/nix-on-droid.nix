@@ -49,7 +49,7 @@
   user.shell = "${pkgs.zsh}/bin/zsh";
 
   home-manager = {
-    config = { pkgs, ... }:
+    config = { pkgs, lib, config, ... }:
     {
       imports = [
         ./home.nix
