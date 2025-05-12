@@ -3,25 +3,24 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     home-manager.url = "github:nix-community/home-manager";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     nixvim.url = "github:nix-community/nixvim";
     stylix.url = "github:danth/stylix";
     plasma-manager.url = "github:nix-community/plasma-manager";
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
   };
 
   outputs = { nixpkgs, nixvim, home-manager, plasma-manager, stylix, minegrub-theme, nix-on-droid, ... }: let 
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
     commonModules = [
       ./core/nixos.nix
       ./users/Sol.nix
-    ];
-    userModules = [
       home-manager.nixosModules.home-manager
       nixvim.nixosModules.nixvim
       ./terminal/nixvim.nix
       ./core/user.nix
-      # ./terminal/zsh.nix
+      ./terminal/zsh.nix
     ];
     hyprlandModules = [
       stylix.nixosModules.stylix
@@ -73,7 +72,7 @@
     nixosConfigurations = {
       "SolXPS" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ userModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "SolXPS"; }
           ./hardware/devices/XPS13.nix
           ./hardware/laptop.nix
@@ -82,7 +81,7 @@
 
       "SolITX" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ userModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ hyprlandModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "SolITX"; }
           ./hardware/devices/MeshlessAIO.nix
           ./hardware/nvidia.nix
@@ -92,7 +91,7 @@
 
       "XuLab" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ userModules ++ hyprlandModules ++ workModules ++ [
+        modules = commonModules ++ hyprlandModules ++ workModules ++ [
           {
             networking.hostName = "XuLab";
             home-manager.users.XuLab = {};
@@ -106,7 +105,7 @@
 
       "SolBase" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ userModules ++ hyprlandModules ++ [
+        modules = commonModules ++ hyprlandModules ++ [
           { networking.hostName = "SolBase"; }
           ./hardware/devices/SolBase.nix
           ./service/miniserver.nix
@@ -116,7 +115,7 @@
 
       "MachenikeMini" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = commonModules ++ userModules ++ kdeModules ++ personalModules ++ workModules ++ [
+        modules = commonModules ++ kdeModules ++ personalModules ++ workModules ++ [
           { networking.hostName = "MachenikeMini"; }
           ./hardware/devices/MachenikeMini.nix
         ];
@@ -126,7 +125,9 @@
         system = "aarch64-linux";
         modules = commonModules ++ [
           { networking.hostName = "DarkSol"; }
+          ./core/nixos.nix
           ./core/rpi4.nix
+          ./users/Sol.nix
           ./hardware/devices/DarkSol.nix
           ./service/ssh.nix
         ];
@@ -134,8 +135,18 @@
     };
 
     devShells = {
-      aarch64-linux.default = nixpkgs.legacyPackages.aarch64-linux.mkShell {
-        buildInputs = [ nixpkgs.legacyPackages.aarch64-linux.qemu ];
+      "x86_64-linux".default = pkgs.mkShell {
+        NIX_CONFIG = "extra-experimental-features = nix-command flakes";
+        nativeBuildInputs = with pkgs; [
+          nh
+          git
+          openssh
+          gnumake
+        ];
+        shellHook = ''
+          echo "Fiat Nix!"
+          vim ./
+        '';
       };
     };
 

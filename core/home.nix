@@ -168,10 +168,4 @@
     userEmail = "solhvemjsun@gmail.com";
   };
 
-  ##############
-  ## PACKAGES ##
-  ##############
-
-
-
 }
