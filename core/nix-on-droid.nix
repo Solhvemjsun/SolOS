@@ -111,7 +111,6 @@
       base17 = "ff00ff";
     };
     targets = {
-      vim = false;
     };
   };
 }
