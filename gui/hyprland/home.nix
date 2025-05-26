@@ -47,6 +47,7 @@
       # Monitor
       monitor = [
         ", preferred, auto, auto"
+        "desc:Invalid Vendor Codename - RTK Monitor 0x01010101, 2560x1600@60, -1600x0, 1.5, transform, 3"
         "desc:Samsung Electric Company Odyssey G8 HCNX400855, 3840x2160@240, auto, auto"
       ];
 
