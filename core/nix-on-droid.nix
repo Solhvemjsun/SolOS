@@ -45,10 +45,7 @@
     ];
   };
 
-  user = {
-    userName = "Sol";
-    shell = "${pkgs.zsh}/bin/zsh";
-  };
+  user.shell = "${pkgs.zsh}/bin/zsh";
 
   home-manager = {
     config = { ... }:
