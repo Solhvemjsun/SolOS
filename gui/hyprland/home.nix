@@ -47,7 +47,7 @@
       # Monitor
       monitor = [
         ", preferred, auto, auto"
-        "desc:Invalid Vendor Codename - RTK Monitor 0x01010101, 2560x1600@60, -1600x0, 1.5, transform, 3"
+        "desc:Invalid Vendor Codename - RTK Monitor 0x01010101, 2560x1600@60, -1600x0, auto, transform, 3"
         "desc:Samsung Electric Company Odyssey G8 HCNX400855, 3840x2160@240, auto, auto"
       ];
 
@@ -400,8 +400,8 @@
     image = ../../assets/nixos.png;
     imageScalingMode = "fit";
     cursor = {
-      package = (pkgs.callPackage ../../pkgs/breeze-hacked-cursor-theme-hyprcursor/package.nix {});
-      name = "Breeze_Hacked";
+      package = (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix {});
+      name = "miku-cursor";
       size = 64;
     };
     iconTheme = {
