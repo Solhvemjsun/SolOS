@@ -18,9 +18,9 @@
       ./users/Sol.nix
       home-manager.nixosModules.home-manager
       nixvim.nixosModules.nixvim
-      ./terminal/nixvim.nix
+      ./softwares/nixvim.nix
       ./core/user.nix
-      ./terminal/zsh.nix
+      ./core/zsh.nix
     ];
     hyprlandModules = [
       stylix.nixosModules.stylix
@@ -41,14 +41,14 @@
       ./gui/kde/kde.nix
     ];
     personalModules = [
-      ./gui/softwares/gaming.nix
-      ./gui/softwares/personal.nix
-      ./gui/softwares/tor.nix 
-      ./gui/softwares/nextcloud.nix
+      ./softwares/gaming.nix
+      ./softwares/personal.nix
+      ./softwares/tor.nix 
+      ./softwares/nextcloud.nix
     ];
     workModules = [
-      ./gui/softwares/office.nix
-      ./gui/softwares/develop.nix
+      ./softwares/office.nix
+      ./softwares/develop.nix
     ];
   in {
 
