@@ -46,7 +46,7 @@ $ nix-on-droid switch --flake .
 ### NixOS
 
 <figure>
-    <img src="./nixos.png" alt="NixOS" width=100%>
+    <img src="./assets/nixos.png" alt="NixOS" width=100%>
     <figcaption>
         <p>
             Classical and minimalist NixOS logo.
