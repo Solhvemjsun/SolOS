@@ -4,7 +4,7 @@ Fiat Lux!
 
 ## About
 
-This is my NixOS configurations for multiple computers includes my server and dev boards.
+This is my NixOS configurations for multiple computers includes user space, server and dev boards.
 
 ## User environment
 
@@ -46,7 +46,7 @@ $ nix-on-droid switch --flake .
 ### NixOS
 
 <figure>
-    <img src="./gui/hyprland/nixos.png" alt="NixOS" width=100%>
+    <img src="./nixos.png" alt="NixOS" width=100%>
     <figcaption>
         <p>
             Classical and minimalist NixOS logo.
