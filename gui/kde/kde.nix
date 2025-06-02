@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, plasma-manager, ... }:
 
 {
   ##########
@@ -77,7 +77,10 @@
   ##################
 
   home-manager = {
-    sharedModules = [ ./home.nix ];
+    sharedModules = [
+      plasma-manager.homeManagerModules.plasma-manager
+      ./home.nix
+    ];
     backupFileExtension = "backup";
   };
 }
