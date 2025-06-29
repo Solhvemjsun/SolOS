@@ -33,7 +33,7 @@
     # Blog
 
     # LSP
-    pyright
+    # pyright
     nodePackages.typescript-language-server
 
     # Nix
@@ -52,5 +52,12 @@
     krita
 
     tree-sitter
+
+    # Music
+    helm
+    neothesia
+
+    # Shader
+    esshader
   ];
 }
