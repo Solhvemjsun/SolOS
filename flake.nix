@@ -2,11 +2,11 @@
   description = "Sol's OS, Fiat Nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
-    nixvim.url = "github:nix-community/nixvim";
-    stylix.url = "github:danth/stylix";
+    nixvim.url = "github:nix-community/nixvim/nixos-25.05";
+    stylix.url = "github:danth/stylix/release-25.05";
     niri.url = "github:sodiboo/niri-flake";
     plasma-manager.url = "github:nix-community/plasma-manager";
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
@@ -42,8 +42,20 @@
         ./gui/hyprland/hyprland.nix
       ];
       niriModules = [
-        niri.nixosModules.niri
+        stylix.nixosModules.stylix
+        minegrub-theme.nixosModules.default
+        # niri.nixosModules.niri
+        ./gui/common.nix
         ./gui/niri/niri.nix
+        {
+          home-manager = {
+            users.Sol = { };
+            sharedModules = [
+              niri.homeModules.niri
+            ];
+          };
+          # nixpkgs.overlays = [ niri.overlays.niri ];
+        }
       ];
       kdeModules = [
         minegrub-theme.nixosModules.default
@@ -81,9 +93,10 @@
 
         "SolITX" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          # inherit specialArgs;
           modules =
             commonModules
-            ++ hyprlandModules
+            # ++ hyprlandModules
             ++ niriModules
             ++ personalModules
             ++ workModules
@@ -91,7 +104,9 @@
               { networking.hostName = "SolITX"; }
               ./hardware/devices/MeshlessAIO.nix
               ./hardware/nvidia.nix
-              ./hardware/razer.nix
+              # ./hardware/razer.nix
+              ./services/postgresql.nix
+              ./virtualize/wine.nix
             ];
         };
 
@@ -121,8 +136,8 @@
             ++ [
               { networking.hostName = "SolBase"; }
               ./hardware/devices/SolBase.nix
-              ./service/miniserver.nix
-              ./service/ssh.nix
+              ./services/miniserver.nix
+              ./services/ssh.nix
             ];
         };
 
@@ -147,7 +162,7 @@
             ./core/rpi4.nix
             ./users/Sol.nix
             ./hardware/devices/DarkSol.nix
-            ./service/ssh.nix
+            ./services/ssh.nix
           ];
         };
       };
