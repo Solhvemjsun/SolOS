@@ -177,7 +177,7 @@
         };
 
         default-column-width = { };
-        default-column-width.proportion = 1. / 2.;
+        # default-column-width.proportion = 1. / 3.;
         preset-column-widths = [
           { proportion = 1. / 3.; }
           { proportion = 1. / 2.; }

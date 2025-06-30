@@ -34,17 +34,9 @@
         ./core/user.nix
         ./core/zsh.nix
       ];
-      hyprlandModules = [
-        stylix.nixosModules.stylix
-        minegrub-theme.nixosModules.default
-        { home-manager.users.Sol = { }; }
-        ./gui/common.nix
-        ./gui/hyprland/hyprland.nix
-      ];
       niriModules = [
         stylix.nixosModules.stylix
         minegrub-theme.nixosModules.default
-        # niri.nixosModules.niri
         ./gui/common.nix
         ./gui/niri/niri.nix
         {
@@ -54,7 +46,6 @@
               niri.homeModules.niri
             ];
           };
-          # nixpkgs.overlays = [ niri.overlays.niri ];
         }
       ];
       kdeModules = [
@@ -81,7 +72,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
-            ++ hyprlandModules
+            ++ niriModules
             ++ personalModules
             ++ workModules
             ++ [
@@ -96,7 +87,6 @@
           # inherit specialArgs;
           modules =
             commonModules
-            # ++ hyprlandModules
             ++ niriModules
             ++ personalModules
             ++ workModules
@@ -104,7 +94,6 @@
               { networking.hostName = "SolITX"; }
               ./hardware/devices/MeshlessAIO.nix
               ./hardware/nvidia.nix
-              # ./hardware/razer.nix
               ./services/postgresql.nix
               ./virtualize/wine.nix
             ];
@@ -114,7 +103,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
-            ++ hyprlandModules
+            ++ niriModules
             ++ workModules
             ++ [
               {
@@ -132,7 +121,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
-            ++ hyprlandModules
+            ++ niriModules
             ++ [
               { networking.hostName = "SolBase"; }
               ./hardware/devices/SolBase.nix
