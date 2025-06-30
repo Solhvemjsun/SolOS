@@ -136,17 +136,6 @@
         };
       };
 
-      # workspaces = {
-      #   "01.Main" = {
-      #     open-on-output = "Main";
-      #     name = "Main";
-      #   };
-      #   "02.Sub" = {
-      #     open-on-output = "Sub_Left";
-      #     name = "Sub";
-      #   };
-      # };
-
       layout = {
         border = {
           enable = true;
@@ -188,7 +177,7 @@
         };
 
         default-column-width = { };
-        # default-column-width.proportion = 1. / 3.;
+        default-column-width.proportion = 1. / 2.;
         preset-column-widths = [
           { proportion = 1. / 3.; }
           { proportion = 1. / 2.; }
@@ -330,22 +319,22 @@
 
           # Poweroff menu
           "XF86PowerOff".action =
-            exec "'action=$(echo -e \"Shutdown\\nReboot\\nLock\\nLogout\\nSuspend\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac'";
+            exec "$(echo -e \"Shutdown\\nReboot\\nLock\\nLogout\\nSuspend\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac";
 
           # Function keys
           "XF86AudioLowerVolume".action =
-            exec "'pamixer -d 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500'";
+            exec "pamixer -d 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500";
           "Xf86AudioRaiseVolume".action =
-            exec "'pamixer -i 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500'";
+            exec "pamixer -i 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500";
 
-          "XF86AudioMute".action = exec "'pamixer -t && notify-send \"Mute $(pamixer --get-mute)\" -t 500'";
-          "XF86AudioMicMute".action = exec "'pamixer --default-source -m && notify-send \"Mic mute\" -t 500'";
+          "XF86AudioMute".action = exec "pamixer -t && notify-send \"Mute $(pamixer --get-mute)\" -t 500";
+          "XF86AudioMicMute".action = exec "pamixer --default-source -m && notify-send \"Mic mute\" -t 500";
           "XF86AudioPlay".action = spawn "playerctl play-pause";
 
           "XF86MonBrightnessDown".action =
-            exec "'brightnessctl set 10%- && notify-send \"Brightness $(light)%\" -t 500'";
+            exec "brightnessctl set 10%- && notify-send \"Brightness $(light)%\" -t 500";
           "XF86MonBrightnessUp".action =
-            exec "'brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500'";
+            exec "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
 
           "Print".action = screenshot { show-pointer = false; };
           "Shift+Print".action = screenshot { show-pointer = true; };
@@ -424,7 +413,7 @@
 
   # services.wpaperd = {
   #   enable = true;
-  #   settings = 
+  #   settings =
   # };
 
   programs.kitty = {
