@@ -96,10 +96,10 @@
   #   theme = "where_is_my_sddm_theme";
   # };
 
-  # programs.niri = {
-  #   enable = true;
-  #   package = pkgs.niri;
-  # };
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri;
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = lib.mkDefault "1";
 

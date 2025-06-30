@@ -407,7 +407,7 @@
     };
   };
 
-  programs.hyprpaper = {
+  services.hyprpaper = {
     enable = true;
     package = pkgs.hyprpaper;
     settings = {
@@ -418,10 +418,14 @@
       ];
       wallpaper = [
         ",../../assets/nixos.png"
-        "Samsung Electric Company Odyssey G8 HCNX400855,../../assets/nixos.png"
       ];
     };
   };
+
+  # services.wpaperd = {
+  #   enable = true;
+  #   settings = 
+  # };
 
   programs.kitty = {
     enable = true;
