@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
 
@@ -20,12 +19,12 @@
       download = "${config.home.homeDirectory}/Downloads";
       desktop = "${config.home.homeDirectory}/Desktop";
     };
-    # mimeApps = {
-    #   enable = true;
-    #   defaultApplications = {
-    #     "x-terminal-emulator" = ["kitty.desktop"];
-    #   };
-    # };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "x-terminal-emulator" = [ "kitty.desktop" ];
+      };
+    };
   };
 
   ##########
@@ -35,7 +34,6 @@
   programs.niri = {
     enable = true;
     package = pkgs.niri;
-    # finalConfig = lib.mkforce null;
     settings = {
       environment = {
         # DISPLAY = ":0"; # xwayland-satellite
@@ -100,6 +98,26 @@
       };
 
       outputs = {
+
+        "XPS" = {
+          name = "Sharp Corporation 0x1551 Unknown";
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = 59.994;
+          };
+          variable-refresh-rate = "on-demand";
+          scale = 1.5;
+          transform.rotation = 0;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          background-color = "#000000";
+          backdrop-color = "#000000";
+          focus-at-startup = true;
+        };
+
         "G8" = {
           name = "Samsung Electric Company Odyssey G8 HCNX400855";
           mode = {
@@ -107,7 +125,7 @@
             height = 2160;
             refresh = 240.000;
           };
-          # variable-refresh-rate = "on-demand";
+          variable-refresh-rate = "on-demand";
           scale = 1;
           transform.rotation = 0;
           position = {
@@ -118,6 +136,7 @@
           backdrop-color = "#000000";
           focus-at-startup = true;
         };
+
         "Ehomewei" = {
           name = "Invalid Vendor Codename - RTK Monitor 0x01010101";
           mode = {
@@ -177,7 +196,7 @@
         };
 
         default-column-width = { };
-        # default-column-width.proportion = 1. / 3.;
+        default-column-width.proportion = 1. / 3.;
         preset-column-widths = [
           { proportion = 1. / 3.; }
           { proportion = 1. / 2.; }
