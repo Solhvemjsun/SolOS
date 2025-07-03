@@ -42,7 +42,7 @@
 
       prefer-no-csd = true;
 
-      screenshot-path = "~/Nextcloud/Pictures/Screenshots from %Y-%m-%d %H-%M-%S.png";
+      screenshot-path = "~/Nextcloud/Pictures/Screenshots/nirishot from %Y-%m-%d %H-%M-%S.png";
       # xwayland-satellite = {
       #   enable = true;
       #   path = lib.getExe pkgs.xwayland-satellite-unstable;
