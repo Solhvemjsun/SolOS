@@ -38,7 +38,8 @@
     # finalConfig = lib.mkforce null;
     settings = {
       environment = {
-        # DISPLAY = ":0"; # xwayland-satellite
+        DISPLAY = ":0"; # xwayland-satellite
+        QT_QPA_PLATFORM = "wayland";
       };
 
       prefer-no-csd = true;
@@ -229,6 +230,7 @@
       };
 
       spawn-at-startup = [
+        { command = [ "xwayland-satellite" ]; }
         { command = [ "hyprpaper" ]; }
         { command = [ "mako" ]; }
         {
