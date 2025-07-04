@@ -117,7 +117,7 @@
 
   environment.systemPackages = with pkgs; [
     amberol
-    udiskie
+    candy-icons
     firefox
     gparted
     google-chrome
@@ -136,6 +136,8 @@
     onlyoffice-desktopeditors
     remmina
     samba
+    sweet-folders
+    udiskie
     (where-is-my-sddm-theme.override {
       themeConfig.General = {
         showSessionsByDefault = true;

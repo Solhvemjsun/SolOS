@@ -32,7 +32,6 @@
     seahorse
     selectdefaultapplication
     slurp
-    sweet-folders
     waybar
     wayvnc
     wl-screenrec
