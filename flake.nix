@@ -20,6 +20,7 @@
       stylix,
       minegrub-theme,
       niri,
+      plasma-manager,
       nix-on-droid,
       ...
     }:
@@ -34,31 +35,29 @@
         ./core/user.nix
         ./core/zsh.nix
       ];
-      niriModules = [
-        stylix.nixosModules.stylix
+      guiModules = [
         minegrub-theme.nixosModules.default
         ./gui/common.nix
+        { home-manager.users.Sol = {}; }
+      ];
+      niriModules = [
+        stylix.nixosModules.stylix
         ./gui/niri/niri.nix
         {
-          home-manager = {
-            users.Sol = { };
-            sharedModules = [
-              niri.homeModules.niri
-            ];
-          };
+          home-manager.sharedModules = [ niri.homeModules.niri ];
         }
       ];
       kdeModules = [
-        minegrub-theme.nixosModules.default
-        { home-manager.users.Sol = { }; }
-        ./gui/common.nix
+        {
+          home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+        }
         ./gui/kde/kde.nix
       ];
       personalModules = [
-        ./softwares/gaming.nix
         ./softwares/personal.nix
         ./softwares/tor.nix
         ./softwares/nextcloud.nix
+        ./softwares/gaming.nix
       ];
       workModules = [
         ./softwares/office.nix
@@ -72,6 +71,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
+            ++ guiModules
             ++ niriModules
             ++ personalModules
             ++ workModules
@@ -87,7 +87,9 @@
           # inherit specialArgs;
           modules =
             commonModules
+            ++ guiModules
             ++ niriModules
+            ++ kdeModules
             ++ personalModules
             ++ workModules
             ++ [
@@ -103,6 +105,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
+            ++ guiModules
             ++ niriModules
             ++ workModules
             ++ [
@@ -121,6 +124,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
+            ++ guiModules
             ++ niriModules
             ++ [
               { networking.hostName = "SolBase"; }
@@ -134,6 +138,7 @@
           system = "x86_64-linux";
           modules =
             commonModules
+            ++ guiModules
             ++ kdeModules
             ++ personalModules
             ++ workModules

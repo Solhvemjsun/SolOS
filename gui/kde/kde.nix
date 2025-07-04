@@ -77,10 +77,7 @@
   ##################
 
   home-manager = {
-    sharedModules = [
-      plasma-manager.homeManagerModules.plasma-manager
-      ./home.nix
-    ];
+    sharedModules = [ ./home.nix ];
     backupFileExtension = "backup";
   };
 }
