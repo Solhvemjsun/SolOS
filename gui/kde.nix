@@ -5,21 +5,7 @@
   ## SDDM ##
   ##########
 
-  services.xserver.enable = true; # optional
-  services.displayManager = {
-    defaultSession = "plasma";
-    sddm = {
-      enable = true;
-      extraPackages = [
-        pkgs.kdePackages.qt5compat
-      ];
-      wayland.enable = true;
-      theme = "where_is_my_sddm_theme";
-      settings = {
-        General.DisplayServer = "wayland";
-      };
-    };
-  };
+  # services.xserver.enable = true; # optional
 
   ##############
   ## PLASMA 6 ##
@@ -37,9 +23,6 @@
 
   environment.systemPackages = with pkgs; [
     kdePackages.bluedevil
-    # kdePackages.okular
-    where-is-my-sddm-theme
-    kitty
 
     kdePackages.plasma-workspace
     kdePackages.plasma-desktop
@@ -76,8 +59,5 @@
   ## HOME MANAGER ##
   ##################
 
-  home-manager = {
-    sharedModules = [ ./home.nix ];
-    backupFileExtension = "backup";
-  };
+  home-manager.sharedModules = [ ./kdehome.nix ];
 }

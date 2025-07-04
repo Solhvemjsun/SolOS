@@ -68,7 +68,9 @@
   ## HOME MANAGER ##
   ##################
 
-  home-manager.sharedModules = [ ./home.nix ];
-
+  home-manager = {
+    sharedModules = [ ./home.nix ];
+    backupFileExtension = "backup";
+  };
 
 }

@@ -16,8 +16,6 @@
 
   programs.okular.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     username = name;
     homeDirectory = "/home/${config.home.username}";

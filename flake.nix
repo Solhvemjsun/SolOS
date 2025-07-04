@@ -37,21 +37,17 @@
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
+        stylix.nixosModules.stylix
         ./gui/common.nix
-        { home-manager.users.Sol = {}; }
+        { home-manager.users.Sol = { }; }
       ];
       niriModules = [
-        stylix.nixosModules.stylix
-        ./gui/niri/niri.nix
-        {
-          home-manager.sharedModules = [ niri.homeModules.niri ];
-        }
+        ./gui/niri.nix
+        { home-manager.sharedModules = [ niri.homeModules.niri ]; }
       ];
       kdeModules = [
-        {
-          home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
-        }
-        ./gui/kde/kde.nix
+        { home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ]; }
+        ./gui/kde.nix
       ];
       personalModules = [
         ./softwares/personal.nix
@@ -97,7 +93,6 @@
               ./hardware/devices/MeshlessAIO.nix
               ./hardware/nvidia.nix
               ./services/postgresql.nix
-              ./virtualize/wine.nix
             ];
         };
 
@@ -140,6 +135,7 @@
             commonModules
             ++ guiModules
             ++ kdeModules
+            ++ niriModules
             ++ personalModules
             ++ workModules
             ++ [
