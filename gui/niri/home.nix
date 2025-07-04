@@ -1,11 +1,32 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
 
 {
+  #########
+  ## XDG ##
+  #########
+
+  xdg = {
+    userDirs = {
+      enable = true;
+      music = "${config.home.homeDirectory}/Nextcloud/Music";
+      pictures = "${config.home.homeDirectory}/Nextcloud/Pictures";
+      videos = "${config.home.homeDirectory}/Nextcloud/Videos";
+      documents = "${config.home.homeDirectory}/Documents";
+      download = "${config.home.homeDirectory}/Downloads";
+      desktop = "${config.home.homeDirectory}/Desktop";
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "x-terminal-emulator" = [ "kitty.desktop" ];
+      };
+    };
+  };
+
   ##########
   ## NIRI ##
   ##########
@@ -13,7 +34,6 @@
   programs.niri = {
     enable = true;
     package = pkgs.niri;
-    # finalConfig = lib.mkforce null;
     settings = {
       environment = {
         DISPLAY = ":0"; # xwayland-satellite
@@ -22,7 +42,6 @@
 
       prefer-no-csd = true;
 
-      screenshot-path = "~/Nextcloud/Pictures/Screenshots from %Y-%m-%d %H-%M-%S.png";
       # xwayland-satellite = {
       #   enable = true;
       #   path = lib.getExe pkgs.xwayland-satellite-unstable;
@@ -79,6 +98,24 @@
       };
 
       outputs = {
+        "XPS" = {
+          name = "Sharp Corporation 0x1551 Unknown";
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = 59.994;
+          };
+          scale = 1.5;
+          transform.rotation = 0;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          background-color = "#000000";
+          backdrop-color = "#000000";
+          focus-at-startup = true;
+        };
+
         "G8" = {
           name = "Samsung Electric Company Odyssey G8 HCNX400855";
           mode = {
@@ -86,7 +123,7 @@
             height = 2160;
             refresh = 240.000;
           };
-          # variable-refresh-rate = "on-demand";
+          variable-refresh-rate = "on-demand";
           scale = 1;
           transform.rotation = 0;
           position = {
@@ -97,6 +134,7 @@
           backdrop-color = "#000000";
           focus-at-startup = true;
         };
+
         "Ehomewei" = {
           name = "Invalid Vendor Codename - RTK Monitor 0x01010101";
           mode = {
