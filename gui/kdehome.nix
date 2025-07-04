@@ -1,52 +1,56 @@
-{ config, pkgs, name, ... }:
+{
+  config,
+  pkgs,
+  name,
+  ...
+}:
 
 {
-  ##########
-  ## HOME ##
-  ##########
-
   programs.plasma = {
     enable = true;
-    # workspace = {
-    #   wallpaper = {
-    #     picture = "nixos.png";
-    #   };
-    # };
-  };
 
-  programs.okular.enable = true;
+    ###########
+    ## THEME ##
+    ###########
 
-  home = {
-    username = name;
-    homeDirectory = "/home/${config.home.username}";
-  };
-
-  ###########
-  ## SHELL ##
-  ###########
-
-  programs.zsh = {
-    enable = true;
-    autocd = true;
-  };
-
-  programs.ranger = {
-    enable = true;
-    extraPackages = [ pkgs.ueberzugpp ];
-    settings = {
-      show_hidden = true;
-      preview_images_method = "ueberzug";
+    workspace = {
+      clickItemTo = "open";
+      lookAndFeel = "org.kde.breezedark.desktop"; # The Plasma Global Theme. Run `plasma-apply-lookandfeel --list` for valid options.
+      cursor = {
+        theme = "miku-cursor";
+        size = 64;
+      };
+      iconTheme = "Sweet-Rainbow";
+      # wallpaper = "";
     };
-  };
 
-  #############
-  ## DEVELOP ##
-  #############
+    #############
+    ## HOTKEYS ##
+    #############
 
-  programs.git = {
-    enable = true;
-    userName = "Solhvemjsun";
-    userEmail = "solhvemjsun@gmail.com";
+    hotkeys.commands."launch-konsole" = {
+      name = "Launch Konsole";
+      key = "Meta+T";
+      command = "konsole";
+    };
+
+    shortcuts = {
+      ksmserver = {
+        "Lock Session" = [
+          "Screensaver"
+          "Meta+Ctrl+Alt+L"
+        ];
+      };
+
+      kwin = {
+        "Expose" = "Meta+,";
+        "Switch Window Down" = "Meta+S";
+        "Switch Window Left" = "Meta+A";
+        "Switch Window Right" = "Meta+D";
+        "Switch Window Up" = "Meta+W";
+      };
+    };
+
   };
 
 }

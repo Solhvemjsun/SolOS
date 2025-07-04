@@ -73,6 +73,7 @@
       base17 = "ff00ff";
     };
     targets = {
+      kde.enable = false;
       kitty.enable = false;
       mako.enable = false;
       wofi.enable = false;

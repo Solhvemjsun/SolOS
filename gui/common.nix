@@ -122,6 +122,7 @@
     gparted
     google-chrome
     haruna
+    (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { })
     kiwix
     libnotify
     libsForQt5.kamoso
