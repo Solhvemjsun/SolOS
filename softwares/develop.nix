@@ -59,5 +59,8 @@
 
     # Shader
     esshader
+
+    # PCB
+    kicad
   ];
 }
