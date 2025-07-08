@@ -272,8 +272,8 @@
           "Mod+Shift+D".action = move-column-right-or-to-monitor-right;
 
           # Admit/expel window with Mod+Shift+X/C
-          "Mod+Shift+X".action = consume-window-into-column;
-          "Mod+Shift+C".action = expel-window-from-column;
+          "Mod+Shift+X".action = consume-or-expel-window-left;
+          "Mod+Shift+C".action = consume-or-expel-window-right;
 
           # Resize window with mainMod + XCF
           "Mod+X".action = switch-preset-window-height;
