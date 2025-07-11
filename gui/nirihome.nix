@@ -201,14 +201,14 @@
           ];
           open-floating = true;
         }
-        {
-          matches = [
-            {
-              app-id = "^org\.gnome\.World\.Secrets$";
-            }
-          ];
-          block-out-from = "screen-capture";
-        }
+        # {
+        #   matches = [
+        #     {
+        #       app-id = "^org\.gnome\.World\.Secrets$";
+        #     }
+        #   ];
+        #   block-out-from = "screen-capture";
+        # }
       ];
 
       # layer-rules = { };

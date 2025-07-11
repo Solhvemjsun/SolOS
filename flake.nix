@@ -3,13 +3,30 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
-    nixvim.url = "github:nix-community/nixvim/nixos-25.05";
-    stylix.url = "github:danth/stylix/release-25.05";
-    niri.url = "github:sodiboo/niri-flake";
-    plasma-manager.url = "github:nix-community/plasma-manager";
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+    };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-on-droid = {
+      url = "github:nix-community/nix-on-droid/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -85,7 +102,7 @@
             commonModules
             ++ guiModules
             ++ niriModules
-            ++ kdeModules
+            # ++ kdeModules
             ++ personalModules
             ++ workModules
             ++ [

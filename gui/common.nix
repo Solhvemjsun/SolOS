@@ -50,27 +50,27 @@
   ## Greeter ##
   #############
 
-  services.displayManager = {
-    defaultSession = "niri";
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "where_is_my_sddm_theme";
-      settings = {
-        General.DisplayServer = "wayland";
-      };
-    };
-  };
-
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;'--cmd niri";
-  #       user = "greeter";
+  # services.displayManager = {
+  #   defaultSession = "niri";
+  #   sddm = {
+  #     enable = true;
+  #     wayland.enable = true;
+  #     theme = "where_is_my_sddm_theme";
+  #     settings = {
+  #       General.DisplayServer = "wayland";
   #     };
   #   };
   # };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;'--cmd niri";
+        user = "greeter";
+      };
+    };
+  };
 
   #############
   ## DRIVERS ##

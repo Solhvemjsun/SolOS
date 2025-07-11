@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   ...
 }:
@@ -47,4 +46,17 @@
     enable = true;
     package = pkgs.niri;
   };
+
+  ################
+  ## SCREENCAST ##
+  ################
+
+  security.rtkit.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
+  };
+
 }
