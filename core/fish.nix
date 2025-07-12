@@ -56,10 +56,11 @@
         truncation_length = 0;
       };
       git_status = {
-        style = "bold purple";
+        style = "bold cyan";
       };
       git_branch = {
         format = " [$symbol$branch(:$remote_branch)]($style) ";
+        style = "bold cyan";
       };
       add_newline = false;
       scan_timeout = 30;
