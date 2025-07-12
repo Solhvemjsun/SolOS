@@ -32,6 +32,8 @@
 
       nvim-autopairs.enable = true;
 
+      which-key.enable = true;
+
       cmp = {
         enable = true;
         autoEnableSources = true;
@@ -102,24 +104,24 @@
           ts_ls.enable = true;
 
           # Python
-          # pylsp = {
-          #   enable = true;
-          #   settings.plugins = {
-          #     autopep8.enabled = false;
-          #     black.enabled = false;
-          #     flake8.enabled = false;
-          #     mccabe.enabled = false;
-          #     memestra.enabled = false;
-          #     pycodestyle.enabled = false;
-          #     pydocstyle.enabled = false;
-          #     isort.enabled = false;
-          #     pyflakes.enabled = false;
-          #     pylint.enabled = false;
-          #     pylsp_mypy.enabled = false;
-          #     yapf.enabled = false;
-          #   };
-          # };
-          # basedpyright.enable = true;
+          pylsp = {
+            enable = true;
+            settings.plugins = {
+              autopep8.enabled = false;
+              black.enabled = false;
+              flake8.enabled = false;
+              mccabe.enabled = false;
+              memestra.enabled = false;
+              pycodestyle.enabled = false;
+              pydocstyle.enabled = false;
+              isort.enabled = false;
+              pyflakes.enabled = false;
+              pylint.enabled = false;
+              pylsp_mypy.enabled = false;
+              yapf.enabled = false;
+            };
+          };
+          basedpyright.enable = true;
 
           # CSS
           cssls.enable = true;
