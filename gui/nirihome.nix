@@ -77,13 +77,14 @@
 
       outputs = {
         "XPS" = {
+          enable = true;
           name = "Sharp Corporation 0x1551 Unknown";
+          scale = 2.0;
           mode = {
             width = 3840;
             height = 2160;
             refresh = 59.994;
           };
-          scale = 1.5;
           transform.rotation = 0;
           position = {
             x = 0;
@@ -102,7 +103,7 @@
             refresh = 240.000;
           };
           variable-refresh-rate = "on-demand";
-          scale = 1;
+          scale = 1.0;
           transform.rotation = 0;
           position = {
             x = 0;
@@ -201,14 +202,14 @@
           ];
           open-floating = true;
         }
-        # {
-        #   matches = [
-        #     {
-        #       app-id = "^org\.gnome\.World\.Secrets$";
-        #     }
-        #   ];
-        #   block-out-from = "screen-capture";
-        # }
+        {
+          matches = [
+            {
+              app-id = "^org\.gnome\.World\.Secrets$";
+            }
+          ];
+          block-out-from = "screen-capture";
+        }
       ];
 
       # layer-rules = { };
