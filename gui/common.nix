@@ -13,7 +13,7 @@
 
   boot = {
     loader.grub = {
-      useOSProber = true;
+      # useOSProber = true;
       gfxmodeEfi = "1920x1080";
       minegrub-theme = {
         enable = true;

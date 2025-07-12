@@ -92,7 +92,7 @@
               { networking.hostName = "SolXPS"; }
               ./hardware/devices/XPS13.nix
               ./hardware/laptop.nix
-              # ./core/fish.nix
+              ./core/fish.nix
             ];
         };
 

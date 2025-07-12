@@ -27,7 +27,18 @@
     #   left = "";
     #   right = "";
     # };
-    # settings = { };
+    settings = {
+      format = ''
+        [┌───\(](bold blue)[$username$hostname](bold white)[\)-\[](bold blue)[$directory](bold white)[\]](bold blue)
+        [└─](bold blue)[\$](bold white)
+      '';
+      # format = ''
+      #   [┌───────────────────(](bold green)
+      #   [│](bold green)$directory$rust$package
+      #   [└─\$](bold green) '';
+      add_newline = false;
+      scan_timeout = 30;
+    };
   };
 
   programs.zoxide = {
