@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -7,6 +7,7 @@
     television
   ];
 
+  users.defaultUserShell = lib.mkForce pkgs.fish;
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -29,13 +30,37 @@
     # };
     settings = {
       format = ''
-        [┌───\(](bold blue)[$username$hostname](bold white)[\)-\[](bold blue)[$directory](bold white)[\]](bold blue)
-        [└─](bold blue)[\$](bold white)
+        [┌───\(](blue)[$username@$hostname](bold white)[\)-\[](blue)[$directory](bold white)[\]](blue)$all[└─](blue)$character
       '';
-      # format = ''
-      #   [┌───────────────────(](bold green)
-      #   [│](bold green)$directory$rust$package
-      #   [└─\$](bold green) '';
+      character = {
+        format = "$symbol ";
+        success_symbol = "[\\$](bold white)";
+        error_symbol = "[\\$](bold red)";
+      };
+      username = {
+        show_always = true;
+        format = "[$user]($style)";
+        style_root = "bold red";
+        style_user = "bold white";
+      };
+      hostname = {
+        ssh_only = false;
+        format = "[$ssh_symbol$hostname]($style)";
+        style = "bold white";
+      };
+      directory = {
+        format = "[$path]($style)[$read_only]($read_only_style)";
+        style = "bold white";
+        read_only = "󰌾";
+        read_only_style = "green";
+        truncation_length = 0;
+      };
+      git_status = {
+        style = "bold purple";
+      };
+      git_branch = {
+        format = " [$symbol$branch(:$remote_branch)]($style) ";
+      };
       add_newline = false;
       scan_timeout = 30;
     };
