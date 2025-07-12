@@ -242,7 +242,7 @@
         # tablet-mode-off.action.spawn = ["gsettings" "set" "org.gnome.desktop.a11y.applications" "screen-keyboard-enabled" "false"];
       };
 
-      binds = with config.lib.niri.actions; {
+      binds = with config.lib.niri.actions; let exec = spawn "sh" "-c"; in {
         # Move focus with mouse scroller
         "Mod+WheelScrollUp".action = focus-window-up-or-column-left;
         "Mod+WheelScrollDown".action = focus-window-down-or-column-right;
@@ -305,28 +305,28 @@
 
         # Open and close windows
         "Mod+Q".action = close-window;
-        "Mod+E".action = spawn "wofi --show drun -i -p Search";
+        "Mod+E".action = exec "wofi --show drun -i -p Search";
         "Mod+T".action = spawn "kitty";
         "Mod+Return".action = spawn "kitty";
 
         # Poweroff menu
         "XF86PowerOff".action =
-          spawn "$(echo -e \"Shutdown\\nReboot\\nLock\\nLogout\\nSuspend\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac";
+          exec "$(echo -e \"Shutdown\\nReboot\\nLock\\nLogout\\nSuspend\" | wofi --dmenu --prompt \"Power Menu\" --width 300 --height 200); case \"$action\" in \"Lock\") hyprlock;; \"Logout\") hyprctl dispatch exit;; \"Suspend\") systemctl suspend;; \"Reboot\") systemctl reboot;; \"Shutdown\") systemctl poweroff;; esac";
 
         # Function keys
         "XF86AudioLowerVolume".action =
-          spawn "pamixer -d 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500";
+          exec "pamixer -d 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500";
         "Xf86AudioRaiseVolume".action =
-          spawn "pamixer -i 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500";
+          exec "pamixer -i 10 && notify-send \"Volume $(pamixer --get-volume)%\" -t 500";
 
-        "XF86AudioMute".action = spawn "pamixer -t && notify-send \"Mute $(pamixer --get-mute)\" -t 500";
-        "XF86AudioMicMute".action = spawn "pamixer --default-source -m && notify-send \"Mic mute\" -t 500";
-        "XF86AudioPlay".action = spawn "playerctl play-pause";
+        "XF86AudioMute".action = exec "pamixer -t && notify-send \"Mute $(pamixer --get-mute)\" -t 500";
+        "XF86AudioMicMute".action = exec "pamixer --default-source -m && notify-send \"Mic mute\" -t 500";
+        "XF86AudioPlay".action = exec "playerctl play-pause";
 
         "XF86MonBrightnessDown".action =
-          spawn "brightnessctl set 10%- && notify-send \"Brightness $(light)%\" -t 500";
+          exec "brightnessctl set 10%- && notify-send \"Brightness $(light)%\" -t 500";
         "XF86MonBrightnessUp".action =
-          spawn "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
+          exec "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
 
         "Print".action = screenshot { show-pointer = false; };
         "Shift+Print".action = screenshot { show-pointer = true; };
