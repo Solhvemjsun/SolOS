@@ -2,18 +2,18 @@
   description = "Sol's OS, Fiat Nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-25.05";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
@@ -92,6 +92,7 @@
               { networking.hostName = "SolXPS"; }
               ./hardware/devices/XPS13.nix
               ./hardware/laptop.nix
+              # ./core/fish.nix
             ];
         };
 
