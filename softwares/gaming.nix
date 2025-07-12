@@ -5,7 +5,7 @@
     hmcl
     jdk8
     # retroarch
-    ruffle
+    # ruffle
     # shadps4
     steam-run
     xorg.xrandr

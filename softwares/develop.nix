@@ -41,7 +41,7 @@
     nil
 
     # Octave
-    (octaveFull.withPackages (ps: with ps; [ video ]))
+    # (octaveFull.withPackages (ps: with ps; [ video ]))
 
     # Video
     ffmpeg
@@ -61,6 +61,6 @@
     esshader
 
     # PCB
-    kicad
+    # kicad
   ];
 }
