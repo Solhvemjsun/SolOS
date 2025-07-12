@@ -12,6 +12,7 @@
     enable = true;
     interactiveShellInit = ''
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      set fish_greeting ""
     '';
     shellAliases = {
       ll = "eza";
@@ -23,11 +24,6 @@
 
   programs.starship = {
     enable = true;
-    # transientPrompt = {
-    #   enable = true;
-    #   left = "";
-    #   right = "";
-    # };
     settings = {
       format = ''
         [┌───\(](blue)[$username@$hostname](bold white)[\)-\[](blue)[$directory](bold white)[\]](blue)$all[└─](blue)$character

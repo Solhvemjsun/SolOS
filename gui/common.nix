@@ -5,7 +5,14 @@
   ## HOME MANAGER ##
   ##################
 
-  home-manager.sharedModules = [ ./commonhome.nix ];
+  home-manager = {
+    useGlobalPkgs = true;
+    backupFileExtension = "old";
+    sharedModules = [
+      ./home.nix
+      ./commonhome.nix
+    ];
+  };
 
   ##########
   ## GRUB ##
@@ -137,11 +144,12 @@
     samba
     sweet-folders
     udiskie
-    (where-is-my-sddm-theme.override {
-      themeConfig.General = {
-        showSessionsByDefault = true;
-      };
-    })
+    # (where-is-my-sddm-theme.override {
+    #   themeConfig.General = {
+    #     showSessionsByDefault = true;
+    #   };
+    # })
+    yazi
   ];
 
   #########
@@ -237,6 +245,7 @@
       grub.enable = false;
       nixvim.enable = false;
       plymouth.enable = false;
+      fish.enable = false;
     };
   };
 

@@ -52,14 +52,13 @@
         ./core/nixos.nix
         ./users/Sol.nix
         lix-module.nixosModules.default
-        home-manager.nixosModules.home-manager
         nixvim.nixosModules.nixvim
         ./softwares/nixvim.nix
-        ./core/user.nix
-        ./core/zsh.nix
+        ./softwares/fish.nix
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
+        home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
         ./gui/common.nix
         { home-manager.users.Sol = { }; }
@@ -98,7 +97,6 @@
               { networking.hostName = "SolXPS"; }
               ./hardware/devices/XPS13.nix
               ./hardware/laptop.nix
-              ./core/fish.nix
             ];
         };
 

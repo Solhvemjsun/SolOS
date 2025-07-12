@@ -16,7 +16,6 @@
     etcBackupExtension = ".bak"; 
     packages = with pkgs; [
       vim
-      zsh
       nyancat
       neovim
       git
@@ -50,11 +49,11 @@
   home-manager = {
     config = { ... }:
     {
-      imports = [
-        ./home.nix
-      ];
+      # imports = [
+      #   ./home.nix
+      # ];
     };
-    backupFileExtension = "backup";
+    backupFileExtension = "old";
     useGlobalPkgs = true;
   };
 

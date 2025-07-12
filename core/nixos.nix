@@ -6,7 +6,10 @@
   #########
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   programs.nh = {
@@ -51,7 +54,7 @@
   #############
 
   system.stateVersion = "24.05"; # The first version of NixOS on this particular machine.
-  
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -62,15 +65,10 @@
     openssh
     ranger
     tree
+    tty-clock
+    unzip
+    usbutils
+    wget
+    zip
   ];
-
-  ##################
-  ## HOME MANAGER ##
-  ##################
-
-  home-manager = {
-    sharedModules = [ ./home.nix ];
-    backupFileExtension = "old";
-  };
-
 }
