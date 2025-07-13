@@ -124,6 +124,7 @@
               { networking.hostName = "SolITX"; }
               ./hardware/devices/MeshlessAIO.nix
               ./hardware/nvidia.nix
+              ./hardware/health.nix
               ./services/postgresql.nix
             ];
         };
