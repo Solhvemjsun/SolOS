@@ -3,34 +3,33 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
+    lix-module.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    niri = {
-      url = "github:sodiboo/niri-flake";
-    };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-on-droid = {
-      url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    minegrub-theme.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    plasma-manager.url = "github:nix-community/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
+
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -44,6 +43,7 @@
       niri,
       plasma-manager,
       nix-on-droid,
+      aagl,
       ...
     }:
     let
@@ -81,6 +81,10 @@
         ./softwares/office.nix
         ./softwares/develop.nix
       ];
+      aaglModules = [
+        aagl.nixosModules.default
+        ./softwares/aagl.nix
+      ];
     in
     {
 
@@ -107,9 +111,9 @@
             commonModules
             ++ guiModules
             ++ niriModules
-            # ++ kdeModules
             ++ personalModules
             ++ workModules
+            ++ aaglModules
             ++ [
               { networking.hostName = "SolITX"; }
               ./hardware/devices/MeshlessAIO.nix
