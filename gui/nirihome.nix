@@ -19,6 +19,7 @@
       };
 
       prefer-no-csd = true;
+      screenshot-path = "~/Nextcloud/Pictures/Screenshots/Screenshot_from_from %Y-%m-%d %H-%M-%S.png";
 
       # xwayland-satellite = {
       #   enable = true;
@@ -399,18 +400,15 @@
       ipc = "off";
       splash = false;
       preload = [
-        "../../assets/nixos.png"
+        "${../assets/nixos.png}"
+        # "${../assets/sayuki.png}"
       ];
       wallpaper = [
-        ",../../assets/nixos.png"
+        ",${../assets/nixos.png}"
+        # "HDMI-A-1,${../assets/sayuki.png}"
       ];
     };
   };
-
-  # services.wpaperd = {
-  #   enable = true;
-  #   settings =
-  # };
 
   programs.fuzzel = {
     enable = true;

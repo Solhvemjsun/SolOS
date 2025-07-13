@@ -7,6 +7,7 @@
     # element-desktop
     nextcloud-talk-desktop
     qq
+    spotify
     telegram-desktop
   ];
 }

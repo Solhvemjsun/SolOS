@@ -16,21 +16,12 @@
     github-desktop
     conda
 
-    # Write Image
-    isoimagewriter
-
     # Programming
     # Rust
     cargo
     rustc
     rust-analyzer
     rustfmt
-
-    # C
-    gcc
-    clang-tools
-
-    # Blog
 
     # LSP
     # pyright
@@ -50,17 +41,7 @@
     # Art
     inkscape
     krita
-
     tree-sitter
 
-    # Music
-    helm
-    neothesia
-
-    # Shader
-    esshader
-
-    # PCB
-    # kicad
   ];
 }

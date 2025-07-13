@@ -7,7 +7,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    backupFileExtension = "old";
+    backupFileExtension = "back";
     sharedModules = [
       ./home.nix
       ./commonhome.nix
@@ -129,6 +129,7 @@
     gparted
     haruna
     (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { })
+    isoimagewriter
     kiwix
     libnotify
     libsForQt5.kamoso

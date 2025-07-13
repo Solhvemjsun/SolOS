@@ -80,6 +80,10 @@
       workModules = [
         ./softwares/office.nix
         ./softwares/develop.nix
+        ./softwares/engineering.nix
+      ];
+      creativeModules = [
+        ./softwares/music.nix
       ];
       aaglModules = [
         aagl.nixosModules.default
@@ -97,6 +101,7 @@
             ++ niriModules
             ++ personalModules
             ++ workModules
+            ++ creativeModules
             ++ [
               { networking.hostName = "SolXPS"; }
               ./hardware/devices/XPS13.nix
@@ -113,6 +118,7 @@
             ++ niriModules
             ++ personalModules
             ++ workModules
+            ++ creativeModules
             ++ aaglModules
             ++ [
               { networking.hostName = "SolITX"; }

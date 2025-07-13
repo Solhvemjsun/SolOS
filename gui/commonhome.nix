@@ -79,6 +79,7 @@
       wofi.enable = false;
       hyprlock.enable = false;
       nixvim.enable = false;
+      hyprpaper.enable = false;
     };
   };
 

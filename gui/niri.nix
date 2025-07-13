@@ -19,9 +19,7 @@
   # nixpkgs.overlays = [ niri.overlays.niri ];
   environment.systemPackages = with pkgs; [
     brightnessctl
-    candy-icons
     gamescope
-    hyprpaper
     imv
     kdePackages.polkit-kde-agent-1
     light

@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    helm
-    ardour
+    freecad-wayland
+    kicad
   ];
 }
