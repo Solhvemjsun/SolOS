@@ -104,7 +104,7 @@
             ++ creativeModules
             ++ [
               { networking.hostName = "SolXPS"; }
-              ./device/XPS13/device-specific.nix.nix
+              ./device/XPS13/device-specific.nix
               ./hardware/laptop.nix
             ];
         };
