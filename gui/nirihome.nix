@@ -400,11 +400,9 @@
       splash = false;
       preload = [
         "${../assets/nixos.png}"
-        # "${../assets/sayuki.png}"
       ];
       wallpaper = [
         ",${../assets/nixos.png}"
-        # "HDMI-A-1,${../assets/sayuki.png}"
       ];
     };
   };
