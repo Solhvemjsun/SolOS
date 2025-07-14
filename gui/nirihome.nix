@@ -227,7 +227,6 @@
 
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
-        { command = [ "hyprpaper" ]; }
         { command = [ "mako" ]; }
         {
           command = [ "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" ];
@@ -414,15 +413,15 @@
     enable = true;
     settings = {
       main = {
-        line-height = 32;
+        line-height = 24;
         terminal = "kitty";
         icon-theme = "Sweet-Rainbow";
         layer = "top";
         lines = 15;
-        width = 94;
+        width = 64;
         horizontal-pad = 25;
         inner-pad = 5;
-        dpi-aware = false;
+        dpi-aware = true;
       };
       border = {
         radius = 0;

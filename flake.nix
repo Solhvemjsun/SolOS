@@ -104,7 +104,7 @@
             ++ creativeModules
             ++ [
               { networking.hostName = "SolXPS"; }
-              ./hardware/devices/XPS13.nix
+              ./device/XPS13/device-specific.nix.nix
               ./hardware/laptop.nix
             ];
         };
@@ -122,7 +122,7 @@
             ++ aaglModules
             ++ [
               { networking.hostName = "SolITX"; }
-              ./hardware/devices/MeshlessAIO.nix
+              ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
               ./services/postgresql.nix
@@ -141,7 +141,7 @@
                 networking.hostName = "XuLab";
                 home-manager.users.XuLab = { };
               }
-              ./hardware/devices/XuLab.nix
+              ./device/XuLab/device-specific.nix
               ./users/XuLab.nix
               ./hardware/nvidia.nix
 
@@ -156,7 +156,7 @@
             ++ niriModules
             ++ [
               { networking.hostName = "SolBase"; }
-              ./hardware/devices/SolBase.nix
+              ./device/SolBase/device-specific.nix
               ./services/miniserver.nix
               ./services/ssh.nix
             ];
@@ -173,7 +173,7 @@
             ++ workModules
             ++ [
               { networking.hostName = "MachenikeMini"; }
-              ./hardware/devices/MachenikeMini.nix
+              ./device/MachenikeMini/device-specific.nix
             ];
         };
 
@@ -184,7 +184,7 @@
             ./core/nixos.nix
             ./core/rpi4.nix
             ./users/Sol.nix
-            ./hardware/devices/DarkSol.nix
+            ./device/DarkSol/device-specific.nix
             ./services/ssh.nix
           ];
         };
