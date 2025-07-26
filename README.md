@@ -8,8 +8,12 @@ This is my NixOS configurations for multiple computers includes user space, serv
 
 ## User environment
 
-- Shell: Zsh
-- WM: Hyprland
+- Shell: Fish
+- WM: Niri
+
+- or
+
+- Desktop:KDE
 
 ## Installation
 
