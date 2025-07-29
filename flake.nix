@@ -35,7 +35,7 @@
   outputs =
     {
       nixpkgs,
-      lix-module,
+      # lix-module,
       nixvim,
       home-manager,
       stylix,
@@ -51,7 +51,7 @@
       commonModules = [
         ./core/nixos.nix
         ./users/Sol.nix
-        lix-module.nixosModules.default
+        # lix-module.nixosModules.default
         nixvim.nixosModules.nixvim
         ./softwares/nixvim.nix
         ./softwares/fish.nix
@@ -81,6 +81,7 @@
         ./softwares/office.nix
         ./softwares/develop.nix
         ./softwares/engineering.nix
+        ./softwares/streaming.nix
       ];
       creativeModules = [
         ./softwares/music.nix
@@ -125,7 +126,6 @@
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
-              ./services/postgresql.nix
             ];
         };
 
@@ -185,7 +185,7 @@
             ./core/rpi4.nix
             ./users/Sol.nix
             ./device/DarkSol/device-specific.nix
-            ./services/ssh.nix
+            ./service/ssh.nix
           ];
         };
       };
