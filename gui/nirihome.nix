@@ -173,7 +173,6 @@
           top = 0;
         };
 
-        default-column-width = { };
         default-column-width.proportion = 1. / 2.;
         preset-column-widths = [
           { proportion = 1. / 3.; }
@@ -188,7 +187,7 @@
           { proportion = 1.; }
         ];
         always-center-single-column = true;
-        center-focused-column = "never";
+        center-focused-column = "on-overflow";
         default-column-display = "normal";
         empty-workspace-above-first = false;
       };

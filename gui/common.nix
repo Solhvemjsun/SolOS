@@ -31,11 +31,10 @@
 
     plymouth = {
       enable = true;
-      theme = "dna";
+      # theme = "dna";
+      theme = "green_blocks";
       themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "dna" ];
-        })
+        (adi1090x-plymouth-themes.override { selected_themes = [ "green_blocks" ]; })
       ];
     };
 
