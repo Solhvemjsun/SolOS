@@ -129,7 +129,7 @@
     amberol
     bluetuith
     candy-icons
-    firefox
+    firefox-bin
     geogebra6
     gparted
     vlc
