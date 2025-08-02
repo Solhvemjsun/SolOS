@@ -21,4 +21,8 @@
       obs-vkcapture
     ];
   };
+  environment.systemPackages = with pkgs;[
+    inochi-creator
+    inochi-session
+  ];
 }

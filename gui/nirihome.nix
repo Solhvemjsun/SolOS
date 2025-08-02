@@ -259,17 +259,25 @@
           "Mod+Shift+WheelScrollLeft".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+WheelScrollRight".action = move-column-right-or-to-monitor-right;
 
-          # Move focus with mainMod + WASD
+          # Move focus with mainMod + WASD, Ctrl for monitor
           "Mod+W".action = focus-window-or-workspace-up;
           "Mod+S".action = focus-window-or-workspace-down;
           "Mod+A".action = focus-column-or-monitor-left;
           "Mod+D".action = focus-column-or-monitor-right;
+          "Mod+Ctrl+W".action = focus-monitor-up;
+          "Mod+Ctrl+S".action = focus-monitor-down;
+          "Mod+Ctrl+A".action = focus-monitor-left;
+          "Mod+Ctrl+D".action = focus-monitor-right;
 
-          # Move window with mainMod + shiftMod + WASD
+          # Move window with mainMod + shiftMod + WASD, Ctrl for monitor
           "Mod+Shift+W".action = move-window-up-or-to-workspace-up;
           "Mod+Shift+S".action = move-window-down-or-to-workspace-down;
           "Mod+Shift+A".action = move-column-left-or-to-monitor-left;
           "Mod+Shift+D".action = move-column-right-or-to-monitor-right;
+          "Mod+Ctrl+Shift+W".action = move-column-to-monitor-up;
+          "Mod+Ctrl+Shift+S".action = move-column-to-monitor-down;
+          "Mod+Ctrl+Shift+A".action = move-column-to-monitor-left;
+          "Mod+Ctrl+Shift+D".action = move-column-to-monitor-right;
 
           # Admit/expel window with Mod+Shift+X/C
           "Mod+Shift+X".action = consume-or-expel-window-left;
