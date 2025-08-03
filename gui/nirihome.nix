@@ -32,7 +32,7 @@
         skip-at-startup = true;
       };
       overview = {
-        # zoom = 0.75;
+        zoom = 0.75;
         backdrop-color = "#000000";
       };
 
@@ -149,7 +149,6 @@
             to = "#224488";
             relative-to = "workspace-view";
           };
-          # inactive.color = "#393939"
           # urgent = {};
         };
         focus-ring.enable = false;
@@ -187,7 +186,7 @@
           { proportion = 1.; }
         ];
         always-center-single-column = true;
-        center-focused-column = "on-overflow";
+        center-focused-column = "never";
         default-column-display = "normal";
         empty-workspace-above-first = false;
       };
@@ -244,7 +243,7 @@
       binds =
         with config.lib.niri.actions;
         let
-          exec = spawn "sh" "-c";
+          exec = spawn "fish" "-c";
         in
         {
           # Move focus with mouse scroller
@@ -317,7 +316,7 @@
 
           # Open and close windows
           "Mod+Q".action = close-window;
-          "Mod+E".action = exec "fuzzel";
+          "Mod+E".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
           "Mod+T".action = spawn "kitty";
           "Mod+Return".action = spawn "kitty";
 
@@ -418,15 +417,15 @@
     enable = true;
     settings = {
       main = {
-        line-height = 24;
+        line-height = 32;
         terminal = "kitty";
         icon-theme = "Sweet-Rainbow";
         layer = "top";
-        lines = 15;
-        width = 64;
+        lines = 10;
+        width = 65;
         horizontal-pad = 25;
         inner-pad = 5;
-        dpi-aware = true;
+        dpi-aware = "true";
       };
       border = {
         radius = 0;

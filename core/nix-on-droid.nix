@@ -53,7 +53,7 @@
       #   ./home.nix
       # ];
     };
-    backupFileExtension = "old";
+    backupFileExtension = "$(date).backup";
     useGlobalPkgs = true;
   };
 

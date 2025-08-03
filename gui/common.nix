@@ -7,7 +7,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    backupFileExtension = "back";
+    backupFileExtension = "$(date).back";
     sharedModules = [
       ./home.nix
       ./commonhome.nix
@@ -174,6 +174,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.symbols-only
+    nerd-fonts.fira-code
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji

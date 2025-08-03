@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   #########
@@ -18,7 +23,10 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "x-terminal-emulator" = ["kitty.desktop"];
+        "x-terminal-emulator" = [ "kitty.desktop" ];
+        "video/mp4" = "org.kde.haruna.desktop";
+        "video/x-matroska" = "org.kde.haruna.desktop";
+        "video/avi" = "org.kde.haruna.desktop";
       };
     };
   };
