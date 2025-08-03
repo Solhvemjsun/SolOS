@@ -18,6 +18,7 @@
 
   # nixpkgs.overlays = [ niri.overlays.niri ];
   environment.systemPackages = with pkgs; [
+    astal-shell
     brightnessctl
     gamescope
     imv

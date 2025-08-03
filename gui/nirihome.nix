@@ -226,6 +226,7 @@
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
         { command = [ "mako" ]; }
+        { command = [ "astal-shell" ]; }
         {
           command = [ "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" ];
         }

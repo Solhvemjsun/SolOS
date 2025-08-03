@@ -22,6 +22,8 @@
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
+    astal-shell.url = "github:knoopx/ags";
+
     plasma-manager.url = "github:nix-community/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -41,6 +43,7 @@
       stylix,
       minegrub-theme,
       niri,
+      astal-shell,
       plasma-manager,
       nix-on-droid,
       aagl,
@@ -65,6 +68,7 @@
       ];
       niriModules = [
         ./gui/niri.nix
+        { nixpkgs.overlays = [ astal-shell.overlays.default ]; }
         { home-manager.sharedModules = [ niri.homeModules.niri ]; }
       ];
       kdeModules = [
