@@ -25,6 +25,7 @@
     kdePackages.polkit-kde-agent-1
     light
     mako
+    networkmanagerapplet
     pamixer
     playerctl
     seahorse

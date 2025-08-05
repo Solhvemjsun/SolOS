@@ -15,6 +15,8 @@
 
   powerManagement.enable = true;
 
+  networking.networkmanager.wifi.powersave = true;
+
   services.thermald.enable = true; # Prevents CPU from overheating
 
   services.auto-cpufreq = {
@@ -34,26 +36,6 @@
       };
     };
   };
-
-  ##############
-  ## AUTO DIM ##
-  ##############
-
-  # home-manager.sharedModules = [
-  #   {
-  #     services.hypridle.listener = [
-  #       {
-  #         timeout = 900;
-  #         on-timeout = "hyprlock";
-  #       }
-  #       {
-  #         timeout = 1200;
-  #         on-timeout = "hyprctl dispatch dpms off";
-  #         on-resume = "hyprctl dispatch dpms on";
-  #       }
-  #     ];
-  #   }
-  # ];
 
   ############################
   ## LOW POWER NOTIFICATION ##
