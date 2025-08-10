@@ -2,6 +2,9 @@
 
 {
   imports = [ ./hardware-configuration.nix ];
+
+  networking.hostName = "SolITX";
+
   home-manager.sharedModules = [
     {
       programs.niri = {
@@ -21,6 +24,7 @@
           wallpaper = lib.mkForce [
             ",${../../assets/nixos.png}"
             "HDMI-A-1,${../../assets/sayuki.png}"
+            "DP-3,${../../assets/nhk.jpg}"
           ];
         };
       };

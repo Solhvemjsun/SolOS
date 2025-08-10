@@ -56,8 +56,8 @@
         ./users/Sol.nix
         # lix-module.nixosModules.default
         nixvim.nixosModules.nixvim
-        ./softwares/nixvim.nix
-        ./softwares/fish.nix
+        ./tui/fish.nix
+        ./tui/nixvim.nix
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
@@ -108,7 +108,6 @@
             ++ workModules
             ++ creativeModules
             ++ [
-              { networking.hostName = "SolXPS"; }
               ./device/XPS13/device-specific.nix
               ./hardware/laptop.nix
             ];
@@ -126,7 +125,6 @@
             ++ creativeModules
             ++ aaglModules
             ++ [
-              { networking.hostName = "SolITX"; }
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
@@ -141,14 +139,9 @@
             ++ niriModules
             ++ workModules
             ++ [
-              {
-                networking.hostName = "XuLab";
-                home-manager.users.XuLab = { };
-              }
               ./device/XuLab/device-specific.nix
               ./users/XuLab.nix
               ./hardware/nvidia.nix
-
             ];
         };
 
@@ -159,7 +152,7 @@
             ++ guiModules
             ++ niriModules
             ++ [
-              { networking.hostName = "SolBase"; }
+              {  }
               ./device/SolBase/device-specific.nix
               ./services/miniserver.nix
               ./services/ssh.nix
@@ -176,7 +169,6 @@
             ++ personalModules
             ++ workModules
             ++ [
-              { networking.hostName = "MachenikeMini"; }
               ./device/MachenikeMini/device-specific.nix
             ];
         };
@@ -184,10 +176,7 @@
         "DarkSol" = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = commonModules ++ [
-            { networking.hostName = "DarkSol"; }
-            ./core/nixos.nix
             ./core/rpi4.nix
-            ./users/Sol.nix
             ./device/DarkSol/device-specific.nix
             ./service/ssh.nix
           ];
