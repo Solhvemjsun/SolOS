@@ -279,13 +279,13 @@
           "Mod+Ctrl+Shift+A".action = move-column-to-monitor-left;
           "Mod+Ctrl+Shift+D".action = move-column-to-monitor-right;
 
-          # Admit/expel window with Mod+Shift+X/C
-          "Mod+Shift+X".action = consume-or-expel-window-left;
-          "Mod+Shift+C".action = consume-or-expel-window-right;
+          # Admit/expel window with Mod+Shift + Z/X
+          "Mod+Shift+Z".action = consume-or-expel-window-left;
+          "Mod+Shift+X".action = consume-or-expel-window-right;
 
-          # Resize window with mainMod + XCF
-          "Mod+X".action = switch-preset-window-height;
-          "Mod+C".action = switch-preset-column-width;
+          # Resize window with mainMod + Z/X
+          "Mod+Z".action = switch-preset-window-height;
+          "Mod+X".action = switch-preset-column-width;
 
           "Mod+F".action = fullscreen-window;
           "Mod+Shift+F".action = toggle-window-floating;
@@ -318,6 +318,7 @@
           # Open and close windows
           "Mod+Q".action = close-window;
           "Mod+E".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
+          "Mod+Shift+E".action = exec "kitty -e yazi";
           "Mod+T".action = spawn "kitty";
           "Mod+Return".action = spawn "kitty";
 
