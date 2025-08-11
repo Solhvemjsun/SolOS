@@ -58,6 +58,7 @@
         nixvim.nixosModules.nixvim
         ./tui/fish.nix
         ./tui/nixvim.nix
+        ./tui/yazi.nix
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
