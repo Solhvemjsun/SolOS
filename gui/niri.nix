@@ -31,9 +31,6 @@
     seahorse
     selectdefaultapplication
     slurp
-    waybar
-    wayvnc
-    wl-screenrec
     xwayland-satellite
     zathura
   ];
