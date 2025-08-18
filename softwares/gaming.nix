@@ -1,14 +1,17 @@
-{ config, lib, pkgs, ...}:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     hmcl
-    jdk8
-    # retroarch
-    # ruffle
+    prismlauncher
+    zulu8
     steam-run
     xorg.xrandr
   ];
+
+  environment.variables = {
+    JAVA_HOME = pkgs.jdk21;
+  };
 
   programs.steam = {
     enable = true;
