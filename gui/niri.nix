@@ -20,6 +20,7 @@
   environment.systemPackages = with pkgs; [
     astal-shell
     brightnessctl
+    cosmic-files
     gamescope
     imv
     kdePackages.polkit-kde-agent-1
