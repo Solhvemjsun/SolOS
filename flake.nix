@@ -1,5 +1,5 @@
 {
-  description = "Sol's OS, Fiat Nix";
+  description = "Sol's OS, Fiat Nix!";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -29,9 +29,6 @@
 
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
-
-    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
-    aagl.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -46,7 +43,6 @@
       astal-shell,
       plasma-manager,
       nix-on-droid,
-      aagl,
       ...
     }:
     let
@@ -91,13 +87,8 @@
       creativeModules = [
         ./softwares/music.nix
       ];
-      aaglModules = [
-        aagl.nixosModules.default
-        ./softwares/aagl.nix
-      ];
     in
     {
-
       nixosConfigurations = {
         "SolXPS" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -124,7 +115,6 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
-            ++ aaglModules
             ++ [
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
@@ -200,20 +190,32 @@
       };
 
       devShells = {
-        "x86_64-linux".default = pkgs.mkShell {
-          NIX_CONFIG = "extra-experimental-features = nix-command flakes";
-          nativeBuildInputs = with pkgs; [
-            nh
-            git
-            openssh
-            gnumake
-          ];
-          shellHook = ''
-            echo "Fiat Nix!"
-            vim ./
-          '';
+        "x86_64-linux" = {
+          default = pkgs.mkShell {
+            NIX_CONFIG = "extra-experimental-features = nix-command flakes";
+            nativeBuildInputs = with pkgs; [
+              nh
+              git
+              openssh
+              gnumake
+            ];
+            shellHook = ''
+              echo "Fiat Nix!"
+            '';
+          };
+          BCI = pkgs.mkShell {
+            NIX_CONFIG = "extra-experimental-features = nix-command flakes";
+            nativeBuildInputs = with pkgs; [
+              brainflow
+              cargo
+              rustc
+            ];
+            shellHook = ''
+              echo "Fiat Nix!"
+              vim ./
+            '';
+          };
         };
       };
-
     };
 }
