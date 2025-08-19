@@ -57,3 +57,19 @@ $ nix-on-droid switch --flake .
         </p>
     </figcaption>
 </figure>
+
+## Future steps
+
+### Brain-Machine-Interface
+
+OpenBCI interaction for niri window manager
+
+### EZ deploy & use
+
+Clear structure and i18n documentation;
+
+Modularize, multiple DE/WM support, customization modules;
+
+### Black Hole Wallpaper
+
+Use Real-time-simulated Black Hole as wallpaper
