@@ -20,12 +20,12 @@
           preload = lib.mkForce [
             "${../../assets/nixos.png}"
             "${../../assets/sayuki.jpg}"
-            "${../../assets/nhk.jpg}"
+            # "${../../assets/nhk.jpg}"
           ];
           wallpaper = lib.mkForce [
             ",${../../assets/nixos.png}"
             "HDMI-A-1,${../../assets/sayuki.jpg}"
-            "DP-3,${../../assets/nhk.jpg}"
+            # "DP-3,${../../assets/nhk.jpg}"
           ];
         };
       };
