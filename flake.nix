@@ -156,6 +156,7 @@
               ./device/SolBase/device-specific.nix
               ./services/miniserver.nix
               ./services/ssh.nix
+              ./service/mcbugus.nix
             ];
         };
 
