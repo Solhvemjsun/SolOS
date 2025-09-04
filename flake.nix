@@ -4,8 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
 
-    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
-    lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    # lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
+    # lix-module.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +27,8 @@
     plasma-manager.url = "github:nix-community/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
     nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -42,6 +44,7 @@
       niri,
       astal-shell,
       plasma-manager,
+      nix-minecraft,
       nix-on-droid,
       ...
     }:
@@ -87,6 +90,10 @@
       creativeModules = [
         ./softwares/music.nix
       ];
+      mcserverModules = [
+        nix-minecraft.nixosModules.minecraft-servers
+        { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
+      ];
     in
     {
       nixosConfigurations = {
@@ -115,10 +122,12 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
+            ++ mcserverModules
             ++ [
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
+              ./service/mcbugus.nix
             ];
         };
 
@@ -143,7 +152,7 @@
             ++ guiModules
             ++ niriModules
             ++ [
-              {  }
+              { }
               ./device/SolBase/device-specific.nix
               ./services/miniserver.nix
               ./services/ssh.nix
