@@ -151,11 +151,12 @@
             commonModules
             ++ guiModules
             ++ niriModules
+            ++ mcserverModules
             ++ [
               { }
               ./device/SolBase/device-specific.nix
-              ./services/miniserver.nix
-              ./services/ssh.nix
+              ./service/miniserver.nix
+              ./service/ssh.nix
               ./service/mcbugus.nix
             ];
         };
