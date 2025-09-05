@@ -122,12 +122,12 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
-            ++ mcserverModules
+            # ++ mcserverModules
             ++ [
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
-              ./service/mcbugus.nix
+              # ./service/mcbugus.nix
             ];
         };
 

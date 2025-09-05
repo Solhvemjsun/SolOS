@@ -7,13 +7,30 @@
 
 {
   # MCBUGUS Via nix-minecraft
-  # To-Do: use packwiz for client
   services.minecraft-servers = {
     enable = true;
+    dataDir = /srv/minecraft/;
+    runDir = /run/minecraft/;
+
     eula = true;
     openFirewall = true;
     servers.mcbugus = {
       enable = true;
+      autostart = true;
+      openFirewall = true;
+      restart = "always";
+      enableReload = true;
+      serverProperties = {
+        server-port = 25565;
+        difficulty = 3;
+        gamemode = 0;
+        max-players = 2021;
+        motd = "Fiat Lux";
+        white-list = false;
+        enable-rcon = false;
+      };
+      # jvmOpts = "";
+
 
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_20_1.override {
@@ -99,9 +116,6 @@
             #################
             ## Multiplayer ##
             #################
-            #   ChatImage https://www.mcmod.cn/class/9111.html
-            #   ScreenshotSharing https://www.mcmod.cn/class/13916.html
-
             # So Microsoft, FUCK YOU.
             No-Chat-Reports = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/qQyHxfxd/versions/HeZZR2kF/NoChatReports-FABRIC-1.20.1-v2.2.2.jar";
@@ -114,7 +128,7 @@
             TeaBridge = pkgs.fetchurl {
               url = "https://cdn.modrinth.com/data/fhtWl3kP/versions/eDlnpfHd/teabridge-1.2.3-mc1.20.1-rev.e345de2.jar";
               sha512 = "fea739b73b4d8981eaed3859162622368e3da57eb94c2a34a4ec94a655f0199bdb834914b567b31290fed0e6de766edb2cd6c3eb479fa68e37a5fe83b97058c8";
-            }; # Server-Only
+            };
 
             ################
             ## Multimedia ##
