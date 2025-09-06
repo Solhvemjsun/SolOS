@@ -21,13 +21,23 @@
       restart = "always";
       enableReload = true;
       serverProperties = {
+        allow-flight = true;
         server-port = 25565;
-        difficulty = 3;
+        difficulty = 2;
+        enable-command-block = true;
+        enable-query = true;
+        enable-status = true;
+        enable-secure-profile = false;
+        enforce-whitelist = false;
         gamemode = 0;
-        max-players = 2021;
-        motd = "Fiat Lux";
-        white-list = false;
+        motd = "§l§6Fiat Lux";
         enable-rcon = false;
+        level-name = "world";
+        level-seed = "Liberty";
+        level-type = "minecraft:normal";
+        max-players = 2021;
+        online-mode = false;
+        white-list = false;
       };
       # jvmOpts = "";
 
