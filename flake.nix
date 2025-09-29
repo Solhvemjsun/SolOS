@@ -183,6 +183,18 @@
             ./service/ssh.nix
           ];
         };
+
+        "Template" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux"; # Your CPU Architecture
+          modules = commonModules
+          ++ guiModules
+          ++ niriModules
+          # ++ The other modules you want
+          ++ [
+            ./device/Template/device-specific.nix # Your device
+            # ./hardware/nvidia.nix # If you have Nvidia card
+          ];
+        };
       };
 
       nixOnDroidConfigurations = {
