@@ -8,9 +8,9 @@
 
     # optional Nvidia hardware acceleration
     package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
+      pkgs.obs-studio # .override {
+      #   cudaSupport = true;
+      # }
     );
 
     plugins = with pkgs.obs-studio-plugins; [

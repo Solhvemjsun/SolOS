@@ -131,7 +131,7 @@
     isoimagewriter
     kiwix
     libnotify
-    libsForQt5.kamoso
+    kdePackages.kamoso
     kdePackages.okular
     mediainfo-gui
     neovide
