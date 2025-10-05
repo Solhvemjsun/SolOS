@@ -157,7 +157,9 @@
               ./device/SolBase/device-specific.nix
               ./service/miniserver.nix
               ./service/ssh.nix
-              ./service/mcbugus.nix
+              ./service/minecraft/nix-minecraft.nix
+              ./service/minecraft/mcbugus.nix
+              ./service/minecraft/wgcuci.nix
             ];
         };
 
