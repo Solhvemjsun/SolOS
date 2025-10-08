@@ -1,0 +1,5 @@
+{ pkgs, ... }:
+
+{
+  wsl.enable = true;
+}

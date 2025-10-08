@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
 
+    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
+    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     # lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
     # lix-module.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,14 +33,13 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       nixpkgs,
+      nix-on-droid,
+      nixos-wsl,
       # lix-module,
       nixvim,
       home-manager,
@@ -45,7 +49,6 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
-      nix-on-droid,
       ...
     }:
     let
@@ -58,6 +61,10 @@
         ./tui/fish.nix
         ./tui/nixvim.nix
         ./tui/yazi.nix
+      ];
+      wslModules = [
+        nixos-wsl.nixosModules.default
+        ./core/wsl.nix
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
@@ -109,6 +116,7 @@
             ++ [
               ./device/XPS13/device-specific.nix
               ./hardware/laptop.nix
+              ./service/postgresql.nix
             ];
         };
 
@@ -185,6 +193,15 @@
             ./service/ssh.nix
           ];
         };
+
+        # "NixOS-WSL" = nixpkgs.lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   modules = [
+        #     wslModules
+        #     ++ commonModules
+        #     ++ workModules
+        #   ];
+        # };
 
         "Template" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux"; # Your CPU Architecture
