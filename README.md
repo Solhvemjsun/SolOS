@@ -25,11 +25,13 @@ Full WSL support, custom installation image and KDE support for researchers to r
 
 1. Download & install [NixOS](https://nixos.org/download/) on your machine, minimal ISO image preferred if you are familliar with linux CLI
 
+
 2. Clone this and get in the repo:
 ```console
 $ git clone https://github.com/Solhvemjsun/SolOS
 $ cd SolOS
 ```
+
 
 3. Copy the template folder in /devices for your device, user, and cusomization settings
 ```console
@@ -37,15 +39,18 @@ $ cp -r ./devices//template ./devices/<hostName>
 $ cp /etc/nixos/hardware-configuration.nix ./devices/<hostName>/hardware-configuration.nix
 ```
 
+
 4. Add the entry of your device with the required modules in the flake.nix using the simmilar format as other entries
 ```console
 $ nvim fake.nix
 ```
 
+
 5. Switch to the SolOS config
 ```console
 $ sudo nixos-rebuild switch --flake .#DarkSol
 ```
+
 
 6. Or install with the config you need in flake.nix:
 ```console
@@ -61,9 +66,12 @@ $ sudo nixos-install --root /mnt --flake .#<hostName>
 wsl --install --no-distribution
 ```
 
+
 2. Download the prebuilt tarball [WIP] from the releases page in this repo
 
+
 3. Double click the file you just installed to start the installation of it
+
 
 4. You can now run NixOS from the windows PowerShell using:
 ```console
