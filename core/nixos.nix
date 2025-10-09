@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   #########
@@ -28,7 +28,7 @@
         efiSysMountPoint = "/boot";
       };
       grub = {
-        enable = true;
+        enable = lib.mkDefault true;
         efiSupport = true;
         devices = [ "nodev" ];
       };
@@ -63,7 +63,6 @@
     git
     gnumake
     openssh
-    ranger
     tree
     tty-clock
     unzip

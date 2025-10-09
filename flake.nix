@@ -194,25 +194,28 @@
           ];
         };
 
-        # "NixOS-WSL" = nixpkgs.lib.nixosSystem {
-        #   system = "x86_64-linux";
-        #   modules = [
-        #     wslModules
-        #     ++ commonModules
-        #     ++ workModules
-        #   ];
-        # };
+        "SolOS-WSL" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules =
+            commonModules
+            ++ wslModules
+            ++ workModules
+            ++ [
+              ./device/WSL/device-specific.nix
+            ];
+        };
 
         "Template" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux"; # Your CPU Architecture
-          modules = commonModules
-          ++ guiModules
-          ++ niriModules
-          # ++ The other modules you want
-          ++ [
-            ./device/Template/device-specific.nix # Your device
-            # ./hardware/nvidia.nix # If you have Nvidia card
-          ];
+          modules =
+            commonModules
+            ++ guiModules
+            ++ niriModules
+            # ++ The other modules you want
+            ++ [
+              ./device/Template/device-specific.nix # Your device
+              # ./hardware/nvidia.nix # If you have Nvidia card
+            ];
         };
       };
 

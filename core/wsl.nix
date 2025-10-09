@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  wsl.enable = true;
+  wsl = {
+    enable = true;
+    defaultUser = "SolOS";
+  };
 }
