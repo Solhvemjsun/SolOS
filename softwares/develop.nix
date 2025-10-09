@@ -42,6 +42,7 @@
     # Art
     inkscape
     krita
+    shotcut
     tree-sitter
 
   ];
