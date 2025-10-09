@@ -22,6 +22,13 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    silent = false;
+    loadInNixShell = true;
+    nix-direnv.enable = true;
+  };
+
   programs.starship = {
     enable = true;
     settings = {
