@@ -6,7 +6,9 @@ Fiat Lux!
 
 This is my NixOS configurations for multiple computers includes user space, server and dev boards.
 
-For now, I'm trying to combine the blazing fast & smooth experience of window managers and the power of BMI EEG sensor, to cover all the basic operations in OS interaction, Gaming and even more.
+For now, I'm trying to combine the blazing fast & smooth experience of niri window manager and the power of BMI EEG sensor, to cover all the basic operations in OS interaction, Gaming and even more.
+
+Full WSL support, custom installation image and KDE support for researchers to run nix packed softwares are WIP too.
 
 ## Default System & Desktop environment
 
