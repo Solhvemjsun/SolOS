@@ -3,5 +3,5 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  networking.hostName = "SolITX";
+  networking.hostName = "XuLab";
 }
