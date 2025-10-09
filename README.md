@@ -85,6 +85,17 @@ $ cd SolOS
 $ nix-on-droid switch --flake .
 ```
 
+## Build your customized installer
+
+### Build the drive .iso image for installation
+
+[WIP]
+
+### Build the WSL tarball
+```console
+sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder
+```
+
 ## Wallpaper
 
 ### NixOS
