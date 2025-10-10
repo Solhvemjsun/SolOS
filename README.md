@@ -21,7 +21,7 @@ Full WSL support, custom installation image and KDE support for researchers to r
 ## Installation
 <details>
 
-<summary>To Directly install on your machine:</summary>
+<summary>Directly install on your machine:</summary>
 
 1. Download & install [NixOS](https://nixos.org/download/) on your machine, minimal ISO image preferred if you are familliar with linux CLI
 
@@ -54,7 +54,7 @@ $ sudo nixos-install --root /mnt --flake .#<hostName>
 </details>
 
 <details>
-<summary>To Install as WSL on Windows:</summary>
+<summary>Install via WSL on top of Windows:</summary>
 
 1. Enable WSL in your Windows PowerShell runned as Administrator:
 ```console
