@@ -1,4 +1,4 @@
 .PHONY: update
 update:
 	git add .
-	nh os switch ./
+	nh os switch '.?submodules=1' 
