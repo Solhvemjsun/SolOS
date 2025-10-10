@@ -91,6 +91,15 @@ $ cd SolOS
 $ nix-on-droid switch --flake .
 ```
 
+## Use your own private config repo as submodule
+
+```console
+cd private
+git submodule add <url-of-the-submodule-repo> <directory-of-the-submodule>
+git submodule update --init --recursive
+make
+```
+
 ## Build your customized installer
 
 ### Build the drive .iso image for installation
