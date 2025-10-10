@@ -91,7 +91,7 @@ $ cd SolOS
 $ nix-on-droid switch --flake .
 ```
 
-## Use your own private config repo as submodule
+## Use your config repo as submodule
 
 ```console
 cd private
