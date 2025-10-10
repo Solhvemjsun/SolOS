@@ -1,0 +1,3 @@
+[submodule "private/SolOS_Private"]
+	path = private/SolOS_Private
+	url = https://github.com/Solhvemjsun/SolOS_Private
