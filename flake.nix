@@ -162,7 +162,7 @@
             ++ mcserverModules
             ++ [
               ./device/SolBase/device-specific.nix
-              ./private/SolOS_Private/miniserver.nix
+              (import ./private/SolOS_Private/miniserver.nix)
               ./service/ssh.nix
               ./service/minecraft/nix-minecraft.nix
               ./service/minecraft/mcbugus.nix
