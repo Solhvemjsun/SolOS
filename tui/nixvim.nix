@@ -70,9 +70,11 @@
         enable = true;
         autoClose = false;
         openOnSetup = true;
-        hijackUnnamedBufferWhenOpening = true;
-        disableNetrw = true;
-        hijackNetrw = true;
+        settings = {
+          hijackUnnamedBufferWhenOpening = true;
+          disableNetrw = true;
+          hijackNetrw = true;
+        };
       };
 
       telescope.enable = true;
@@ -138,7 +140,7 @@
 
       lspsaga = {
         enable = true;
-        beacon.enable = true;
+        settings.beacon.enable = true;
       };
 
       autosource.enable = true;
