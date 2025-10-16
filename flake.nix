@@ -62,10 +62,6 @@
         ./tui/nixvim.nix
         ./tui/yazi.nix
       ];
-      wslModules = [
-        nixos-wsl.nixosModules.default
-        ./core/wsl.nix
-      ];
       guiModules = [
         minegrub-theme.nixosModules.default
         home-manager.nixosModules.home-manager
@@ -197,9 +193,10 @@
           system = "x86_64-linux";
           modules =
             commonModules
-            ++ wslModules
             ++ workModules
             ++ [
+              nixos-wsl.nixosModules.default
+              ./core/wsl.nix
               ./device/WSL/device-specific.nix
             ];
         };
