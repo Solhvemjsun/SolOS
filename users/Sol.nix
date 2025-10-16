@@ -1,8 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
 {
   users.users.Sol = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "networkmanager" ];
+    extraGroups = [
+      "input"
+      "wheel"
+      "audio"
+      "networkmanager"
+    ];
   };
 }
