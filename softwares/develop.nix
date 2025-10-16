@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   ###############
@@ -26,7 +26,7 @@
 
     # LSP
     # pyright
-    nodePackages.typescript-language-server
+    # nodePackages.typescript-language-server
 
     # Nix
     nixfmt-rfc-style
@@ -44,6 +44,10 @@
     krita
     shotcut
     tree-sitter
+
+    # SolOS & Orchestr
+    jstest-gtk
+    opentrack
 
   ];
 }
