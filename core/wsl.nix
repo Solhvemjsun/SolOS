@@ -3,6 +3,5 @@
 {
   wsl = {
     enable = true;
-    defaultUser = "SolOS";
   };
 }
