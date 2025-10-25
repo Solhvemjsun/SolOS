@@ -33,6 +33,8 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    talon-nix.url = "github:nix-community/talon-nix";
   };
 
   outputs =
@@ -49,6 +51,7 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
+      talon-nix,
       ...
     }:
     let
@@ -97,6 +100,9 @@
         nix-minecraft.nixosModules.minecraft-servers
         { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
       ];
+      oprainModules = [
+        talon-nix.nixosModules.talon
+      ];
     in
     {
       nixosConfigurations = {
@@ -109,10 +115,12 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
+            ++ oprainModules
             ++ [
               ./device/XPS13/device-specific.nix
               ./hardware/laptop.nix
               ./service/postgresql.nix
+              ./oprain/eyetrack.nix
             ];
         };
 
