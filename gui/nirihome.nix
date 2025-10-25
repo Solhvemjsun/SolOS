@@ -317,6 +317,7 @@
 
           # Open and close windows
           "Mod+Q".action = close-window;
+          # "Mod+Super_L".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
           "Mod+E".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
           "Mod+Shift+E".action = exec "kitty -e yazi";
           "Mod+T".action = spawn "kitty";
