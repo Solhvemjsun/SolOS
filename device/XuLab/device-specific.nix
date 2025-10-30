@@ -11,4 +11,9 @@
       size = 1024*1024;
     }
   ];
+
+  fileSystems."/mnt/datafx4t" = {
+    device = "/dev/disk/by-uuid/4F1746A15594B0F9";
+    fsType = "ntfs";
+  };
 }
