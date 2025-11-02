@@ -45,9 +45,5 @@
     shotcut
     tree-sitter
 
-    # SolOS & Orchestr
-    jstest-gtk
-    opentrack
-
   ];
 }

@@ -134,11 +134,14 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
+            ++ oprainModules
             # ++ mcserverModules
             ++ [
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
+              ./mods/oprain/eyetrack.nix
+              ./mods/oprain/llm.nix
               # ./service/mcbugus.nix
             ];
         };
