@@ -82,7 +82,7 @@ $ make
 
 For WSL:
 ```console
-sudo nixos-rebuild boot [or related NH command in]
+make wsl
 ```
 
 For nix-on-droid app:
