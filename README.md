@@ -61,7 +61,7 @@ $ sudo nixos-install --root /mnt --flake .#<hostName>
 wsl --install --no-distribution
 ```
 
-2. Download the prebuilt tarball [WIP] from the releases page in this repo
+2. Download the [prebuilt tarball](https://drive.google.com/drive/folders/1vHANxtFfiMwdbDAC7DEhyuvuqceMxRLn?usp=sharing) from the releases page in this repo
 
 3. Double click the file you just installed to start the installation of it
 
