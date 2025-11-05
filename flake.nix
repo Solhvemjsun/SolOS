@@ -78,7 +78,7 @@
         { home-manager.sharedModules = [ niri.homeModules.niri ]; }
       ];
       kdeModules = [
-        { home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ]; }
+        { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
         ./gui/kde.nix
       ];
       personalModules = [
@@ -183,7 +183,6 @@
             commonModules
             ++ guiModules
             ++ kdeModules
-            ++ niriModules
             ++ personalModules
             ++ workModules
             ++ [
