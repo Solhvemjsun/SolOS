@@ -121,6 +121,7 @@
               ./hardware/laptop.nix
               ./service/postgresql.nix
               ./oprain/eyetrack.nix
+              ./mods/oprain/3d_p1s.nix
             ];
         };
 
@@ -142,6 +143,7 @@
               ./hardware/health.nix
               ./mods/oprain/eyetrack.nix
               ./mods/oprain/llm.nix
+              ./mods/oprain/3d_p1s.nix
               # ./service/mcbugus.nix
             ];
         };
