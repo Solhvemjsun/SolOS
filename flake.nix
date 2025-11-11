@@ -144,6 +144,7 @@
               ./mods/oprain/eyetrack.nix
               ./mods/oprain/llm.nix
               ./mods/oprain/3d_p1s.nix
+              ./mods/oprain/brainflow.nix
               # ./service/mcbugus.nix
             ];
         };
