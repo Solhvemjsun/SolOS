@@ -317,7 +317,6 @@
 
           # Open and close windows
           "Mod+Q".action = close-window;
-          # "Mod+Super_L".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
           "Mod+E".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
           "Mod+Shift+E".action = exec "kitty -e yazi";
           "Mod+T".action = spawn "kitty";
@@ -341,9 +340,9 @@
           "XF86MonBrightnessUp".action =
             exec "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
 
-          "Print".action = screenshot { show-pointer = false; };
-          "Shift+Print".action = screenshot { show-pointer = true; };
-          "Mod+Print".action = screenshot-window { write-to-disk = true; };
+          # "Print".action = screenshot { show-pointer = false; };
+          # "Shift+Print".action = screenshot { show-pointer = true; };
+          # "Mod+Print".action = screenshot-window { write-to-disk = true; };
 
           "XF86Display".action = suspend;
 
