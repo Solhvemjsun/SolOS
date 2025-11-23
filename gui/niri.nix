@@ -18,7 +18,6 @@
 
   # nixpkgs.overlays = [ niri.overlays.niri ];
   environment.systemPackages = with pkgs; [
-    astal-shell
     brightnessctl
     cosmic-files
     gamescope

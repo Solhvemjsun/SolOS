@@ -19,7 +19,7 @@
       };
 
       prefer-no-csd = true;
-      screenshot-path = "~/Nextcloud/Pictures/Screenshots/Screenshot_from_from %Y-%m-%d %H-%M-%S.png";
+      screenshot-path = "~/Nextcloud/Pictures/Screenshots/Screenshot_%Y-%m-%d %H-%M-%S.png";
 
       # xwayland-satellite = {
       #   enable = true;
@@ -340,6 +340,8 @@
           "XF86MonBrightnessUp".action =
             exec "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
 
+          "Print".action =
+            exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';
           # "Print".action = screenshot { show-pointer = false; };
           # "Shift+Print".action = screenshot { show-pointer = true; };
           # "Mod+Print".action = screenshot-window { write-to-disk = true; };
