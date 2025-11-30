@@ -74,7 +74,7 @@
       ];
       niriModules = [
         ./gui/niri.nix
-        { nixpkgs.overlays = [ astal-shell.overlays.default ]; }
+        # { nixpkgs.overlays = [ astal-shell.overlays.default ]; }
         { home-manager.sharedModules = [ niri.homeModules.niri ]; }
       ];
       kdeModules = [
@@ -121,6 +121,7 @@
               ./hardware/laptop.nix
               ./service/postgresql.nix
               ./oprain/eyetrack.nix
+              ./mods/oprain/3d_p1s.nix
             ];
         };
 
@@ -142,6 +143,8 @@
               ./hardware/health.nix
               ./mods/oprain/eyetrack.nix
               ./mods/oprain/llm.nix
+              ./mods/oprain/3d_p1s.nix
+              ./mods/oprain/brainflow.nix
               # ./service/mcbugus.nix
             ];
         };
