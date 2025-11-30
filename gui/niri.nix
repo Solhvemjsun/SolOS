@@ -4,6 +4,12 @@
 }:
 
 {
+  #############
+  ## GREETER ##
+  #############
+
+  services.displayManager.defaultSession = "niri";
+
   ##################
   ## HOME MANAGER ##
   ##################
