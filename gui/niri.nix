@@ -19,8 +19,8 @@
   # nixpkgs.overlays = [ niri.overlays.niri ];
   environment.systemPackages = with pkgs; [
     brightnessctl
-    cosmic-files
     gamescope
+    grim
     imv
     kdePackages.polkit-kde-agent-1
     light
@@ -31,6 +31,7 @@
     seahorse
     selectdefaultapplication
     slurp
+    wl-clipboard-rs
     xwayland-satellite
     zathura
   ];
