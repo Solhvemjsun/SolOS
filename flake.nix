@@ -49,7 +49,6 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
-      talon-nix,
       ...
     }:
     let
