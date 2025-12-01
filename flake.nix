@@ -74,8 +74,10 @@
       ];
       niriModules = [
         ./gui/niri.nix
-        # { nixpkgs.overlays = [ astal-shell.overlays.default ]; }
-        { home-manager.sharedModules = [ niri.homeModules.niri ]; }
+        {
+          nixpkgs.overlays = [ niri.overlays.niri ];
+          home-manager.sharedModules = [ niri.homeModules.niri ];
+        }
       ];
       kdeModules = [
         { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
