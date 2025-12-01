@@ -1,4 +1,9 @@
-{ pkgs, plasma-manager, ... }:
+{
+  lib,
+  pkgs,
+  plasma-manager,
+  ...
+}:
 
 {
   ##########
@@ -6,6 +11,8 @@
   ##########
 
   # services.xserver.enable = true; # optional
+  services.displayManager.sddm.enable = true;
+  services.greetd.enable = false;
 
   ##############
   ## PLASMA 6 ##

@@ -53,23 +53,22 @@
   };
 
   #############
-  ## Greeter ##
+  ## GREETER ##
   #############
 
-  # services.displayManager = {
-  #   defaultSession = "niri";
-  #   sddm = {
-  #     enable = true;
-  #     wayland.enable = true;
-  #     theme = "where_is_my_sddm_theme";
-  #     settings = {
-  #       General.DisplayServer = "wayland";
-  #     };
-  #   };
-  # };
+  services.displayManager = {
+    sddm = {
+      enable = lib.mkDefault false;
+      wayland.enable = true;
+      theme = "where_is_my_sddm_theme";
+      settings = {
+        General.DisplayServer = "wayland";
+      };
+    };
+  };
 
   services.greetd = {
-    enable = true;
+    enable = lib.mkDefault true;
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;'--cmd niri";
