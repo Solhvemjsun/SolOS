@@ -126,18 +126,17 @@
     candy-icons
     firefox
     gparted
-    haruna
+    vlc
     (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { })
-    isoimagewriter
     kiwix
     libnotify
+    kdePackages.dolphin
     kdePackages.kamoso
+    kdePackages.isoimagewriter
     kdePackages.okular
     mediainfo-gui
     neovide
     nextcloud-client
-    nautilus
-    nautilus-open-any-terminal
     ntfs3g
     onlyoffice-desktopeditors
     remmina
