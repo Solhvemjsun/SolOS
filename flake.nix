@@ -33,8 +33,6 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-    talon-nix.url = "github:nix-community/talon-nix";
   };
 
   outputs =
