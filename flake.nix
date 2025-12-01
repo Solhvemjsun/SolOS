@@ -102,9 +102,6 @@
         nix-minecraft.nixosModules.minecraft-servers
         { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
       ];
-      oprainModules = [
-        talon-nix.nixosModules.talon
-      ];
     in
     {
       nixosConfigurations = {
@@ -117,13 +114,12 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
-            ++ oprainModules
             ++ [
               ./device/XPS13/device-specific.nix
               ./hardware/laptop.nix
               ./service/postgresql.nix
-              ./oprain/eyetrack.nix
-              ./mods/oprain/3d_p1s.nix
+              ./mods/oprain/mod.nix
+              ./mods/bambu/mod.nix
             ];
         };
 
@@ -137,16 +133,13 @@
             ++ personalModules
             ++ workModules
             ++ creativeModules
-            ++ oprainModules
             # ++ mcserverModules
             ++ [
               ./device/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
-              ./mods/oprain/eyetrack.nix
-              ./mods/oprain/llm.nix
-              ./mods/oprain/3d_p1s.nix
-              ./mods/oprain/brainflow.nix
+              ./mods/oprain/mod.nix
+              ./mods/bambu/mod.nix
               # ./service/mcbugus.nix
             ];
         };
