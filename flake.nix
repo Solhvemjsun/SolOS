@@ -92,11 +92,7 @@
       workModules = [
         ./softwares/office.nix
         ./softwares/develop.nix
-        ./softwares/engineering.nix
         ./softwares/streaming.nix
-      ];
-      creativeModules = [
-        ./softwares/music.nix
       ];
       mcserverModules = [
         nix-minecraft.nixosModules.minecraft-servers
@@ -113,7 +109,6 @@
             ++ niriModules
             ++ personalModules
             ++ workModules
-            ++ creativeModules
             ++ [
               ./devices/XPS13/device-specific.nix
               ./service/postgresql.nix
@@ -131,7 +126,6 @@
             ++ niriModules
             ++ personalModules
             ++ workModules
-            ++ creativeModules
             # ++ mcserverModules
             ++ [
               ./devices/SolITX/device-specific.nix
