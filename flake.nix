@@ -115,8 +115,7 @@
             ++ workModules
             ++ creativeModules
             ++ [
-              ./device/XPS13/device-specific.nix
-              ./hardware/laptop.nix
+              ./devices/XPS13/device-specific.nix
               ./service/postgresql.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
@@ -135,7 +134,7 @@
             ++ creativeModules
             # ++ mcserverModules
             ++ [
-              ./device/SolITX/device-specific.nix
+              ./devices/SolITX/device-specific.nix
               ./hardware/nvidia.nix
               ./hardware/health.nix
               ./mods/oprain/mod.nix
@@ -152,9 +151,9 @@
             ++ niriModules
             ++ workModules
             ++ [
-              ./device/XuLab/device-specific.nix
-              ./users/XuLab.nix
+              ./devices/XuLab/device-specific.nix
               ./hardware/nvidia.nix
+              ./users/XuLab.nix
             ];
         };
 
@@ -166,7 +165,7 @@
             ++ niriModules
             ++ mcserverModules
             ++ [
-              ./device/SolBase/device-specific.nix
+              ./devices/SolBase/device-specific.nix
               ./private/SolOS_Private/miniserver.nix
               ./service/ssh.nix
               ./service/minecraft/nix-minecraft.nix
@@ -184,7 +183,7 @@
             ++ personalModules
             ++ workModules
             ++ [
-              ./device/MachenikeMini/device-specific.nix
+              ./devices/MachenikeMini/device-specific.nix
             ];
         };
 
@@ -192,7 +191,7 @@
           system = "aarch64-linux";
           modules = commonModules ++ [
             ./core/rpi4.nix
-            ./device/DarkSol/device-specific.nix
+            ./devices/DarkSol/device-specific.nix
             ./service/ssh.nix
           ];
         };
@@ -205,7 +204,7 @@
             ++ [
               nixos-wsl.nixosModules.default
               ./core/wsl.nix
-              ./device/WSL/device-specific.nix
+              ./devices/WSL/device-specific.nix
             ];
         };
 
@@ -217,7 +216,7 @@
             ++ niriModules
             # ++ The other modules you want
             ++ [
-              ./device/Template/device-specific.nix # Your device
+              ./devices/Template/device-specific.nix # Your device
               # ./hardware/nvidia.nix # If you have Nvidia card
             ];
         };

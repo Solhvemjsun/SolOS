@@ -45,5 +45,12 @@
     shotcut
     tree-sitter
 
+    # Music
+    helm
+    ardour
+
+    # Develop
+    kicad
+    blender
   ];
 }

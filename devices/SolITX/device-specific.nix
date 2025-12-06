@@ -1,7 +1,10 @@
 { lib, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./razer.nix
+  ];
 
   networking.hostName = "SolITX";
 
