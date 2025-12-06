@@ -13,7 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     # Management
-    gh
     github-desktop
     conda
 

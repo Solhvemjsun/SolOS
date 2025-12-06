@@ -60,6 +60,7 @@
   environment.systemPackages = with pkgs; [
     btop
     fastfetch
+    gh
     git
     gnumake
     openssh
