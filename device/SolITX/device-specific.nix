@@ -5,6 +5,8 @@
 
   networking.hostName = "SolITX";
 
+  boot.loader.timeout = null;
+
   home-manager.sharedModules = [
     {
       programs.niri = {

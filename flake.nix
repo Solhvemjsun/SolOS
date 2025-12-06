@@ -27,12 +27,14 @@
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    astal-shell.url = "github:knoopx/ags";
+    astal-shell.url = "github:knoopx/astal-shell";
+    astal-shell.inputs.nixpkgs.follows = "nixpkgs";
 
     plasma-manager.url = "github:nix-community/plasma-manager";
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -40,7 +42,6 @@
       nixpkgs,
       nix-on-droid,
       nixos-wsl,
-      # lix-module,
       nixvim,
       home-manager,
       stylix,
@@ -56,7 +57,6 @@
       commonModules = [
         ./core/nixos.nix
         ./users/Sol.nix
-        # lix-module.nixosModules.default
         nixvim.nixosModules.nixvim
         ./tui/fish.nix
         ./tui/nixvim.nix
@@ -72,8 +72,11 @@
       niriModules = [
         ./gui/niri.nix
         {
-          nixpkgs.overlays = [ niri.overlays.niri ];
-          home-manager.sharedModules = [ niri.homeModules.niri ];
+          nixpkgs.overlays = [ niri.overlays.niri astal-shell.overlays.default ];
+          home-manager.sharedModules = [ 
+            niri.homeModules.niri
+            astal-shell.homeManagerModules.default
+          ];
         }
       ];
       kdeModules = [
