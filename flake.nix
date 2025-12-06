@@ -164,7 +164,6 @@
               ./service/ssh.nix
               ./service/minecraft/nix-minecraft.nix
               ./service/minecraft/mcbugus.nix
-              ./service/minecraft/wgcuci.nix
             ];
         };
 
