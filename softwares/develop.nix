@@ -49,7 +49,7 @@
     ardour
 
     # Develop
-    kicad
+    kicad-testing
     blender
   ];
 }
