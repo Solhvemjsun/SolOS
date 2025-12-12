@@ -65,7 +65,7 @@ wsl --install --no-distribution
 
 3. Double click the file you just installed to start the installation of it
 
-4. You can now run NixOS from the windows PowerShell using:
+4. You can now launch SolOS WSL using the generated desktop icon or from the windows PowerShell using:
 ```console
 wsl -d NixOS
 ```
