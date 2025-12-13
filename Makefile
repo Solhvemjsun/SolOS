@@ -7,7 +7,7 @@ private:
 	nh os switch '.?submodules=1'
 wsl:
 	git add .
-	sudo nixos-rebuild boot --flake .
+	nh os boot .
 wsltar:
 	git add .
 	sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder

@@ -8,7 +8,6 @@
     interop.register = true;
     wslConf = {
       network.hostname = "SolOS-WSL";
-      boot.command = "fastfetch";
     };
     # useWindowsDriver = true;
   };
