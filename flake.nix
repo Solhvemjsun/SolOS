@@ -194,10 +194,10 @@
           modules =
             commonModules
             ++ workModules
+            ++ guiModules
             ++ [
               nixos-wsl.nixosModules.default
               ./core/wsl.nix
-              ./devices/WSL/device-specific.nix
             ];
         };
 

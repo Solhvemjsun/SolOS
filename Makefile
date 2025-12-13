@@ -8,3 +8,6 @@ private:
 wsl:
 	git add .
 	sudo nixos-rebuild boot --flake .
+wsltar:
+	git add .
+	sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder
