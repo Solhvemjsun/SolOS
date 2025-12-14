@@ -50,9 +50,13 @@
         };
       };
 
-      render-markdown = {
+      rainbow-delimiters = {
         enable = true;
+        # settings = {
+        # }
       };
+
+      markview.enable = true;
 
       lualine.enable = true;
 
@@ -66,16 +70,7 @@
 
       nix.enable = true;
 
-      nvim-tree = {
-        enable = true;
-        autoClose = false;
-        openOnSetup = true;
-        settings = {
-          hijackUnnamedBufferWhenOpening = true;
-          disableNetrw = true;
-          hijackNetrw = true;
-        };
-      };
+      nvim-tree.enable = true;
 
       telescope.enable = true;
 
