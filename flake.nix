@@ -8,9 +8,10 @@
     nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    # lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
-    # lix-module.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -42,10 +43,11 @@
       nixpkgs,
       nix-on-droid,
       nixos-wsl,
-      nixvim,
+      nixos-hardware,
       home-manager,
-      stylix,
       minegrub-theme,
+      nixvim,
+      stylix,
       niri,
       astal-shell,
       plasma-manager,
@@ -72,8 +74,11 @@
       niriModules = [
         ./gui/niri.nix
         {
-          nixpkgs.overlays = [ niri.overlays.niri astal-shell.overlays.default ];
-          home-manager.sharedModules = [ 
+          nixpkgs.overlays = [
+            niri.overlays.niri
+            astal-shell.overlays.default
+          ];
+          home-manager.sharedModules = [
             niri.homeModules.niri
             astal-shell.homeManagerModules.default
           ];
@@ -111,7 +116,23 @@
             ++ workModules
             ++ [
               ./devices/XPS13/device-specific.nix
-              ./service/postgresql.nix
+              ./mods/oprain/mod.nix
+              ./mods/bambu/mod.nix
+            ];
+        };
+
+        "SolZ13" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules =
+            commonModules
+            ++ guiModules
+            ++ niriModules
+            ++ personalModules
+            ++ workModules
+            ++ [
+              nixos-hardware.nixosModules.asus-battery
+              nixos-hardware.nixosModules.common-gpu-amd
+              ./devices/ROG_Z13/device-specific.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
             ];
