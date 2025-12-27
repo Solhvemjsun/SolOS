@@ -7,7 +7,7 @@
 
   home-manager = {
     useGlobalPkgs = true;
-    backupFileExtension = "$(date).back";
+    backupFileExtension = "backup";
     sharedModules = [
       ./home.nix
       ./commonhome.nix
@@ -142,11 +142,11 @@
     samba
     sweet-folders
     udiskie
-    # (where-is-my-sddm-theme.override {
-    #   themeConfig.General = {
-    #     showSessionsByDefault = true;
-    #   };
-    # })
+    (where-is-my-sddm-theme.override {
+      themeConfig.General = {
+        showSessionsByDefault = true;
+      };
+    })
     yazi
   ];
 

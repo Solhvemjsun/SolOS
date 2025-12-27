@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     # ./laptop.nix
+    ./rog.nix
   ];
 
   networking.hostName = "Sol_Z13";
@@ -20,7 +21,7 @@
             "${../../assets/nhk.jpg}"
           ];
           wallpaper = lib.mkForce [
-            ",${../../assets/nhk.png}"
+            ",${../../assets/nixos.png}"
             "HDMI-A-1,${../../assets/sayuki.jpg}"
           ];
         };

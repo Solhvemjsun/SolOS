@@ -28,11 +28,11 @@
 
       # Misc
       hotkey-overlay = {
-        # hide-not-bound = true;
+        hide-not-bound = true;
         skip-at-startup = true;
       };
       overview = {
-        zoom = 0.75;
+        zoom = 0.7;
         backdrop-color = "#000000";
       };
 
@@ -85,6 +85,25 @@
             width = 3840;
             height = 2160;
             refresh = 59.994;
+          };
+          transform.rotation = 0;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          background-color = "#000000";
+          backdrop-color = "#000000";
+          focus-at-startup = true;
+        };
+
+        "Z13" = {
+          enable = true;
+          name = "Tianma Microelectronics Ltd. TL134ADXP03 Unknown";
+          scale = 1.5;
+          mode = {
+            width = 2560;
+            height = 1600;
+            refresh = 180.000;
           };
           transform.rotation = 0;
           position = {
@@ -260,20 +279,44 @@
           "Mod+Shift+WheelScrollRight".action = move-column-right-or-to-monitor-right;
 
           # Move focus with mainMod + WASD, Ctrl for monitor
-          "Mod+W".action = focus-window-or-workspace-up;
-          "Mod+S".action = focus-window-or-workspace-down;
-          "Mod+A".action = focus-column-or-monitor-left;
-          "Mod+D".action = focus-column-or-monitor-right;
+          "Mod+W" = {
+            action = focus-window-or-workspace-up;
+            hotkey-overlay.title = "Focus Up";
+          };
+          "Mod+S" = {
+            action = focus-window-or-workspace-down;
+            hotkey-overlay.title = "Focus Down";
+          };
+          "Mod+A" = {
+            action = focus-column-or-monitor-left;
+            hotkey-overlay.title = "Focus Left";
+          };
+          "Mod+D" = {
+            action = focus-column-or-monitor-right;
+            hotkey-overlay.title = "Focus Right";
+          };
           "Mod+Ctrl+W".action = focus-monitor-up;
           "Mod+Ctrl+S".action = focus-monitor-down;
           "Mod+Ctrl+A".action = focus-monitor-left;
           "Mod+Ctrl+D".action = focus-monitor-right;
 
           # Move window with mainMod + shiftMod + WASD, Ctrl for monitor
-          "Mod+Shift+W".action = move-window-up-or-to-workspace-up;
-          "Mod+Shift+S".action = move-window-down-or-to-workspace-down;
-          "Mod+Shift+A".action = move-column-left-or-to-monitor-left;
-          "Mod+Shift+D".action = move-column-right-or-to-monitor-right;
+          "Mod+Shift+W" = {
+            action = move-window-up-or-to-workspace-up;
+            hotkey-overlay.title = "Move Window Up";
+          };
+          "Mod+Shift+S" = {
+            action = move-window-down-or-to-workspace-down;
+            hotkey-overlay.title = "Move Window Down";
+          };
+          "Mod+Shift+A" = {
+            action = move-column-left-or-to-monitor-left;
+            hotkey-overlay.title = "Move Window Left";
+          };
+          "Mod+Shift+D" = {
+            action = move-column-right-or-to-monitor-right;
+            hotkey-overlay.title = "Move Window Right";
+          };
           "Mod+Ctrl+Shift+W".action = move-column-to-monitor-up;
           "Mod+Ctrl+Shift+S".action = move-column-to-monitor-down;
           "Mod+Ctrl+Shift+A".action = move-column-to-monitor-left;
@@ -284,7 +327,10 @@
           "Mod+Shift+X".action = consume-or-expel-window-right;
 
           # Resize window with mainMod + Z/X
-          "Mod+Z".action = switch-preset-window-height;
+          "Mod+Z" = {
+            action = switch-preset-window-height;
+            hotkey-overlay.title = "Switch Window Height";
+          };
           "Mod+X".action = switch-preset-column-width;
 
           "Mod+F".action = fullscreen-window;
@@ -317,9 +363,18 @@
 
           # Open and close windows
           "Mod+Q".action = close-window;
-          "Mod+E".action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
-          "Mod+Shift+E".action = exec "kitty -e yazi";
-          "Mod+T".action = spawn "kitty";
+          "Mod+E" = {
+            action = exec "fuzzel --placeholder $(date '+%r %Y-%m-%d %A %Z')";
+            hotkey-overlay.title = "Application Launcher";
+          };
+          "Mod+Shift+E" = {
+            action = exec "kitty -e yazi";
+            hotkey-overlay.hidden = true;
+          };
+          "Mod+T" = {
+            action = spawn "kitty";
+            hotkey-overlay.title = "Spawn Terminal";
+          };
           "Mod+Return".action = spawn "kitty";
 
           # Poweroff menu
@@ -340,14 +395,19 @@
           "XF86MonBrightnessUp".action =
             exec "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
 
-          "Print".action = exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';
+          "Print".action =
+            exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';
+          "Mod+P" = {
+            action = exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';
+            hotkey-overlay.title = "Take Screenshot";
+          };
           # "Print".action = screenshot { show-pointer = false; };
           # "Shift+Print".action = screenshot { show-pointer = true; };
           # "Mod+Print".action = screenshot-window { write-to-disk = true; };
 
           "XF86Display".action = suspend;
 
-          "Mod+Shift+Slash".action = show-hotkey-overlay;
+          "Mod+Slash".action = show-hotkey-overlay;
           "Ctrl+Alt+Delete".action = quit;
         };
     };
@@ -436,7 +496,7 @@
         width = 65;
         horizontal-pad = 25;
         inner-pad = 5;
-        dpi-aware = "true";
+        dpi-aware = "false";
       };
       border = {
         radius = 0;
