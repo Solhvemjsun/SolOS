@@ -6,6 +6,7 @@
     extraGroups = [
       "input"
       "wheel"
+      "dialout"
       "audio"
       "networkmanager"
     ];
