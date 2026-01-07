@@ -136,7 +136,6 @@
               ./devices/ROG_Z13/device-specific.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
-              ./mods/china/mod.nix
             ];
         };
 
