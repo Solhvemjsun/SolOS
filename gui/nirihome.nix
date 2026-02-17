@@ -169,6 +169,7 @@
       };
 
       layout = {
+        background-color = "#000000";
         border = {
           enable = true;
           width = 2;
@@ -266,6 +267,7 @@
           command = [ "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" ];
         }
         { command = [ "${pkgs.xwayland-satellite}/bin/xwayland-satellite" ]; }
+        { command = [ "${pkgs.swaybg}/bin/swaybg" "-m" "center" "-i" "${../assets/nixos.png}" ]; }
       ];
 
       # To-do: add suspend actions
@@ -431,7 +433,7 @@
 
   #################
   ## ASTAL SHELL ##
-  #################
+  #################0
 
   services.astal-shell = {
     enable = true;
@@ -482,21 +484,6 @@
         outline_thickness = 0;
         swap_font_color = true;
       };
-    };
-  };
-
-  services.hyprpaper = {
-    enable = true;
-    package = pkgs.hyprpaper;
-    settings = {
-      ipc = "on";
-      splash = false;
-      preload = [
-        "${../assets/nixos.png}"
-      ];
-      wallpaper = [
-        ",${../assets/nixos.png}"
-      ];
     };
   };
 

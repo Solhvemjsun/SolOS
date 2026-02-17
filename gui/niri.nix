@@ -39,6 +39,7 @@
     seahorse
     selectdefaultapplication
     slurp
+    swaybg
     wl-clipboard-rs
     xwayland-satellite
     zathura
