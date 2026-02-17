@@ -11,4 +11,15 @@
       "networkmanager"
     ];
   };
+
+  #############
+  ## DEVELOP ##
+  #############
+
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Solhvemjsun";
+  #   userEmail = "solhvemjsun@gmail.com";
+  # };
+
 }

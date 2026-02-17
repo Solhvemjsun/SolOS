@@ -34,6 +34,7 @@
     nautilus
     networkmanagerapplet
     pamixer
+    pavucontrol
     playerctl
     seahorse
     selectdefaultapplication

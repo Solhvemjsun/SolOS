@@ -50,7 +50,6 @@
     kdePackages.spectacle
     kdePackages.kcalc
     kdePackages.filelight
-    kdePackages.kdenlive
     kdePackages.kdeconnect-kde
     kdePackages.yakuake
 

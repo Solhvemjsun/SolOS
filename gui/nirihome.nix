@@ -150,6 +150,22 @@
           background-color = "#000000";
           backdrop-color = "#000000";
         };
+
+        "LG_TV" = {
+          name = "LG Electronics LG TV SSCR2 0x01010101";
+          mode = {
+            width = 3840;
+            height = 2160;
+            refresh = 120.000;
+          };
+          scale = 2.0;
+          position = {
+            x = 1980;
+            y = 0;
+          };
+          background-color = "#000000";
+          backdrop-color = "#000000";
+        };
       };
 
       layout = {
@@ -473,7 +489,7 @@
     enable = true;
     package = pkgs.hyprpaper;
     settings = {
-      ipc = "off";
+      ipc = "on";
       splash = false;
       preload = [
         "${../assets/nixos.png}"

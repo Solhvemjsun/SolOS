@@ -136,6 +136,8 @@
               ./devices/ROG_Z13/device-specific.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
+              ./mods/china/clash.nix
+              ./mods/wayland/mod.nix
             ];
         };
 
@@ -151,8 +153,8 @@
             # ++ mcserverModules
             ++ [
               ./devices/SolITX/device-specific.nix
-              ./hardware/nvidia.nix
-              ./hardware/health.nix
+              ./mods/nvidia/mod.nix
+              ./mods/health/mod.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               # ./service/mcbugus.nix
@@ -168,7 +170,7 @@
             ++ workModules
             ++ [
               ./devices/XuLab/device-specific.nix
-              ./hardware/nvidia.nix
+              ./mods/nvidia/mod.nix
               ./users/XuLab.nix
             ];
         };
@@ -232,7 +234,7 @@
             # ++ The other modules you want
             ++ [
               ./devices/Template/device-specific.nix # Your device
-              # ./hardware/nvidia.nix # If you have Nvidia card
+              # ./mods/nvidia/mod.nix # If you have Nvidia card
             ];
         };
       };

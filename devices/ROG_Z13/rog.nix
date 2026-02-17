@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   services.asusd = {
@@ -10,4 +10,17 @@
     enable = true;
     autoStart = true;
   };
+
+  # boot = {
+  #   kernelModules = [ "asus_armoury" ];
+  #   kernelPatches = [
+  #     {
+  #       name = "enable-asus-armoury";
+  #       patch = null;
+  #       structuredExtraConfig = with lib.kernel; {
+  #         ASUS_ARMOURY = module;
+  #       };
+  #     }
+  #   ];
+  # };  
 }

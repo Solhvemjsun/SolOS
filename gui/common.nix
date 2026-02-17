@@ -84,7 +84,14 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+    settings = {
+      Input = {
+        UserspaceHID = true;
+      };
+    };
   };
+
+  services.blueman.enable = true;
 
   # Sound
   services.pipewire = {
@@ -93,8 +100,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  services.blueman.enable = true;
 
   # Enable LAN file sharing and printing
   services.gvfs.enable = true;
@@ -122,6 +127,7 @@
 
   environment.systemPackages = with pkgs; [
     amberol
+    bluetuith
     candy-icons
     firefox
     gparted
@@ -133,7 +139,6 @@
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
-    mediainfo-gui
     neovide
     nextcloud-client
     ntfs3g

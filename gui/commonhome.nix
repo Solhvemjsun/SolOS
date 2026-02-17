@@ -44,7 +44,7 @@
       name = "miku-cursor";
       size = 64;
     };
-    iconTheme = {
+    icons = {
       enable = true;
       dark = "Sweet-Rainbow";
       light = "Sweet-Rainbow";
@@ -80,7 +80,6 @@
       base17 = "ff00ff";
     };
     targets = {
-      kde.enable = false;
       kitty.enable = false;
       mako.enable = false;
       wofi.enable = false;

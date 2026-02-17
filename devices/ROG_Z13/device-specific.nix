@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -11,20 +11,16 @@
 
   # boot.loader.timeout = null;
 
+  environment.systemPackages = with pkgs; [
+    swaybg
+  ];
+
   home-manager.sharedModules = [
     {
-      services.hyprpaper = {
-        settings = {
-          preload = lib.mkForce [
-            "${../../assets/nixos.png}"
-            "${../../assets/sayuki.jpg}"
-            "${../../assets/nhk.jpg}"
-          ];
-          wallpaper = lib.mkForce [
-            ",${../../assets/nixos.png}"
-            "HDMI-A-1,${../../assets/sayuki.jpg}"
-          ];
-        };
+      programs.niri.settings = {
+        spawn-at-startup = [
+          { command = [ "swaybg -m center -i ${../../assets/nixos.png}" ]; }
+        ];
       };
     }
   ];
@@ -32,7 +28,7 @@
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 128*1024;
+      size = 128 * 1024;
     }
   ];
 }
