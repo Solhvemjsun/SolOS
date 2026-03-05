@@ -37,11 +37,11 @@
     # Video
     ffmpeg
     opencv
+    kdePackages.kdenlive
 
     # Art
     inkscape
     krita
-    shotcut
     tree-sitter
 
     # Music
@@ -51,5 +51,9 @@
     # Develop
     kicad-testing
     blender
+
+    # Digital-Twin
+    godot
+    hmcl
   ];
 }
