@@ -213,6 +213,14 @@
           ];
         };
 
+        "Jexos" = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            nixos-hardware.nixosModules.nvidia-jetson-orin
+            ./core/jetson.nix
+          ];
+        };
+
         "SolOS-WSL" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules =

@@ -409,9 +409,9 @@
           "XF86AudioPlay".action = exec "playerctl play-pause";
 
           "XF86MonBrightnessDown".action =
-            exec "brightnessctl set 10%- && notify-send \"Brightness $(light)%\" -t 500";
+            exec "brightnessctl set 10%- && notify-send \"Brightness $(brightnessctl -m | cut -d, -f4)\" -t 500";
           "XF86MonBrightnessUp".action =
-            exec "brightnessctl set 10%+ && notify-send \"Brightness $(light)%\" -t 500";
+            exec "brightnessctl set 10%+ && notify-send \"Brightness $(brightnessctl -m | cut -d, -f4)\" -t 500";
 
           "Print".action =
             exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';

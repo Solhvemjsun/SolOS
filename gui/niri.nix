@@ -29,7 +29,6 @@
     grim
     imv
     kdePackages.polkit-kde-agent-1
-    light
     mako
     nautilus
     networkmanagerapplet
