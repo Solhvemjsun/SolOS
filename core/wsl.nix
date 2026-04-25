@@ -13,6 +13,11 @@
   };
   networking.hostName = "SolOS-WSL";
   home-manager.sharedModules = [
-    { home.sessionVariables = {BROWSER = "wslview"; }; }
+    { 
+      home.sessionVariables = {
+        BROWSER = "wslview";
+        QT_QPA_PLATFORM = "xcb";
+      };
+    }
   ];
 }
