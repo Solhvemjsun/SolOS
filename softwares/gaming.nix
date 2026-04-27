@@ -6,7 +6,7 @@
     prismlauncher
     zulu8
     steam-run
-    xorg.xrandr
+    xrandr
   ];
 
   environment.variables = {

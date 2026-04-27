@@ -130,6 +130,7 @@
     bluetuith
     candy-icons
     firefox
+    geogebra6
     gparted
     vlc
     (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { })
@@ -152,6 +153,7 @@
         showSessionsByDefault = true;
       };
     })
+    xournalpp
     yazi
   ];
 

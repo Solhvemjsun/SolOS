@@ -11,7 +11,6 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +37,9 @@
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
 
     papertoy.url = "github:sin-ack/papertoy";
+
+    jetpack.url = "github:anduril/jetpack-nixos/master";
+    jetpack.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -55,6 +57,7 @@
       plasma-manager,
       nix-minecraft,
       papertoy,
+      jetpack,
       ...
     }:
     let
@@ -141,6 +144,8 @@
               ./mods/bambu/mod.nix
               ./mods/china/clash.nix
               ./mods/waydroid/mod.nix
+              ./mods/wayland/mod.nix
+              ./mods/amdgpu/mod.nix
             ];
         };
 
@@ -225,6 +230,16 @@
             ./devices/DarkSol/device-specific.nix
             ./service/ssh.nix
           ];
+        };
+
+        "Jexos" = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules =
+            commonModules
+            ++[
+              jetpack.nixosModules.default
+              ./core/jetson.nix
+            ];
         };
 
         "SolOS-WSL" = nixpkgs.lib.nixosSystem {
