@@ -140,7 +140,7 @@
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
-    neovide
+    # neovide
     nextcloud-client
     ntfs3g
     onlyoffice-desktopeditors
