@@ -64,6 +64,7 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
     ];
+    config.common.default = "*";
   };
 
 }

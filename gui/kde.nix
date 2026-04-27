@@ -29,6 +29,9 @@
   ##############
 
   environment.systemPackages = with pkgs; [
+    shared-mime-info
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.kio-extras
     kdePackages.bluedevil
 
     kdePackages.plasma-workspace
