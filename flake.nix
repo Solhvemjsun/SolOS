@@ -144,7 +144,6 @@
               ./mods/bambu/mod.nix
               ./mods/china/clash.nix
               ./mods/waydroid/mod.nix
-              ./mods/wayland/mod.nix
               ./mods/amdgpu/mod.nix
             ];
         };
@@ -165,7 +164,7 @@
               ./mods/health/mod.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
-              ./mods/wayland/mod.nix
+              ./mods/waydroid/mod.nix
               # ./service/mcbugus.nix
               (
                 { system, ... }:
