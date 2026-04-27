@@ -36,6 +36,8 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
 
+    papertoy.url = "github:sin-ack/papertoy";
+
     jetpack.url = "github:anduril/jetpack-nixos/master";
     jetpack.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -54,6 +56,7 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
+      papertoy,
       jetpack,
       ...
     }:
@@ -140,7 +143,7 @@
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               ./mods/china/clash.nix
-              ./mods/wayland/mod.nix
+              ./mods/waydroid/mod.nix
               ./mods/amdgpu/mod.nix
             ];
         };
@@ -161,7 +164,18 @@
               ./mods/health/mod.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
+              ./mods/waydroid/mod.nix
               # ./service/mcbugus.nix
+              (
+                { system, ... }:
+                {
+                  nixpkgs.overlays = [
+                    (final: prev: {
+                      papertoy = papertoy.packages.${system}.default;
+                    })
+                  ];
+                }
+              )
             ];
         };
 
