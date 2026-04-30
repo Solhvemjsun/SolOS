@@ -28,7 +28,7 @@
     # nodePackages.typescript-language-server
 
     # Nix
-    nixfmt-rfc-style
+    nixfmt
     nil
 
     # Octave

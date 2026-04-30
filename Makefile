@@ -1,13 +1,13 @@
-.PHONY: update private wsl
+.PHONY: boot update private wsl wsltar
+boot:
+	git add .
+	nh os boot .
 update:
 	git add .
 	nh os switch .
 private:
 	git add .
-	nh os switch '.?submodules=1'
-wsl:
-	git add .
-	nh os boot .
+	nh os boot '.?submodules=1'
 wsltar:
 	git add .
 	sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder

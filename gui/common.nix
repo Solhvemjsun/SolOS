@@ -129,7 +129,7 @@
     amberol
     bluetuith
     candy-icons
-    firefox
+    firefox-bin
     geogebra6
     gparted
     vlc
@@ -140,7 +140,7 @@
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
-    neovide
+    # neovide
     nextcloud-client
     ntfs3g
     onlyoffice-desktopeditors

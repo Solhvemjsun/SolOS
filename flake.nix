@@ -11,7 +11,6 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +35,11 @@
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
+
+    papertoy.url = "github:sin-ack/papertoy";
+
+    jetpack.url = "github:anduril/jetpack-nixos/master";
+    jetpack.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -52,6 +56,8 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
+      papertoy,
+      jetpack,
       ...
     }:
     let
@@ -137,7 +143,8 @@
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               ./mods/china/clash.nix
-              ./mods/wayland/mod.nix
+              ./mods/waydroid/mod.nix
+              ./mods/amdgpu/mod.nix
             ];
         };
 
@@ -157,7 +164,18 @@
               ./mods/health/mod.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
+              ./mods/waydroid/mod.nix
               # ./service/mcbugus.nix
+              (
+                { system, ... }:
+                {
+                  nixpkgs.overlays = [
+                    (final: prev: {
+                      papertoy = papertoy.packages.${system}.default;
+                    })
+                  ];
+                }
+              )
             ];
         };
 
@@ -215,10 +233,12 @@
 
         "Jexos" = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          modules = [
-            nixos-hardware.nixosModules.nvidia-jetson-orin
-            ./core/jetson.nix
-          ];
+          modules =
+            commonModules
+            ++[
+              jetpack.nixosModules.default
+              ./core/jetson.nix
+            ];
         };
 
         "SolOS-WSL" = nixpkgs.lib.nixosSystem {

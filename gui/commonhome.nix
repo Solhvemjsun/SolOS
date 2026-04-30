@@ -20,7 +20,7 @@
       desktop = "${config.home.homeDirectory}/Desktop";
     };
     mimeApps = {
-      enable = true;
+      enable = false;
       defaultApplications = {
         "x-terminal-emulator" = [ "kitty.desktop" ];
         "video/mp4" = "org.kde.haruna.desktop";
@@ -99,4 +99,12 @@
       confirm_os_window_close = 0;
     };
   };
+
+  ###########
+  ## Fixes ##
+  ###########
+
+  gtk.gtk4.theme = config.gtk.theme;
+  xdg.userDirs.setSessionVariables = true;
+
 }
