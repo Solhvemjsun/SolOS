@@ -4,6 +4,7 @@
   users.users.Sol = {
     isNormalUser = true;
     extraGroups = [
+      "i2c" # OpenRGB
       "input"
       "wheel"
       "dialout"

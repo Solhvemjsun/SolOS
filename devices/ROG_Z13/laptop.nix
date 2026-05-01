@@ -12,7 +12,7 @@
 
   services.libinput.enable = true; # Enable touchpad
 
-  services.fprintd.enable = true; # Enable fingerprint reader
+  # services.fprintd.enable = true; # Enable fingerprint reader
 
   ######################
   ## POWER MANAGEMENT ##

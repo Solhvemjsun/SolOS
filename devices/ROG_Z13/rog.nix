@@ -1,6 +1,18 @@
-{ lib, ... }:
+{ pkgs, ... }:
 
 {
+  #########
+  ## RGB ##
+  #########
+
+  services.hardware.openrgb.enable = true;
+  hardware.i2c.enable = true;
+  boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
+
+  ##########
+  ## ASUS ##
+  ##########
+
   services.asusd = {
     enable = true;
   };
@@ -10,16 +22,7 @@
     autoStart = true;
   };
 
-  # boot = {
-  #   kernelModules = [ "asus_armoury" ];
-  #   kernelPatches = [
-  #     {
-  #       name = "enable-asus-armoury";
-  #       patch = null;
-  #       structuredExtraConfig = with lib.kernel; {
-  #         ASUS_ARMOURY = module;
-  #       };
-  #     }
-  #   ];
-  # };  
+  environment.systemPackages = with pkgs; [
+    asusctl
+  ];
 }
