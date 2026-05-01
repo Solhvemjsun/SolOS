@@ -145,6 +145,7 @@
               ./mods/china/clash.nix
               ./mods/waydroid/mod.nix
               ./mods/amdgpu/mod.nix
+              ./mods/ai/mod.nix
             ];
         };
 
@@ -202,6 +203,7 @@
             ++ mcserverModules
             ++ [
               ./devices/SolBase/device-specific.nix
+              ./mods/ai/mod.nix
               ./private/SolOS_Private/miniserver.nix
               ./service/ssh.nix
               ./service/minecraft/nix-minecraft.nix
