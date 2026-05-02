@@ -280,6 +280,7 @@
           extraSpecialArgs = { isNixOnDroid = true; };
           modules = [
             ./core/nix-on-droid.nix
+            ./tui/fish.nix
           ];
           home-manager-path = home-manager.outPath;
         };

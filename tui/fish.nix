@@ -1,13 +1,21 @@
-{ pkgs, lib, ... }:
-
 {
-  environment.systemPackages = with pkgs; [
+  pkgs,
+  lib,
+  isNixOnDroid ? false,
+  ...
+}:
+
+let
+  pkgKey = if isNixOnDroid then "packages" else "systemPackages";
+in
+{
+  environment.${pkgKey} = with pkgs; [
     any-nix-shell
     eza
     television
   ];
 
-  users.defaultUserShell = lib.mkForce pkgs.fish;
+  users.defaultUserShell = lib.mkIf (!isNixOnDroid) (lib.mkForce pkgs.fish);
   programs.fish = {
     enable = true;
     interactiveShellInit = ''

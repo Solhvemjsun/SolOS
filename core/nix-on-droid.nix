@@ -22,7 +22,6 @@
       gnumake
       openssh
       fastfetch
-      aircrack-ng
 
       #procps
       #killall
@@ -44,7 +43,7 @@
     ];
   };
 
-  user.shell = "${pkgs.zsh}/bin/zsh";
+  user.shell = "${pkgs.zsh}/bin/fish";
 
   home-manager = {
     config = { ... }:
@@ -56,5 +55,6 @@
     backupFileExtension = "$(date).backup";
     useGlobalPkgs = true;
   };
+  home.stateVersion = "24.05";
 
 }
