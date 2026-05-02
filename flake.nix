@@ -277,6 +277,7 @@
               nix-on-droid.overlays.default
             ];
           };
+          extraSpecialArgs = { isNixOnDroid = true; };
           modules = [
             ./core/nix-on-droid.nix
           ];
