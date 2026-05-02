@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   system.stateVersion = "24.05";
@@ -13,7 +18,7 @@
     motd = ''
       Fiat Nix!
     '';
-    etcBackupExtension = ".bak"; 
+    etcBackupExtension = ".bak";
     packages = with pkgs; [
       vim
       nyancat
@@ -46,15 +51,78 @@
   user.shell = "${pkgs.zsh}/bin/fish";
 
   home-manager = {
-    config = { ... }:
-    {
-      # imports = [
-      #   ./home.nix
-      # ];
-    };
+    config =
+      { ... }:
+      {
+        home.stateVersion = "24.05";
+        programs.fish = {
+          enable = true;
+          interactiveShellInit = ''
+            ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+            set fish_greeting ""
+          '';
+          shellAliases = {
+            ll = "eza";
+            tree = "eza -T";
+            clock = "tty-clock -s -c -C 6 -t ";
+            cd = "z";
+          };
+        };
+
+        programs.direnv = {
+          enable = true;
+          silent = false;
+          nix-direnv.enable = true;
+        };
+
+        programs.starship = {
+          enable = true;
+          settings = {
+            format = ''
+              [┌───\(](blue)[$username@$hostname](bold white)[\)-\[](blue)[$directory](bold white)[\]](blue)$all[└─](blue)$character
+            '';
+            character = {
+              format = "$symbol ";
+              success_symbol = "[\\$](bold white)";
+              error_symbol = "[\\$](bold red)";
+            };
+            username = {
+              show_always = true;
+              format = "[$user]($style)";
+              style_root = "bold red";
+              style_user = "bold white";
+            };
+            hostname = {
+              ssh_only = false;
+              format = "[$ssh_symbol$hostname]($style)";
+              style = "bold white";
+            };
+            directory = {
+              format = "[$path]($style)[$read_only]($read_only_style)";
+              style = "bold white";
+              read_only = "󰌾";
+              read_only_style = "green";
+              truncation_length = 0;
+            };
+            git_status = {
+              style = "bold cyan";
+            };
+            git_branch = {
+              format = " [$symbol$branch(:$remote_branch)]($style) ";
+              style = "bold cyan";
+            };
+            add_newline = false;
+            scan_timeout = 30;
+          };
+        };
+
+        programs.zoxide = {
+          enable = true;
+          enableFishIntegration = true;
+        };
+
+      };
     backupFileExtension = "$(date).backup";
     useGlobalPkgs = true;
   };
-  home.stateVersion = "24.05";
-
 }

@@ -115,8 +115,6 @@
 
       lsp-signature.enable = true;
 
-      lsp-format.enable = true;
-
       lspsaga = {
         enable = true;
         settings.beacon.enable = true;
@@ -124,7 +122,7 @@
 
       autosource.enable = true;
 
-      git-conflict.enable = true;
+      diffview.enable = true;
 
       conform-nvim = {
         enable = true;

@@ -12,6 +12,10 @@
     ];
   };
 
+  environment.sessionVariables = {
+    NIXPKGS_ALLOW_UNFREE = "1";
+  };
+
   programs.nh = {
     enable = true;
   };
@@ -58,12 +62,15 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    any-nix-shell
     btop
+    eza
     fastfetch
     gh
     git
     gnumake
     openssh
+    ripgrep
     tree
     tty-clock
     unzip
