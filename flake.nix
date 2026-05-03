@@ -235,12 +235,10 @@
 
         "Jexos" = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
-          modules =
-            commonModules
-            ++[
-              jetpack.nixosModules.default
-              ./core/jetson.nix
-            ];
+          modules = commonModules ++ [
+            jetpack.nixosModules.default
+            ./core/jetson.nix
+          ];
         };
 
         "SolOS-WSL" = nixpkgs.lib.nixosSystem {
@@ -280,7 +278,6 @@
           modules = [
             ./core/nix-on-droid.nix
           ];
-          home-manager-path = home-manager.outPath;
         };
       };
 
