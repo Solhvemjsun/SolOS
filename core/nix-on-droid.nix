@@ -6,7 +6,7 @@
 }:
 
 {
-  # stdenv.hostPlatform.system.stateVersion = "24.05";
+  system.stateVersion = "24.05";
 
   nix.extraOptions = ''
     experimental-features = nix-command flakes
@@ -20,6 +20,7 @@
     '';
     etcBackupExtension = ".bak";
     packages = with pkgs; [
+      any-nix-shell
       vim
       nyancat
       neovim
@@ -27,6 +28,7 @@
       gnumake
       openssh
       fastfetch
+      zed
 
       #procps
       #killall
