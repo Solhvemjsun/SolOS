@@ -13,4 +13,4 @@ wsltar:
 	sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder
 nod:
 	git add .
-	nix-on-droid wsitch --flake .
+	nix-on-droid switch --flake .
