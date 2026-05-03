@@ -8,7 +8,7 @@
     nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixos-wsl.inputs.nixpkgs.url = "github:nixos/nixpkgs";
+    nixos-wsl.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-wsl.inputs.home-manager.url = "github:nix-community/home-manager/release-24.05";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
