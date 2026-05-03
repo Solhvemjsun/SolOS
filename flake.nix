@@ -4,11 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
 
-    nix-on-droid.url = "github:nix-community/nix-on-droid/release-24.05";
-    nix-on-droid.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nix-on-droid.inputs.home-manager.url = "github:nix-community/home-manager/release-24.05";
-    nix-on-droid.inputs.home-manager.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -47,7 +42,6 @@
   outputs =
     {
       nixpkgs,
-      nix-on-droid,
       nixos-wsl,
       nixos-hardware,
       home-manager,
@@ -266,20 +260,6 @@
               ./devices/Template/device-specific.nix # Your device
               # ./mods/nvidia/mod.nix # If you have Nvidia card
             ];
-        };
-      };
-
-      nixOnDroidConfigurations = {
-        default = nix-on-droid.lib.nixOnDroidConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-linux";
-            overlays = [
-              nix-on-droid.overlays.default
-            ];
-          };
-          modules = [
-            ./core/nix-on-droid.nix
-          ];
         };
       };
 
