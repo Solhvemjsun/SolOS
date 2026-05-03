@@ -48,7 +48,7 @@
     ];
   };
 
-  user.shell = "${pkgs.zsh}/bin/fish";
+  user.shell = "${pkgs.fish}/bin/fish";
 
   home-manager = {
     config =
@@ -123,6 +123,6 @@
 
       };
     backupFileExtension = "$(date).backup";
-    useGlobalPkgs = false;
+    useGlobalPkgs = true;
   };
 }
