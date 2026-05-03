@@ -5,11 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs";
 
     nix-on-droid.url = "github:nix-community/nix-on-droid";
-    nix-on-droid.inputs.nixpkgs.follows = "nixpkgs";
+    nix-on-droid.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nix-on-droid.inputs.home-manager.url = "github:nix-community/home-manager/release-24.05";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    nixos-wsl.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixos-wsl.inputs.home-manager.url = "github:nix-community/home-manager/release-24.05";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
