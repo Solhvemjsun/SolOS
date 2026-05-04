@@ -201,6 +201,7 @@
               ./devices/SolBase/device-specific.nix
               ./mods/ai/mod.nix
               ./private/SolOS_Private/miniserver.nix
+              ./private/SolOS_Private/zeroclaw.nix
               ./service/ssh.nix
               ./service/minecraft/nix-minecraft.nix
               ./service/minecraft/mcbugus.nix
