@@ -145,6 +145,24 @@
             ];
         };
 
+        "SolGPD" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules =
+            commonModules
+            ++ guiModules
+            ++ niriModules
+            ++ kdeModules
+            ++ personalModules
+            ++ workModules
+            ++ [
+              nixos-hardware.nixosModules.common-gpu-amd
+              ./devices/SolGPD/device-specific.nix
+              ./mods/bambu/mod.nix
+              ./mods/china/clash.nix
+              ./mods/waydroid/mod.nix
+            ];
+        };
+
         "SolITX" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           # inherit specialArgs;
@@ -152,6 +170,7 @@
             commonModules
             ++ guiModules
             ++ niriModules
+            ++ kdeModules
             ++ personalModules
             ++ workModules
             # ++ mcserverModules
