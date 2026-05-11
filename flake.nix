@@ -142,6 +142,7 @@
               ./mods/waydroid/mod.nix
               ./mods/amdgpu/mod.nix
               ./mods/ai/mod.nix
+              ./service/tailscale.nix
             ];
         };
 
@@ -160,6 +161,7 @@
               ./mods/bambu/mod.nix
               ./mods/china/clash.nix
               ./mods/waydroid/mod.nix
+              ./service/tailscale.nix
             ];
         };
 
@@ -181,6 +183,7 @@
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               ./mods/waydroid/mod.nix
+              ./service/tailscale.nix
               # ./service/mcbugus.nix
               (
                 { system, ... }:
@@ -225,6 +228,7 @@
               ./service/ssh.nix
               ./service/minecraft/nix-minecraft.nix
               ./service/minecraft/mcbugus.nix
+              ./service/tailscale.nix
             ];
         };
 
