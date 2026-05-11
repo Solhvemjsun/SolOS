@@ -206,6 +206,7 @@
               ./devices/XuLab/device-specific.nix
               ./mods/nvidia/mod.nix
               ./users/XuLab.nix
+              ./service/tailscale.nix
             ];
         };
 
