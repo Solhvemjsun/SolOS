@@ -115,6 +115,22 @@
           focus-at-startup = true;
         };
 
+        "GPD" = {
+          name = "Thermotrex Corporation TL070FVXS01-0 Unknown";
+          mode = {
+            width = 1920;
+            height = 1080;
+            refresh = 119.999;
+          };
+          scale = 1.5;
+          position = {
+            x = 0;
+            y = 0;
+          };
+          background-color = "#000000";
+          backdrop-color = "#000000";
+        };
+
         "G8" = {
           name = "Samsung Electric Company Odyssey G8 HCNX400855";
           mode = {
@@ -166,6 +182,7 @@
           background-color = "#000000";
           backdrop-color = "#000000";
         };
+
       };
 
       layout = {
