@@ -179,12 +179,42 @@
             ++ [
               ./devices/SolITX/device-specific.nix
               ./mods/nvidia/mod.nix
-              ./mods/health/mod.nix
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               ./mods/waydroid/mod.nix
               ./service/tailscale.nix
-              # ./service/mcbugus.nix
+              (
+                { system, ... }:
+                {
+                  nixpkgs.overlays = [
+                    (final: prev: {
+                      papertoy = papertoy.packages.${system}.default;
+                    })
+                  ];
+                }
+              )
+            ];
+        };
+
+        "Albert4090" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          # inherit specialArgs;
+          modules =
+            commonModules
+            ++ guiModules
+            ++ niriModules
+            ++ kdeModules
+            ++ personalModules
+            ++ workModules
+            # ++ mcserverModules
+            ++ [
+              ./devices/Albert4090/device-specific.nix
+              ./mods/china/mod.nix
+              ./mods/nvidia/mod.nix
+              ./mods/oprain/mod.nix
+              ./mods/bambu/mod.nix
+              ./mods/waydroid/mod.nix
+              ./service/tailscale.nix
               (
                 { system, ... }:
                 {
