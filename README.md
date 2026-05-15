@@ -73,23 +73,43 @@ wsl -d NixOS
 
 ## Update
 In the directory:
-For NixOS:
+To build for next boot:
 
 ```console
-$ cd SolOS
 $ make
 ```
 
-For WSL:
-```console
-make wsl
+Or immediately apply the new version:
+
+```
+$ make update
 ```
 
-For nix-on-droid app:
+# To adapt for new device
+<details>
+<summary>Install via WSL on top of Windows:</summary>
+
+## Move the hardware config to your device folder
 ```console
-$ cd SolOS
-$ nix-on-droid switch --flake .
+$ cp /etc/nixos/hardware-configuration.nix ~/SolOS/devices/your-device-name/hardware-configuration.nix
 ```
+
+## Manage the modules used
+```console
+$ nvim SolOS/flake.nix
+```
+Then edit your device's nixos config section
+
+## Get your screen configured for niri users
+```console
+$ niri msg outputs
+```
+Then
+```console
+$ nvim SolOS/gui/nirihome.nix
+```
+
+</details>
 
 ## Use your config repo as submodule
 
@@ -108,7 +128,7 @@ make
 
 ### Build the WSL tarball
 ```console
-sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder
+make wsltar
 ```
 
 ## Wallpaper
