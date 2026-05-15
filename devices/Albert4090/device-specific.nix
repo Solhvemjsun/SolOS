@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./razer.nix
   ];
 
   networking.hostName = "Albert4090";

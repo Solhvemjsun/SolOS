@@ -182,6 +182,7 @@
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               ./mods/waydroid/mod.nix
+              ./mods/gui/github.nix
               ./service/tailscale.nix
               (
                 { system, ... }:
