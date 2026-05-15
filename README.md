@@ -61,7 +61,7 @@ $ sudo nixos-install --root /mnt --flake .#<hostName>
 wsl --install --no-distribution
 ```
 
-2. Download the [prebuilt tarball](https://drive.google.com/drive/folders/1vHANxtFfiMwdbDAC7DEhyuvuqceMxRLn?usp=sharing) from the releases page in this repo
+2. Download the [prebuilt tarball](https://drive.google.com/file/d/13SkOzRCCp3xB8iJSzBo5Pm2d4eIg7bF2/view?usp=sharing) from the releases page in this repo
 
 3. Double click the file you just installed to start the installation of it
 
@@ -87,7 +87,7 @@ $ make update
 
 # To adapt for new device
 <details>
-<summary>Install via WSL on top of Windows:</summary>
+<summary>Edit configurations before install</summary>
 
 ## Move the hardware config to your device folder
 ```console
