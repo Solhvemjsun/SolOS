@@ -10,6 +10,8 @@
       number = true; # Show line numbers
       relativenumber = true; # Show relative line numbers
       shiftwidth = 2; # Tab width is 2
+      statuscolumn = "%s%=%{v:relnum==0?v:lnum:(v:lnum>line('.')?v:relnum+1:v:relnum)} ";
+      clipboard = "unnamedplus";
     };
 
     keymaps = [
@@ -46,6 +48,7 @@
           mapping = {
             "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+            "<CR>" = "cmp.mapping.confirm({ select = false })";
           };
         };
       };
@@ -123,6 +126,7 @@
       lspsaga = {
         enable = true;
         settings.beacon.enable = true;
+        lightbulb.enable = false;
       };
 
       autosource.enable = true;
@@ -132,6 +136,10 @@
       conform-nvim = {
         enable = true;
         settings = {
+          format_on_save = {
+            lsp_fallback = true;
+            timeout_ms = 500;
+          };
           formatters_by_ft = {
             rust = [ "rustfmt" ];
             nix = [ "nixfmt" ];
@@ -142,7 +150,7 @@
               command = lib.getExe pkgs.rustfmt;
             };
             nixfmt = {
-              command = lib.getExe pkgs.nixfmt;
+              command = lib.getExe pkgs.nixfmt-rfc-style;
             };
           };
         };
