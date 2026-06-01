@@ -16,7 +16,6 @@
     minegrub-theme.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
@@ -178,22 +177,12 @@
             # ++ mcserverModules
             ++ [
               ./devices/SolITX/device-specific.nix
-              ./mods/nvidia/mod.nix
-              ./mods/oprain/mod.nix
-              ./mods/bambu/mod.nix
+              # ./mods/nvidia/mod.nix
               ./mods/waydroid/mod.nix
               ./mods/gui/github.nix
               ./service/tailscale.nix
-              (
-                { system, ... }:
-                {
-                  nixpkgs.overlays = [
-                    (final: prev: {
-                      papertoy = papertoy.packages.${system}.default;
-                    })
-                  ];
-                }
-              )
+              ./mods/memorysavior/mod.nix
+              ./mods/lix/mod.nix
             ];
         };
 
