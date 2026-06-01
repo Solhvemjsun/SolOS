@@ -54,6 +54,5 @@
 
     # Digital-Twin
     godot
-    hmcl
   ];
 }

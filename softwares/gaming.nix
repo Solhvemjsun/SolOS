@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    hmcl
     prismlauncher
     zulu8
     steam-run
