@@ -253,6 +253,7 @@
       nixvim.enable = false;
       plymouth.enable = false;
       fish.enable = false;
+      kmscon.enable = false;
     };
   };
 
