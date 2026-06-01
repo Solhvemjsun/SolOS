@@ -60,6 +60,8 @@
   system.stateVersion = "24.05"; # The first version of NixOS on this particular machine.
 
   nixpkgs.config.allowUnfree = true;
+  hardware.enableRedistributableFirmware = true;
+  hardware.enableAllFirmware = true;
 
   environment.systemPackages = with pkgs; [
     any-nix-shell
