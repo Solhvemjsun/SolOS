@@ -1,24 +1,28 @@
-{ config, pkgs, lib, ... }:
 {
-  boot = {
-    kernelModules = [ "nvidia_uvm" ];
-    kernelParams = [ "nvidia-drm.modeset=1" ];
-  };
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+{
+  boot.kernelParams = [
+    "nvidia.NVreg_EnableGpuFirmware=0"
+
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
 
-    powerManagement.enable = true;
-
-    powerManagement.finegrained = false;
-
-    open = true;
+    open = lib.mkForce false;
 
     nvidiaSettings = true;
 
@@ -28,6 +32,5 @@
   environment.systemPackages = with pkgs; [
     nvitop
   ];
-  
-  environment.sessionVariables.NIXOS_OZONE_WL = "0"; # Fix the glitching of electron apps
+
 }

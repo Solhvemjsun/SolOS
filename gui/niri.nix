@@ -61,9 +61,13 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-gtk
     ];
-    config.common.default = "*";
+    config = {
+      kde.default = "kde";
+      common.default = "gtk";
+    };
   };
 
 }
