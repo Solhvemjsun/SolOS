@@ -103,10 +103,11 @@
 
   # Enable LAN file sharing and printing
   services.gvfs.enable = true;
+  services.samba-wsdd.enable = true;
 
   services.avahi = {
     enable = true;
-    nssmdns4 = true;
+    nssmdns4 = false;
     openFirewall = true;
   };
 
