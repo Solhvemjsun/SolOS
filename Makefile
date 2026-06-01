@@ -1,10 +1,10 @@
-.PHONY: boot update private wsl wsltar
-boot:
-	git add .
-	nh os boot .
+.PHONY: update boot private wsl wsltar
 update:
 	git add .
 	nh os switch .
+boot:
+	git add .
+	nh os boot .
 private:
 	git add .
 	nh os boot '.?submodules=1'
