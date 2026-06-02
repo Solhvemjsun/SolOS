@@ -179,7 +179,7 @@
               ./devices/SolITX/device-specific.nix
               # ./mods/nvidia/mod.nix
               ./mods/waydroid/mod.nix
-              ./mods/git/github.nix
+              ./mods/git/mod.nix
               ./mods/services/tailscale.nix
               ./mods/memorysavior/mod.nix
               ./mods/lix/mod.nix
