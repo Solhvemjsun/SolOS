@@ -284,7 +284,15 @@
           command = [ "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" ];
         }
         { command = [ "${pkgs.xwayland-satellite}/bin/xwayland-satellite" ]; }
-        { command = [ "${pkgs.swaybg}/bin/swaybg" "-m" "center" "-i" "${../assets/nixos.png}" ]; }
+        {
+          command = [
+            "${pkgs.swaybg}/bin/swaybg"
+            "-m"
+            "center"
+            "-i"
+            "${../../assets/nixos.png}"
+          ];
+        }
       ];
 
       # To-do: add suspend actions

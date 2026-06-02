@@ -1,5 +1,7 @@
 { ... }:
 
 {
-  imports = [ ./health.nix ];
+  imports = [
+    ./common.nix
+  ];
 }

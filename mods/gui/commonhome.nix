@@ -37,10 +37,10 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    image = ../assets/nixos.png;
+    image = ../../assets/nixos.png;
     imageScalingMode = "fit";
     cursor = {
-      package = (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { });
+      package = (pkgs.callPackage ./cursor_themes/hatsune-miku-cursors/package.nix { });
       name = "miku-cursor";
       size = 64;
     };

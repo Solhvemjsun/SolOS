@@ -61,19 +61,19 @@
         ./core/nixos.nix
         ./users/Sol.nix
         nixvim.nixosModules.nixvim
-        ./tui/fish.nix
-        ./tui/nixvim.nix
-        ./tui/yazi.nix
+        ./mods/tui/fish.nix
+        ./mods/tui/nixvim.nix
+        ./mods/tui/yazi.nix
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
-        ./gui/common.nix
+        ./mods/gui/common.nix
         { home-manager.users.Sol = { }; }
       ];
       niriModules = [
-        ./gui/niri.nix
+        ./mods/gui/niri.nix
         {
           nixpkgs.overlays = [
             niri.overlays.niri
@@ -87,18 +87,18 @@
       ];
       kdeModules = [
         { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
-        ./gui/kde.nix
+        ./mods/gui/kde.nix
       ];
       personalModules = [
-        ./softwares/personal.nix
-        ./softwares/tor.nix
-        ./softwares/nextcloud.nix
-        ./softwares/gaming.nix
+        ./mods/softwares/personal.nix
+        ./mods/softwares/tor.nix
+        ./mods/softwares/nextcloud.nix
+        ./mods/softwares/gaming.nix
       ];
       workModules = [
-        ./softwares/office.nix
-        ./softwares/develop.nix
-        ./softwares/streaming.nix
+        ./mods/softwares/office.nix
+        ./mods/softwares/develop.nix
+        ./mods/softwares/streaming.nix
       ];
       mcserverModules = [
         nix-minecraft.nixosModules.minecraft-servers
@@ -141,7 +141,7 @@
               ./mods/waydroid/mod.nix
               ./mods/amdgpu/mod.nix
               ./mods/ai/mod.nix
-              ./service/tailscale.nix
+              ./mods/services/tailscale.nix
             ];
         };
 
@@ -160,7 +160,7 @@
               ./mods/bambu/mod.nix
               ./mods/china/clash.nix
               ./mods/waydroid/mod.nix
-              ./service/tailscale.nix
+              ./mods/services/tailscale.nix
             ];
         };
 
@@ -179,8 +179,8 @@
               ./devices/SolITX/device-specific.nix
               # ./mods/nvidia/mod.nix
               ./mods/waydroid/mod.nix
-              ./mods/gui/github.nix
-              ./service/tailscale.nix
+              ./mods/git/github.nix
+              ./mods/services/tailscale.nix
               ./mods/memorysavior/mod.nix
               ./mods/lix/mod.nix
             ];
@@ -204,7 +204,7 @@
               ./mods/oprain/mod.nix
               ./mods/bambu/mod.nix
               ./mods/waydroid/mod.nix
-              ./service/tailscale.nix
+              ./mods/services/tailscale.nix
               (
                 { system, ... }:
                 {
@@ -229,7 +229,7 @@
               ./devices/XuLab/device-specific.nix
               ./mods/nvidia/mod.nix
               ./users/XuLab.nix
-              ./service/tailscale.nix
+              ./mods/services/tailscale.nix
             ];
         };
 
@@ -245,10 +245,10 @@
               ./mods/ai/mod.nix
               ./private/SolOS_Private/miniserver.nix
               ./private/SolOS_Private/zeroclaw.nix
-              ./service/ssh.nix
-              ./service/minecraft/nix-minecraft.nix
-              ./service/minecraft/mcbugus.nix
-              ./service/tailscale.nix
+              ./mods/services/ssh.nix
+              ./mods/services/minecraft/nix-minecraft.nix
+              ./mods/services/minecraft/mcbugus.nix
+              ./mods/services/tailscale.nix
             ];
         };
 
@@ -270,7 +270,7 @@
           modules = commonModules ++ [
             ./core/rpi4.nix
             ./devices/DarkSol/device-specific.nix
-            ./service/ssh.nix
+            ./mods/services/ssh.nix
           ];
         };
 

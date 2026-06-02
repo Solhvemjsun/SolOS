@@ -1,4 +1,10 @@
-{ config, name, lib, pkgs, ... }:
+{
+  config,
+  name,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   ##########

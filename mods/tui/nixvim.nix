@@ -125,8 +125,10 @@
 
       lspsaga = {
         enable = true;
-        settings.beacon.enable = true;
-        lightbulb.enable = false;
+        settings = {
+          beacon.enable = true;
+          lightbulb.enable = false;
+        };
       };
 
       autosource.enable = true;

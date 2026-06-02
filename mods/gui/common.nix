@@ -134,7 +134,7 @@
     geogebra6
     gparted
     vlc
-    (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { })
+    (pkgs.callPackage ./cursor_themes/hatsune-miku-cursors/package.nix { })
     kiwix
     libnotify
     kdePackages.dolphin
@@ -214,7 +214,7 @@
     enable = true;
     polarity = "dark";
     cursor = {
-      package = (pkgs.callPackage ../pkgs/hatsune-miku-cursors/package.nix { });
+      package = (pkgs.callPackage ./cursor_themes/hatsune-miku-cursors/package.nix { });
       name = "miku-cursor";
       size = 64;
     };
