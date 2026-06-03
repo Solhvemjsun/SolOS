@@ -73,6 +73,7 @@
     gh
     git
     gnumake
+    ntfs3g
     openssh
     ripgrep
     tree
@@ -80,6 +81,7 @@
     unzip
     usbutils
     wget
+    yazi
     zip
   ];
 }
