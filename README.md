@@ -30,6 +30,8 @@ Full WSL support, custom installation image and KDE support for researchers to r
 $ git clone https://github.com/Solhvemjsun/SolOS
 $ cd SolOS
 ```
+add --recurse-submodules to get submodules, or do git submodule update --init --recursive
+
 
 3. Copy the template folder in /devices for your device, user, and cusomization settings
 ```console
