@@ -290,7 +290,7 @@
             "-m"
             "center"
             "-i"
-            "${../../assets/nixos.png}"
+            "${../../../assets/nixos.png}"
           ];
         }
       ];

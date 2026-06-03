@@ -15,7 +15,7 @@
   ##################
 
   home-manager.sharedModules = [
-    ./nirihome.nix
+    ./home.nix
   ];
 
   ##############

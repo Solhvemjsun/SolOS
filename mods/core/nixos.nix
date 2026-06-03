@@ -12,6 +12,8 @@
     ];
   };
 
+  nix.package = pkgs.lixPackageSets.stable.lix;
+
   environment.sessionVariables = {
     NIXPKGS_ALLOW_UNFREE = "1";
   };

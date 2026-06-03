@@ -6,6 +6,12 @@
 }:
 
 {
+  ##################
+  ## HOME MANAGER ##
+  ##################
+
+  home-manager.sharedModules = [ ./home.nix ];
+
   ##########
   ## SDDM ##
   ##########
@@ -64,9 +70,4 @@
 
   programs.kdeconnect.enable = true;
 
-  ##################
-  ## HOME MANAGER ##
-  ##################
-
-  home-manager.sharedModules = [ ./kdehome.nix ];
 }

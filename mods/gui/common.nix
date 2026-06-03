@@ -5,14 +5,7 @@
   ## HOME MANAGER ##
   ##################
 
-  home-manager = {
-    useGlobalPkgs = true;
-    backupFileExtension = "backup";
-    sharedModules = [
-      ./home.nix
-      ./commonhome.nix
-    ];
-  };
+  home-manager.sharedModules = [ ./home.nix ];
 
   ##########
   ## GRUB ##
@@ -134,7 +127,7 @@
     geogebra6
     gparted
     vlc
-    (pkgs.callPackage ./cursor_themes/hatsune-miku-cursors/package.nix { })
+    (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { })
     kiwix
     libnotify
     kdePackages.dolphin
@@ -214,7 +207,7 @@
     enable = true;
     polarity = "dark";
     cursor = {
-      package = (pkgs.callPackage ./cursor_themes/hatsune-miku-cursors/package.nix { });
+      package = (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { });
       name = "miku-cursor";
       size = 64;
     };

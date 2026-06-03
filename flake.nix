@@ -56,23 +56,24 @@
     }:
     let
       commonModules = [
-        ./mods/core/nixos.nix
-        ./users/Sol/user.nix
+        home-manager.nixosModules.home-manager
         nixvim.nixosModules.nixvim
+        ./mods/core/nixos.nix
+        ./mods/core/home/homemanager.nix
+        ./users/Sol/user.nix
         ./mods/tui/fish.nix
         ./mods/tui/nixvim.nix
         ./mods/tui/yazi.nix
+        ./mods/tui/lazygit.nix
       ];
       guiModules = [
         minegrub-theme.nixosModules.default
-        home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
-        ./mods/git/mod.nix
         ./mods/gui/common.nix
-        { home-manager.users.Sol = { }; }
+        ./mods/core/performance/zramSwap.nix
       ];
       niriModules = [
-        ./mods/gui/niri.nix
+        ./mods/gui/niri/default.nix
         {
           nixpkgs.overlays = [
             niri.overlays.niri
@@ -86,22 +87,18 @@
       ];
       kdeModules = [
         { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
-        ./mods/gui/kde.nix
+        ./mods/gui/kde/default.nix
       ];
       personalModules = [
-        ./mods/softwares/personal.nix
-        ./mods/softwares/tor.nix
-        ./mods/softwares/nextcloud.nix
-        ./mods/softwares/gaming.nix
+        ./mods/gui/softwares/personal.nix
+        ./mods/gui/softwares/tor.nix
+        ./mods/gui/softwares/nextcloud.nix
+        ./mods/gui/softwares/gaming.nix
       ];
       workModules = [
-        ./mods/softwares/office.nix
-        ./mods/softwares/develop.nix
-        ./mods/softwares/streaming.nix
-      ];
-      mcserverModules = [
-        nix-minecraft.nixosModules.minecraft-servers
-        { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
+        ./mods/gui/softwares/office.nix
+        ./mods/gui/softwares/develop.nix
+        ./mods/gui/softwares/streaming.nix
       ];
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -122,8 +119,7 @@
               ++ workModules
               ++ [
                 ./hosts/XPS13/device-specific.nix
-                ./mods/oprain/mod.nix
-                ./mods/bambu/mod.nix
+                ./mods/experiment/oprain/mod.nix
               ];
           };
 
@@ -140,11 +136,10 @@
                 nixos-hardware.nixosModules.asus-battery
                 nixos-hardware.nixosModules.common-gpu-amd
                 ./hosts/ROG_Z13/device-specific.nix
-                ./mods/oprain/mod.nix
-                ./mods/china/clash.nix
-                ./mods/waydroid/mod.nix
-                ./mods/amdgpu/mod.nix
-                ./mods/ai/mod.nix
+                ./mods/regions/china/clash.nix
+                ./mods/gui/softwares/waydroid.nix
+                ./mods/core/hardwares/amdgpu/mod.nix
+                ./mods/experiment/ai/mod.nix
                 ./mods/services/tailscale.nix
               ];
           };
@@ -161,9 +156,8 @@
               ++ [
                 nixos-hardware.nixosModules.common-gpu-amd
                 ./hosts/SolGPD/device-specific.nix
-                ./mods/bambu/mod.nix
-                ./mods/china/clash.nix
-                ./mods/waydroid/mod.nix
+                ./mods/regions/china/clash.nix
+                ./mods/gui/softwares/waydroid.nix
                 ./mods/services/tailscale.nix
               ];
           };
@@ -178,14 +172,12 @@
               ++ kdeModules
               ++ personalModules
               ++ workModules
-              # ++ mcserverModules
               ++ [
                 ./hosts/SolITX/device-specific.nix
-                # ./mods/nvidia/mod.nix
-                ./mods/waydroid/mod.nix
+                # ./mods/core/hardwares/nvidia/mod.nix
+                ./mods/gui/softwares/waydroid.nix
                 ./mods/services/tailscale.nix
-                ./mods/memorysavior/mod.nix
-                ./mods/lix/mod.nix
+                ./mods/gui/softwares/3dprinter.nix
               ];
           };
 
@@ -198,7 +190,7 @@
               ++ workModules
               ++ [
                 ./hosts/XuLab/device-specific.nix
-                ./mods/nvidia/mod.nix
+                ./mods/core/hardwares/nvidia/mod.nix
                 ./users/XuLab/user.nix
                 ./mods/services/tailscale.nix
               ];
@@ -210,10 +202,10 @@
               commonModules
               ++ guiModules
               ++ niriModules
-              ++ mcserverModules
               ++ [
+                nix-minecraft.nixosModules.minecraft-servers
+                { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
                 ./hosts/SolBase/device-specific.nix
-                ./mods/ai/mod.nix
                 ./private/SolOS_Private/miniserver.nix
                 ./private/SolOS_Private/zeroclaw.nix
                 ./mods/services/ssh.nix
@@ -239,7 +231,7 @@
           "DarkSol" = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             modules = commonModules ++ [
-              ./mods/core/rpi4.nix
+              ./mods/core/platforms/rpi4.nix
               ./hosts/DarkSol/device-specific.nix
               ./mods/services/ssh.nix
             ];
