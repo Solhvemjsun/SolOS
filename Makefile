@@ -14,3 +14,8 @@ wsltar:
 nod:
 	git add .
 	nix-on-droid switch --flake .
+server:
+	git pull
+	git submodule sync --recursive
+	git submodule update --init --recursive
+	nh os boot '.?submodules=1'
