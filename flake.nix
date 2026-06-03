@@ -56,7 +56,7 @@
     }:
     let
       commonModules = [
-        ./core/nixos.nix
+        ./mods/core/nixos.nix
         ./users/Sol/user.nix
         nixvim.nixosModules.nixvim
         ./mods/tui/fish.nix
@@ -239,7 +239,7 @@
           "DarkSol" = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
             modules = commonModules ++ [
-              ./core/rpi4.nix
+              ./mods/core/rpi4.nix
               ./hosts/DarkSol/device-specific.nix
               ./mods/services/ssh.nix
             ];
@@ -253,7 +253,7 @@
               ++ guiModules
               ++ [
                 nixos-wsl.nixosModules.default
-                ./core/wsl.nix
+                ./mods/core/wsl.nix
               ];
           };
 
