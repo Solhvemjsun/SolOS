@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home-manager.sharedModules = [ ./github_home.nix ];
+  home-manager.sharedModules = [ ./home.nix ];
 
   environment.systemPackages = with pkgs; [
     gitFull
