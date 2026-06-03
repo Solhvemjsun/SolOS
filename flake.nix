@@ -55,10 +55,9 @@
       ...
     }:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
       commonModules = [
         ./core/nixos.nix
-        ./users/Sol.nix
+        ./users/Sol/user.nix
         nixvim.nixosModules.nixvim
         ./mods/tui/fish.nix
         ./mods/tui/nixvim.nix
@@ -200,7 +199,7 @@
               ++ [
                 ./hosts/XuLab/device-specific.nix
                 ./mods/nvidia/mod.nix
-                ./users/XuLab.nix
+                ./users/XuLab/user.nix
                 ./mods/services/tailscale.nix
               ];
           };

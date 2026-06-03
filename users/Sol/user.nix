@@ -13,14 +13,11 @@
     ];
   };
 
-  #############
-  ## DEVELOP ##
-  #############
-
-  # programs.git = {
-  #   enable = true;
-  #   userName = "Solhvemjsun";
-  #   userEmail = "solhvemjsun@gmail.com";
-  # };
-
+  home-manager.users.Sol = {
+    programs.git = {
+      enable = true;
+      userName = "Solhvemjsun";
+      userEmail = "solhvemjsun@github.com";
+    };
+  };
 }
