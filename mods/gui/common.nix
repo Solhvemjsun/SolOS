@@ -134,9 +134,6 @@
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
-    # neovide
-    nextcloud-client
-    ntfs3g
     onlyoffice-desktopeditors
     remmina
     samba
@@ -147,8 +144,6 @@
         showSessionsByDefault = true;
       };
     })
-    xournalpp
-    yazi
   ];
 
   #########
