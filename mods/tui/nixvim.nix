@@ -6,6 +6,7 @@
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
+    colorscheme = "default";
     opts = {
       number = true; # Show line numbers
       relativenumber = true; # Show relative line numbers
@@ -13,20 +14,42 @@
       statuscolumn = "%s%=%{v:relnum==0?v:lnum:(v:lnum>line('.')?v:relnum+1:v:relnum)} ";
       clipboard = "unnamedplus";
     };
+    extraPackages = with pkgs; [
+      wl-clipboard
+    ];
 
+    #################
+    ## Keybindings ##
+    #################
+
+    globals.mapleader = " ";
     keymaps = [
       {
         mode = "n";
-        key = "<C-Tab>";
-        action = ":NvimTreeToggle<CR>";
-        options = {
-          silent = true;
-          desc = "Toggle nvim-tree with Ctrl+Tab";
-        };
+        key = "<leader>e";
+        action = "<cmd>Neotree toggle<cr>";
+        options.desc = "Toggle Explorer";
+      }
+      {
+        mode = "n";
+        key = "<leader>f";
+        action = "<cmd>Telescope find_files<cr>";
+        options.desc = "Find Files";
+      }
+
+      {
+        mode = "n";
+        key = "<leader>g";
+        action = "<cmd>LazyGit<cr>";
+        options.desc = "Open LazyGit";
       }
     ];
 
     plugins = {
+      ########
+      ## UI ##
+      ########
+
       alpha = {
         enable = true;
         theme = "startify";
@@ -34,7 +57,39 @@
 
       nvim-autopairs.enable = true;
 
-      which-key.enable = true;
+      mini = {
+        enable = true;
+        mockDevIcons = true;
+        modules = {
+          icons.style = "glyph";
+        };
+      };
+
+      bufferline.enable = true; # Top tabs
+      lualine.enable = true; # Bottom line
+      telescope.enable = true; # Fuzzy search (<space> f)
+      which-key.enable = true; # Shortcut hint
+      neo-tree.enable = true; # File viewer (<space> e)
+
+      ##############
+      ## Renderer ##
+      ##############
+
+      markview.enable = true; # Render Markdown files
+      rainbow-delimiters.enable = true;
+
+      #############
+      ## Editing ##
+      #############
+
+      lsp-signature.enable = true; # Show function's parameters
+
+      treesitter = {
+        enable = true;
+        settings = {
+          highlight.enable = true;
+        };
+      };
 
       cmp = {
         enable = true;
@@ -53,36 +108,19 @@
         };
       };
 
-      rainbow-delimiters = {
-        enable = true;
-        # settings = {
-        # }
-      };
+      #########
+      ## Git ##
+      #########
 
-      markview.enable = true;
+      lazygit.enable = true; # git interface (<space> g)
+      gitsigns.enable = true; # Git status hint
+      diffview.enable = true; # View git diff
 
-      lualine.enable = true;
+      ##############
+      ## Language ##
+      ##############
 
-      mini = {
-        enable = true;
-        mockDevIcons = true;
-        modules = {
-          icons.style = "glyph";
-        };
-      };
-
-      nix.enable = true;
-
-      nvim-tree.enable = true;
-
-      telescope.enable = true;
-
-      treesitter = {
-        enable = true;
-        settings = {
-          highlight.enable = true;
-        };
-      };
+      nix.enable = true; # Handle Nix language logic
 
       lsp = {
         enable = true;
@@ -117,11 +155,8 @@
 
           # Linux script
           bashls.enable = true;
-          zls.enable = true;
         };
       };
-
-      lsp-signature.enable = true;
 
       lspsaga = {
         enable = true;
@@ -131,9 +166,9 @@
         };
       };
 
-      autosource.enable = true;
-
-      diffview.enable = true;
+      ###############
+      ## Formatter ##
+      ###############
 
       conform-nvim = {
         enable = true;
@@ -157,11 +192,8 @@
           };
         };
       };
-    };
 
-    extraPackages = with pkgs; [
-      wl-clipboard
-    ];
+    };
   };
 
 }
