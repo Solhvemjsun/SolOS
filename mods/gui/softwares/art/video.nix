@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    orca-slicer
-    bambu-studio
+    ffmpeg
+    kdePackages.kdenlive
   ];
 }

@@ -5,6 +5,11 @@
 }:
 
 {
+  environment.systemPackages = with pkgs; [
+    any-nix-shell
+    eza
+    tty-clock
+  ];
   users.defaultUserShell = lib.mkForce pkgs.fish;
   programs.fish = {
     enable = true;

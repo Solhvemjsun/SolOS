@@ -33,8 +33,6 @@
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
-
-    papertoy.url = "github:sin-ack/papertoy";
   };
 
   outputs =
@@ -51,28 +49,33 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
-      papertoy,
       ...
     }:
     let
-      commonModules = [
-        home-manager.nixosModules.home-manager
+      coreModules = [
+        ./mods/core/platforms/nixos.nix
+        ./mods/core/locales/california/timezone.nix
+        ./mods/core/nix/nix.nix
+        ./mods/core/drivers/network/networkmanager.nix
+      ];
+      tuiModules = coreModules ++ [
         nixvim.nixosModules.nixvim
-        ./mods/core/nixos.nix
+        home-manager.nixosModules.home-manager
         ./mods/core/home/homemanager.nix
         ./users/Sol/user.nix
         ./mods/tui/fish.nix
         ./mods/tui/nixvim.nix
         ./mods/tui/yazi.nix
-        ./mods/tui/lazygit.nix
+        ./mods/tui/softwares.nix
+        ./mods/tui/fastfetch.nix
       ];
-      guiModules = [
+      guiModules = tuiModules ++ [
         minegrub-theme.nixosModules.default
         stylix.nixosModules.stylix
         ./mods/gui/common.nix
         ./mods/core/performance/zramSwap.nix
       ];
-      niriModules = [
+      niriModules = guiModules ++ [
         ./mods/gui/niri/default.nix
         {
           nixpkgs.overlays = [
@@ -89,16 +92,28 @@
         { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
         ./mods/gui/kde/default.nix
       ];
-      personalModules = [
-        ./mods/gui/softwares/personal.nix
-        ./mods/gui/softwares/tor.nix
-        ./mods/gui/softwares/nextcloud.nix
-        ./mods/gui/softwares/gaming.nix
+      basicSoftwares = [
+        ./mods/gui/softwares/cloud/nextcloud.nix
+        ./mods/gui/softwares/streaming/obs.nix
+        ./mods/gui/softwares/work/communication.nix
+        ./mods/gui/softwares/net/communication.nix
+        ./mods/gui/softwares/net/firefox.nix
+        ./mods/gui/softwares/net/remote.nix
+        ./mods/gui/softwares/net/tor.nix
       ];
-      workModules = [
-        ./mods/gui/softwares/office.nix
-        ./mods/gui/softwares/develop.nix
-        ./mods/gui/softwares/streaming.nix
+      createSoftwares = basicSoftwares ++ [
+        ./mods/gui/softwares/art/draw.nix
+        ./mods/gui/softwares/art/music.nix
+        ./mods/gui/softwares/art/video.nix
+        ./mods/gui/softwares/design/3d.nix
+        ./mods/gui/softwares/design/cad.nix
+        ./mods/gui/softwares/develop/game.nix
+      ];
+      personalSoftwares = createSoftwares ++ [
+        ./mods/gui/softwares/joy/media.nix
+        ./mods/gui/softwares/joy/minecraft.nix
+        ./mods/gui/softwares/joy/steam.nix
+        ./mods/gui/softwares/joy/communication.nix
       ];
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -112,85 +127,85 @@
           "SolXPS" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules =
-              commonModules
-              ++ guiModules
-              ++ niriModules
-              ++ personalModules
-              ++ workModules
+              niriModules
+              ++ personalSoftwares
               ++ [
                 ./hosts/XPS13/device-specific.nix
-                ./mods/experiment/oprain/mod.nix
+                ./mods/gui/softwares/net/clash.nix
               ];
           };
 
           "SolZ13" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules =
-              commonModules
-              ++ guiModules
-              ++ niriModules
+              niriModules
               ++ kdeModules
-              ++ personalModules
-              ++ workModules
+              ++ personalSoftwares
               ++ [
                 nixos-hardware.nixosModules.asus-battery
                 nixos-hardware.nixosModules.common-gpu-amd
                 ./hosts/ROG_Z13/device-specific.nix
-                ./mods/regions/china/clash.nix
-                ./mods/gui/softwares/waydroid.nix
-                ./mods/core/hardwares/amdgpu/mod.nix
-                ./mods/experiment/ai/mod.nix
+                ./mods/gui/softwares/net/clash.nix
+                ./mods/gui/softwares/virtualize/waydroid.nix
+                ./mods/core/drivers/amdgpu/amdgpu.nix
                 ./mods/services/tailscale.nix
+                ./mods/experiment/ai/mod.nix
               ];
           };
 
           "SolGPD" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules =
-              commonModules
-              ++ guiModules
-              ++ niriModules
+              niriModules
               ++ kdeModules
-              ++ personalModules
-              ++ workModules
+              ++ personalSoftwares
               ++ [
                 nixos-hardware.nixosModules.common-gpu-amd
                 ./hosts/SolGPD/device-specific.nix
-                ./mods/regions/china/clash.nix
-                ./mods/gui/softwares/waydroid.nix
+                ./mods/gui/softwares/net/clash.nix
                 ./mods/services/tailscale.nix
               ];
           };
 
           "SolITX" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            # inherit specialArgs;
             modules =
-              commonModules
-              ++ guiModules
-              ++ niriModules
+              niriModules
               ++ kdeModules
-              ++ personalModules
-              ++ workModules
+              ++ personalSoftwares
               ++ [
+                ./mods/core/kernels/linux-zen.nix
                 ./hosts/SolITX/device-specific.nix
-                # ./mods/core/hardwares/nvidia/mod.nix
-                ./mods/gui/softwares/waydroid.nix
+                # ./mods/core/drivers/nvidia/nvidia.nix
+                ./mods/core/drivers/firmwares/closed.nix
+                ./mods/gui/softwares/virtualize/waydroid.nix
                 ./mods/services/tailscale.nix
-                ./mods/gui/softwares/3dprinter.nix
+                ./mods/experiment/ai/mod.nix
+              ];
+          };
+
+          "MachenikeMini" = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules =
+              niriModules
+              ++ kdeModules
+              ++ personalSoftwares
+              ++ [
+                ./mods/core/kernels/linux-zen.nix
+                ./hosts/MachenikeMini/device-specific.nix
               ];
           };
 
           "XuLab" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules =
-              commonModules
-              ++ guiModules
-              ++ niriModules
-              ++ workModules
+              niriModules
+              ++ kdeModules
+              ++ createSoftwares
               ++ [
+                ./mods/core/kernels/linux-zen.nix
                 ./hosts/XuLab/device-specific.nix
-                ./mods/core/hardwares/nvidia/mod.nix
+                ./mods/core/drivers/nvidia/nvidia.nix
                 ./users/XuLab/user.nix
                 ./mods/services/tailscale.nix
               ];
@@ -198,39 +213,24 @@
 
           "SolBase" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            modules =
-              commonModules
-              ++ guiModules
-              ++ niriModules
-              ++ [
-                nix-minecraft.nixosModules.minecraft-servers
-                { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
-                ./hosts/SolBase/device-specific.nix
-                ./private/SolOS_Private/miniserver.nix
-                ./private/SolOS_Private/zeroclaw.nix
-                ./mods/services/ssh.nix
-                ./mods/services/minecraft/nix-minecraft.nix
-                ./mods/services/minecraft/mcbugus.nix
-                ./mods/services/tailscale.nix
-              ];
-          };
-
-          "MachenikeMini" = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules =
-              commonModules
-              ++ guiModules
-              ++ kdeModules
-              ++ personalModules
-              ++ workModules
-              ++ [
-                ./hosts/MachenikeMini/device-specific.nix
-              ];
+            modules = niriModules ++ [
+              nix-minecraft.nixosModules.minecraft-servers
+              { nixpkgs.overlays = [ nix-minecraft.overlay ]; }
+              ./mods/core/kernels/linux-hardened.nix
+              ./hosts/SolBase/device-specific.nix
+              ./mods/gui/softwares/net/firefox.nix
+              ./mods/services/SolOS_Private/miniserver.nix
+              ./mods/services/SolOS_Private/zeroclaw.nix
+              ./mods/services/ssh.nix
+              ./mods/services/minecraft/nix-minecraft.nix
+              ./mods/services/minecraft/mcbugus.nix
+              ./mods/services/tailscale.nix
+            ];
           };
 
           "DarkSol" = nixpkgs.lib.nixosSystem {
             system = "aarch64-linux";
-            modules = commonModules ++ [
+            modules = tuiModules ++ [
               ./mods/core/platforms/rpi4.nix
               ./hosts/DarkSol/device-specific.nix
               ./mods/services/ssh.nix
@@ -239,14 +239,10 @@
 
           "SolOS-WSL" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            modules =
-              commonModules
-              ++ workModules
-              ++ guiModules
-              ++ [
-                nixos-wsl.nixosModules.default
-                ./mods/core/wsl.nix
-              ];
+            modules = tuiModules ++ [
+              nixos-wsl.nixosModules.default
+              ./mods/core/wsl.nix
+            ];
           };
 
         };

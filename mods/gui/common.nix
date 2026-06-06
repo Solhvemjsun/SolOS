@@ -120,25 +120,20 @@
   ##############
 
   environment.systemPackages = with pkgs; [
-    amberol
-    bluetuith
     candy-icons
     firefox-bin
     geogebra6
     gparted
-    vlc
     (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { })
     kiwix
     libnotify
-    kdePackages.dolphin
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
     onlyoffice-desktopeditors
-    remmina
-    samba
     sweet-folders
     udiskie
+    vlc
     (where-is-my-sddm-theme.override {
       themeConfig.General = {
         showSessionsByDefault = true;
