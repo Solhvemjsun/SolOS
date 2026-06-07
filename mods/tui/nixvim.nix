@@ -189,7 +189,7 @@
               command = lib.getExe pkgs.rustfmt;
             };
             nixfmt = {
-              command = lib.getExe pkgs.nixfmt-rfc-style;
+              command = lib.getExe pkgs.nixfmt;
             };
           };
         };
