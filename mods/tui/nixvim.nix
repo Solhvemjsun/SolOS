@@ -55,8 +55,6 @@
         theme = "startify";
       };
 
-      nvim-autopairs.enable = true;
-
       mini = {
         enable = true;
         mockDevIcons = true;
@@ -65,7 +63,7 @@
         };
       };
 
-      bufferline.enable = true; # Top tabs
+      bufferline.enable = true; # Top line file tabs
       lualine.enable = true; # Bottom line
       telescope.enable = true; # Fuzzy search (<space> f)
       which-key.enable = true; # Shortcut hint
@@ -83,6 +81,8 @@
       #############
 
       lsp-signature.enable = true; # Show function's parameters
+
+      nvim-autopairs.enable = true; # Auto complete signs like parenthesis
 
       treesitter = {
         enable = true;
@@ -161,7 +161,9 @@
       lspsaga = {
         enable = true;
         settings = {
+          implement.enable = true;
           beacon.enable = true;
+          symbol_in_winbar = false;
           lightbulb.enable = false;
         };
       };
