@@ -163,7 +163,7 @@
         settings = {
           implement.enable = true;
           beacon.enable = true;
-          symbol_in_winbar = false;
+          symbol_in_winbar.enable = false;
           lightbulb.enable = false;
         };
       };
