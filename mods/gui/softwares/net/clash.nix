@@ -1,4 +1,4 @@
-{ pkga, ... }:
+{ ... }:
 
 {
   programs.clash-verge = {

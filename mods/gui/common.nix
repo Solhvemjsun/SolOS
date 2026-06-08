@@ -132,6 +132,7 @@
     kdePackages.okular
     onlyoffice-desktopeditors
     sweet-folders
+    tailscale-systray
     udiskie
     vlc
     (where-is-my-sddm-theme.override {
