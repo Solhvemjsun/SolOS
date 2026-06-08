@@ -533,13 +533,17 @@
     };
   };
 
-  services.mako = {
+  # services.mako = {
+  #   enable = true;
+  #   settings = {
+  #     background-color = "#000000FF";
+  #     border-size = 2;
+  #     border-color = "#00FFFFFF";
+  #   };
+  # };
+
+  services.swaync = {
     enable = true;
-    settings = {
-      background-color = "#000000FF";
-      border-size = 2;
-      border-color = "#00FFFFFF";
-    };
   };
 
 }
