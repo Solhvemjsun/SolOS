@@ -6,12 +6,6 @@
 }:
 
 {
-  boot.kernelParams = [
-    "nvidia.NVreg_EnableGpuFirmware=0"
-
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  ];
-
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -22,15 +16,16 @@
   hardware.nvidia = {
     modesetting.enable = true;
 
-    open = lib.mkForce false;
+    open = lib.mkDefault true;
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
   environment.systemPackages = with pkgs; [
     nvitop
+    btop-cuda
   ];
 
 }

@@ -177,7 +177,7 @@
               ++ [
                 ./mods/core/kernels/linux-zen.nix
                 ./hosts/SolITX/device-specific.nix
-                # ./mods/core/drivers/nvidia/nvidia.nix
+                ./mods/core/drivers/nvidia/nvidia.nix
                 ./mods/core/drivers/firmwares/closed.nix
                 ./mods/gui/softwares/virtualize/waydroid.nix
                 ./mods/services/tailscale.nix
