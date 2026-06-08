@@ -26,7 +26,6 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     gamescope
-    grim
     imv
     kdePackages.polkit-kde-agent-1
     mako
@@ -37,7 +36,6 @@
     playerctl
     seahorse
     selectdefaultapplication
-    slurp
     swaybg
     wl-clipboard-rs
     xwayland-satellite

@@ -438,15 +438,24 @@
           "XF86MonBrightnessUp".action =
             exec "brightnessctl set 10%+ && notify-send \"Brightness $(brightnessctl -m | cut -d, -f4)\" -t 500";
 
-          "Print".action =
-            exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';
-          "Mod+P" = {
-            action = exec ''grim -g "$(slurp)" - | tee ~/Nextcloud/Pictures/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'';
-            hotkey-overlay.title = "Take Screenshot";
+          # Screenshot Keybindings
+          "Mod+P".action.screenshot-screen = {
+            show-pointer = false;
           };
-          # "Print".action = screenshot { show-pointer = false; };
-          # "Shift+Print".action = screenshot { show-pointer = true; };
-          # "Mod+Print".action = screenshot-window { write-to-disk = true; };
+          "Shift+Mod+P".action.screenshot = {
+            show-pointer = true;
+          };
+          "Ctrl+Mod+P".action.screenshot-window = {
+          };
+
+          "Print".action.screenshot-screen = {
+            show-pointer = false;
+          };
+          "Shift+Print".action.screenshot = {
+            show-pointer = true;
+          };
+          "Ctrl+Print".action.screenshot-window = {
+          };
 
           "XF86Display".action = suspend;
 
