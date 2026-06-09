@@ -408,7 +408,7 @@
             hotkey-overlay.title = "Application Launcher";
           };
           "Mod+Shift+E" = {
-            action = exec "kitty -e yazi";
+            action = exec "nautilus";
             hotkey-overlay.hidden = true;
           };
           "Mod+T" = {
