@@ -11,6 +11,9 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixos-avf.url = "github:nix-community/nixos-avf/trunk";
+    nixos-avf.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -40,6 +43,7 @@
       nixpkgs,
       flake-parts,
       nixos-wsl,
+      nixos-avf,
       nixos-hardware,
       home-manager,
       minegrub-theme,
@@ -234,6 +238,15 @@
               ./mods/core/platforms/rpi4.nix
               ./hosts/DarkSol/device-specific.nix
               ./mods/services/ssh.nix
+            ];
+          };
+
+          "SolOS-AVF" = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = tuiModules ++ [
+              nixos-avf.nixosModules.avf
+              ./mods/core/platforms/avf.nix
+              ./hosts/SolOS-AVF/device-specific.nix
             ];
           };
 
