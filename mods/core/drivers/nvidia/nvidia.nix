@@ -1,11 +1,14 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
 
 {
+  boot.blacklistedKernelModules = [
+    "i915"
+    "amdgpu"
+  ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -16,11 +19,11 @@
   hardware.nvidia = {
     modesetting.enable = true;
 
-    open = lib.mkDefault true;
+    open = true;
 
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   environment.systemPackages = with pkgs; [
