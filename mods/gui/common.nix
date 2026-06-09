@@ -24,7 +24,6 @@
 
     plymouth = {
       enable = true;
-      # theme = "dna";
       theme = "green_blocks";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override { selected_themes = [ "green_blocks" ]; })
@@ -121,6 +120,7 @@
 
   environment.systemPackages = with pkgs; [
     candy-icons
+    f3d
     geogebra6
     gparted
     (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { })
@@ -146,7 +146,15 @@
 
   xdg = {
     mime = {
-      enable = true; # WIP
+      enable = true;
+      defaultApplications = {
+        "x-terminal-emulator" = "kitty.desktop";
+        "video/" = "vlc.desktop";
+        "audio/" = "vlc.desktop";
+        "text/" = "nvim.desktop";
+        "model/" = "f3d.desktop";
+        "application/pdf" = "okular.desktop";
+      };
     };
     terminal-exec = {
       enable = true;
