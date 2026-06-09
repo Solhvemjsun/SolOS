@@ -121,7 +121,6 @@
 
   environment.systemPackages = with pkgs; [
     candy-icons
-    firefox-bin
     geogebra6
     gparted
     (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { })
@@ -131,7 +130,6 @@
     kdePackages.isoimagewriter
     kdePackages.okular
     onlyoffice-desktopeditors
-    sweet-folders
     tailscale-systray
     udiskie
     vlc
@@ -197,10 +195,18 @@
   stylix = {
     enable = true;
     polarity = "dark";
+    image = ../../assets/nixos.png;
+    imageScalingMode = "fit";
     cursor = {
       package = (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { });
       name = "miku-cursor";
       size = 64;
+    };
+    icons = {
+      enable = true;
+      package = pkgs.sweet-folders;
+      dark = "Sweet-Rainbow";
+      light = "Sweet-Rainbow";
     };
     base16Scheme = {
       system = "base24";

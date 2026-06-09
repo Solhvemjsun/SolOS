@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 
@@ -21,10 +22,10 @@
       prefer-no-csd = true;
       screenshot-path = "~/Nextcloud/Pictures/Screenshots/Screenshot_%Y-%m-%d %H-%M-%S.png";
 
-      # xwayland-satellite = {
-      #   enable = true;
-      #   path = lib.getExe pkgs.xwayland-satellite-unstable;
-      # };
+      xwayland-satellite = {
+        enable = true;
+        path = lib.getExe pkgs.xwayland-satellite-unstable;
+      };
 
       # Misc
       hotkey-overlay = {
@@ -202,7 +203,6 @@
             to = "#224488";
             relative-to = "workspace-view";
           };
-          # urgent = {};
         };
         focus-ring.enable = false;
         insert-hint = {
@@ -278,12 +278,9 @@
 
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
-        { command = [ "mako" ]; }
-        { command = [ "astal-shell" ]; }
         {
           command = [ "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" ];
         }
-        { command = [ "${pkgs.xwayland-satellite}/bin/xwayland-satellite" ]; }
         {
           command = [
             "${pkgs.swaybg}/bin/swaybg"
@@ -439,22 +436,22 @@
             exec "brightnessctl set 10%+ && notify-send \"Brightness $(brightnessctl -m | cut -d, -f4)\" -t 500";
 
           # Screenshot Keybindings
-          "Mod+P".action.screenshot-screen = {
-            show-pointer = false;
-          };
-          "Shift+Mod+P".action.screenshot = {
+          "Print".action.screenshot = {
             show-pointer = true;
           };
-          "Ctrl+Mod+P".action.screenshot-window = {
-          };
-
-          "Print".action.screenshot-screen = {
+          "Shift+Print".action.screenshot-screen = {
             show-pointer = false;
-          };
-          "Shift+Print".action.screenshot = {
-            show-pointer = true;
           };
           "Ctrl+Print".action.screenshot-window = {
+          };
+
+          "Mod+P".action.screenshot = {
+            show-pointer = true;
+          };
+          "Shift+Mod+P".action.screenshot-screen = {
+            show-pointer = false;
+          };
+          "Ctrl+Mod+P".action.screenshot-window = {
           };
 
           "XF86Display".action = suspend;
@@ -541,15 +538,6 @@
       };
     };
   };
-
-  # services.mako = {
-  #   enable = true;
-  #   settings = {
-  #     background-color = "#000000FF";
-  #     border-size = 2;
-  #     border-color = "#00FFFFFF";
-  #   };
-  # };
 
   services.swaync = {
     enable = true;

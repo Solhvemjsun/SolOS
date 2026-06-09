@@ -28,7 +28,6 @@
     gamescope
     imv
     kdePackages.polkit-kde-agent-1
-    mako
     nautilus
     networkmanagerapplet
     pamixer
@@ -38,7 +37,6 @@
     selectdefaultapplication
     swaybg
     wl-clipboard-rs
-    xwayland-satellite
     zathura
   ];
 
