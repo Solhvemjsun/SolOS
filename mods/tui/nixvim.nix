@@ -161,10 +161,10 @@
       lspsaga = {
         enable = true;
         settings = {
-          implement.enable = true;
           beacon.enable = true;
           symbol_in_winbar.enable = false;
           lightbulb.enable = false;
+          implement.enable = false;
         };
       };
 

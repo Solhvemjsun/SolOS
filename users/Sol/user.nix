@@ -16,8 +16,10 @@
   home-manager.users.Sol = {
     programs.git = {
       enable = true;
-      userName = "Solhvemjsun";
-      userEmail = "solhvemjsun@github.com";
+      settings.user = {
+        name = "Solhvemjsun";
+        email = "solhvemjsun@github.com";
+      };
     };
   };
 }
