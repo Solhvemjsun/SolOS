@@ -100,6 +100,7 @@
         ./mods/gui/softwares/cloud/nextcloud.nix
         ./mods/gui/softwares/streaming/obs.nix
         ./mods/gui/softwares/work/communication.nix
+        ./mods/gui/softwares/work/office.nix
         ./mods/gui/softwares/net/communication.nix
         ./mods/gui/softwares/net/firefox.nix
         ./mods/gui/softwares/net/remote.nix

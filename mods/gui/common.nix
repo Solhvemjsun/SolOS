@@ -129,7 +129,6 @@
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
-    onlyoffice-desktopeditors
     tailscale-systray
     udiskie
     vlc
