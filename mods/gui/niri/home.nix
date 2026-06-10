@@ -123,7 +123,7 @@
             height = 1080;
             refresh = 119.999;
           };
-          scale = 1.5;
+          scale = 1.0;
           position = {
             x = 0;
             y = 0;
