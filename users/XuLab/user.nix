@@ -17,7 +17,7 @@
 
   home-manager.users.XuLab = {
     programs.git = {
-      enable = true;
+      enable = false;
       settings.user = {
         name = "Solhvemjsun";
         email = "solhvemjsun@github.com";
