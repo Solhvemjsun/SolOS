@@ -196,8 +196,9 @@
               ++ kdeModules
               ++ personalSoftwares
               ++ [
-                ./mods/core/kernels/linux-zen.nix
                 ./hosts/MachenikeMini/device-specific.nix
+                ./mods/services/zeroclaw.nix
+                ./mods/services/ssh.nix
               ];
           };
 
