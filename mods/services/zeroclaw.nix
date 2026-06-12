@@ -51,7 +51,7 @@
 
     serviceConfig = {
       User = "zeroclaw";
-      ExecStart = "${pkgs.zeroclaw}/bin/zeroclaw service start";
+      ExecStart = "${pkgs.zeroclaw}/bin/zeroclaw daemon";
       WorkingDirectory = "/home/zeroclaw/.zeroclaw/workspace";
       RuntimeDirectory = "zeroclaw";
 
