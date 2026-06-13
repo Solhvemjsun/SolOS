@@ -1,12 +1,12 @@
 { ... }:
-
 {
   nix.settings = {
-    substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-    extra-substituters = [
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
-      "https://mirrors.nju.edu.cn/nix-channels/store"
-      "https://mirrors.sjtug.sjtu.edu.cn/nix-channels/store"
+    substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://cache.nixos.org/"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
   };
 }

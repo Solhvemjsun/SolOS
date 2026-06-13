@@ -96,6 +96,10 @@
         { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
         ./mods/gui/kde/default.nix
       ];
+      chinaModules = [
+        ./mods/core/locales/china/timezone.nix
+        ./mods/core/locales/china/mirrors.nix
+      ];
       basicSoftwares = [
         ./mods/gui/softwares/cloud/nextcloud.nix
         ./mods/gui/softwares/streaming/obs.nix
@@ -146,6 +150,7 @@
               niriModules
               ++ kdeModules
               ++ personalSoftwares
+              ++ chinaModules
               ++ [
                 nixos-hardware.nixosModules.asus-battery
                 nixos-hardware.nixosModules.common-gpu-amd
