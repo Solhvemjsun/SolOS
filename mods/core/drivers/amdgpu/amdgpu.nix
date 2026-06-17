@@ -12,7 +12,9 @@
     ];
   };
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  hardware.amdgpu.initrd.enable = true;
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   environment.systemPackages = with pkgs; [
     amdgpu_top

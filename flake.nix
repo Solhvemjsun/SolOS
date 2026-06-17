@@ -6,8 +6,6 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -44,7 +42,6 @@
       flake-parts,
       nixos-wsl,
       nixos-avf,
-      nixos-hardware,
       home-manager,
       minegrub-theme,
       nixvim,
@@ -152,8 +149,6 @@
               ++ personalSoftwares
               ++ chinaModules
               ++ [
-                nixos-hardware.nixosModules.asus-battery
-                nixos-hardware.nixosModules.common-gpu-amd
                 ./hosts/ROG_Z13/device-specific.nix
                 ./mods/gui/softwares/net/clash.nix
                 ./mods/gui/softwares/virtualize/waydroid.nix
@@ -170,7 +165,6 @@
               ++ kdeModules
               ++ personalSoftwares
               ++ [
-                nixos-hardware.nixosModules.common-gpu-amd
                 ./hosts/SolGPD/device-specific.nix
                 ./mods/gui/softwares/net/clash.nix
                 ./mods/services/tailscale.nix
