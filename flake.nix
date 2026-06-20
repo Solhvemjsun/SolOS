@@ -34,6 +34,8 @@
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
+
+    orbbec-gemini335le.url = "path:/home/Sol/Documents/GitHub/orbbec-gemini335le";
   };
 
   outputs =
@@ -50,6 +52,7 @@
       astal-shell,
       plasma-manager,
       nix-minecraft,
+      orbbec-gemini335le,
       ...
     }:
     let
@@ -121,6 +124,10 @@
         ./mods/gui/softwares/joy/steam.nix
         ./mods/gui/softwares/joy/communication.nix
       ];
+      witnessModules = [
+        ./mods/blux/orbbec-gemini335le/gemini335le.nix
+        orbbec-gemini335le.nixosModules.orbbec-gemini335le
+      ];
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -148,6 +155,7 @@
               ++ kdeModules
               ++ personalSoftwares
               ++ chinaModules
+              ++ witnessModules
               ++ [
                 ./hosts/ROG_Z13/device-specific.nix
                 ./mods/gui/softwares/net/clash.nix

@@ -521,6 +521,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1781074563,
+        "narHash": "sha256-md8WlXOlfnIeHeOScMTTHFyf2d6iaTwPl2apR5EQ3P4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -566,6 +582,21 @@
         "type": "github"
       }
     },
+    "orbbec-gemini335le": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1781712885,
+        "narHash": "sha256-IXOiKe1OfmeWbg3JZCAVtoklzUP0pq4wNENlvx9FGZo=",
+        "path": "/home/Sol/Documents/GitHub/orbbec-gemini335le",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/Sol/Documents/GitHub/orbbec-gemini335le",
+        "type": "path"
+      }
+    },
     "plasma-manager": {
       "inputs": {
         "home-manager": "home-manager_2",
@@ -599,6 +630,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "orbbec-gemini335le": "orbbec-gemini335le",
         "plasma-manager": "plasma-manager",
         "stylix": "stylix"
       }
