@@ -1,35 +1,11 @@
 { pkgs, lib, ... }:
 
 {
-  ##################
-  ## HOME MANAGER ##
-  ##################
-
-  home-manager.sharedModules = [ ./home.nix ];
-
   ##########
   ## GRUB ##
   ##########
 
   boot = {
-    loader.grub = {
-      useOSProber = true;
-      gfxmodeEfi = "1920x1080";
-      minegrub-theme = {
-        enable = true;
-        splash = "Fiat Lux!";
-        boot-options-count = 7;
-      };
-    };
-
-    plymouth = {
-      enable = true;
-      theme = "green_blocks";
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override { selected_themes = [ "green_blocks" ]; })
-      ];
-    };
-
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
@@ -41,32 +17,15 @@
       "rd.udev.log_level=3"
       "udev.log_priority=3"
     ];
-    supportedFilesystems = [ "ntfs" ];
   };
 
   #############
   ## GREETER ##
   #############
 
-  services.displayManager = {
-    sddm = {
-      enable = lib.mkDefault false;
-      wayland.enable = true;
-      theme = "where_is_my_sddm_theme";
-      settings = {
-        General.DisplayServer = "wayland";
-      };
-    };
-  };
-
-  services.greetd = {
-    enable = lib.mkDefault true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;'--cmd niri";
-        user = "greeter";
-      };
-    };
+  services.displayManager.sddm = {
+    wayland.enable = lib.mkDefault true;
+    settings.General.DisplayServer = "wayland";
   };
 
   #############
@@ -119,24 +78,17 @@
   ##############
 
   environment.systemPackages = with pkgs; [
-    candy-icons
     f3d
-    geogebra6
+    # geogebra6
     gparted
-    (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { })
+    kitty
     kiwix
     libnotify
     kdePackages.kamoso
     kdePackages.isoimagewriter
     kdePackages.okular
-    tailscale-systray
     udiskie
     vlc
-    (where-is-my-sddm-theme.override {
-      themeConfig.General = {
-        showSessionsByDefault = true;
-      };
-    })
   ];
 
   #########
@@ -168,10 +120,10 @@
   ###########
 
   fonts.packages = with pkgs; [
-    nerd-fonts.symbols-only
     nerd-fonts.fira-code
     noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
     noto-fonts-color-emoji
     liberation_ttf
   ];
@@ -185,73 +137,12 @@
     type = "fcitx5";
     fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
-      qt6Packages.fcitx5-chinese-addons
-      fcitx5-rime
-      fcitx5-mozc
       fcitx5-material-color
+      fcitx5-mozc
+      qt6Packages.fcitx5-chinese-addons
       fcitx5-pinyin-zhwiki
       fcitx5-pinyin-moegirl
       fcitx5-pinyin-minecraft
     ];
   };
-
-  ############
-  ## STYLIX ##
-  ############
-
-  stylix = {
-    enable = true;
-    polarity = "dark";
-    image = ../../assets/nixos.png;
-    imageScalingMode = "fit";
-    cursor = {
-      package = (pkgs.callPackage ../../pkgs/hatsune-miku-cursors/package.nix { });
-      name = "miku-cursor";
-      size = 64;
-    };
-    icons = {
-      enable = true;
-      package = pkgs.sweet-folders;
-      dark = "Sweet-Rainbow";
-      light = "Sweet-Rainbow";
-    };
-    base16Scheme = {
-      system = "base24";
-      name = "Eclipse";
-      author = "Sol";
-      variant = "dark";
-      base00 = "000000";
-      base01 = "131313";
-      base02 = "2a3141";
-      base03 = "343d50";
-      base04 = "d6dae4";
-      base05 = "c1c8d7";
-      base06 = "e3e6ed";
-      base07 = "ffffff";
-      base08 = "f71118";
-      base09 = "ecb90f";
-      base0A = "0f80d5";
-      base0B = "2cc55d";
-      base0C = "0f80d5";
-      base0D = "2a84d2";
-      base0E = "4e59b7";
-      base0F = "7b080c";
-      base10 = "0a0a0a";
-      base11 = "060606";
-      base12 = "ff0000";
-      base13 = "ffff00";
-      base14 = "00ff00";
-      base15 = "00ffff";
-      base16 = "0000ff";
-      base17 = "ff00ff";
-    };
-    targets = {
-      grub.enable = false;
-      nixvim.enable = false;
-      plymouth.enable = false;
-      fish.enable = false;
-      kmscon.enable = false;
-    };
-  };
-
 }

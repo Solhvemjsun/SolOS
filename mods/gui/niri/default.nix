@@ -1,15 +1,10 @@
 {
   pkgs,
+  lib,
   ...
 }:
 
 {
-  #############
-  ## GREETER ##
-  #############
-
-  services.displayManager.defaultSession = "niri";
-
   ##################
   ## HOME MANAGER ##
   ##################
@@ -27,7 +22,7 @@
     brightnessctl
     gamescope
     imv
-    kdePackages.polkit-kde-agent-1
+    mate-polkit
     nautilus
     networkmanagerapplet
     pamixer

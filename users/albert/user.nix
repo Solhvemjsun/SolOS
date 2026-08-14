@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  users.users.Sol = {
+  users.users.albert = {
     isNormalUser = true;
     extraGroups = [
       "i2c" # OpenRGB

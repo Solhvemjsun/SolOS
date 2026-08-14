@@ -15,12 +15,12 @@
 
     workspace = {
       clickItemTo = "open";
-      lookAndFeel = "org.kde.breezedark.desktop"; # The Plasma Global Theme. Run `plasma-apply-lookandfeel --list` for valid options.
-      cursor = {
-        theme = "miku-cursor";
-        size = 64;
-      };
-      iconTheme = "Sweet-Rainbow";
+      # lookAndFeel = "org.kde.breezedark.desktop"; # The Plasma Global Theme. Run `plasma-apply-lookandfeel --list` for valid options.
+      # cursor = {
+      #   theme = "miku-cursor";
+      #   size = 64;
+      # };
+      # iconTheme = "Sweet-Rainbow";
       # wallpaper = "";
     };
 

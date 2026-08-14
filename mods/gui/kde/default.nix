@@ -1,24 +1,15 @@
 {
   lib,
   pkgs,
-  plasma-manager,
   ...
 }:
 
 {
-  ##################
-  ## HOME MANAGER ##
-  ##################
+  ####################
+  ## PLASMA MANAGER ##
+  ####################
 
   home-manager.sharedModules = [ ./home.nix ];
-
-  ##########
-  ## SDDM ##
-  ##########
-
-  # services.xserver.enable = true; # optional
-  services.displayManager.sddm.enable = true;
-  services.greetd.enable = false;
 
   ##############
   ## PLASMA 6 ##
@@ -69,5 +60,4 @@
   ];
 
   programs.kdeconnect.enable = true;
-
 }

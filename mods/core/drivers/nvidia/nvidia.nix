@@ -5,10 +5,10 @@
 }:
 
 {
-  boot.blacklistedKernelModules = [
-    "i915"
-    "amdgpu"
-  ];
+  # boot.blacklistedKernelModules = [
+  #   "i915"
+  #   "amdgpu"
+  # ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

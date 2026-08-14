@@ -74,83 +74,9 @@
         hide-after-inactive-ms = 3000;
         hide-when-typing = true;
         size = 64;
-        theme = "miku-cursor";
       };
 
       outputs = {
-        "XPS" = {
-          enable = true;
-          name = "Sharp Corporation 0x1551 Unknown";
-          scale = 2.0;
-          mode = {
-            width = 3840;
-            height = 2160;
-            refresh = 59.994;
-          };
-          transform.rotation = 0;
-          position = {
-            x = 0;
-            y = 0;
-          };
-          background-color = "#000000";
-          backdrop-color = "#000000";
-          focus-at-startup = true;
-        };
-
-        "Z13" = {
-          enable = true;
-          name = "Tianma Microelectronics Ltd. TL134ADXP03 Unknown";
-          scale = 1.5;
-          mode = {
-            width = 2560;
-            height = 1600;
-            refresh = 180.000;
-          };
-          transform.rotation = 0;
-          position = {
-            x = 0;
-            y = 0;
-          };
-          background-color = "#000000";
-          backdrop-color = "#000000";
-          focus-at-startup = true;
-        };
-
-        "GPD" = {
-          name = "Thermotrex Corporation TL070FVXS01-0 Unknown";
-          mode = {
-            width = 1920;
-            height = 1080;
-            refresh = 119.999;
-          };
-          scale = 1.0;
-          position = {
-            x = 0;
-            y = 0;
-          };
-          background-color = "#000000";
-          backdrop-color = "#000000";
-        };
-
-        "G8" = {
-          name = "Samsung Electric Company Odyssey G8 HCNX400855";
-          mode = {
-            width = 3840;
-            height = 2160;
-            refresh = 240.000;
-          };
-          variable-refresh-rate = "on-demand";
-          scale = 1.0;
-          transform.rotation = 0;
-          position = {
-            x = 0;
-            y = 0;
-          };
-          background-color = "#000000";
-          backdrop-color = "#000000";
-          focus-at-startup = true;
-        };
-
         "Ehomewei" = {
           name = "Invalid Vendor Codename - RTK Monitor 0x01010101";
           mode = {
@@ -162,22 +88,6 @@
           transform.rotation = 270;
           position = {
             x = -1000;
-            y = 0;
-          };
-          background-color = "#000000";
-          backdrop-color = "#000000";
-        };
-
-        "LG_TV" = {
-          name = "LG Electronics LG TV SSCR2 0x01010101";
-          mode = {
-            width = 3840;
-            height = 2160;
-            refresh = 120.000;
-          };
-          scale = 2.0;
-          position = {
-            x = 1980;
             y = 0;
           };
           background-color = "#000000";
@@ -311,16 +221,7 @@
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
         {
-          command = [ "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1" ];
-        }
-        {
-          command = [
-            "${pkgs.swaybg}/bin/swaybg"
-            "-m"
-            "center"
-            "-i"
-            "${../../../assets/nixos.png}"
-          ];
+          command = [ "${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1" ];
         }
       ];
 
@@ -494,14 +395,6 @@
     };
   };
 
-  #################
-  ## ASTAL SHELL ##
-  #################0
-
-  services.astal-shell = {
-    enable = true;
-  };
-
   ##############
   ## PROGRAMS ##
   ##############
@@ -510,7 +403,6 @@
     enable = true;
     settings = {
       general = {
-        hide_cursor = true;
         enable_fingerprint = true;
       };
 
@@ -521,32 +413,6 @@
           present_message = "";
         };
       };
-
-      background = [
-        {
-          color = "rgb(0, 0, 0)";
-        }
-      ];
-
-      input-field = {
-        size = "1000, 400";
-        position = "0, 0";
-        monitor = "";
-        dots_center = true;
-        dots_size = 0.5;
-        dots_text_format = "*";
-        rounding = 0;
-        font_color = "rgb(255, 255, 255)";
-        inner_color = "rgba(0, 0, 0, 0)";
-        check_color = "rgba(0, 191, 191, 0)";
-        fade_on_empty = false;
-        placeholder_text = "I";
-        fail_text = "Authentication Failed";
-        fail_timeout = "2000";
-        fail_transition = "5000";
-        outline_thickness = 0;
-        swap_font_color = true;
-      };
     };
   };
 
@@ -556,7 +422,6 @@
       main = {
         line-height = 32;
         terminal = "kitty";
-        icon-theme = "Sweet-Rainbow";
         layer = "top";
         lines = 10;
         width = 65;
@@ -571,8 +436,16 @@
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    settings = {
+      confirm_os_window_close = 0;
+    };
+  };
+
   services.swaync = {
     enable = true;
   };
 
+  services.astal-shell.enable = true;
 }
