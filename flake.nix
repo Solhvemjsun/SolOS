@@ -194,7 +194,8 @@
                 ./hosts/SolBase/device-specific.nix
                 ./users/Sol/user.nix
                 ./users/Sol/home.nix
-                ./mods/softwares/net/firefox.nix
+                ./mods/gui/niri/launcher.nix
+                ./mods/softwares/internet/firefox.nix
                 ./mods/services/SolOS_Private/miniserver.nix
                 ./mods/services/SolOS_Private/zeroclaw.nix
                 ./mods/services/ssh/default.nix
