@@ -195,6 +195,7 @@
                 ./users/Sol/user.nix
                 ./users/Sol/home.nix
                 ./mods/gui/niri/launcher.nix
+                ./mods/themes/darksol/oswide.nix
                 ./mods/softwares/internet/firefox.nix
                 ./mods/services/SolOS_Private/miniserver.nix
                 ./mods/services/SolOS_Private/zeroclaw.nix
