@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;'--cmd niri";
+        command = "${pkgs.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;' --cmd niri";
         user = "greeter";
       };
     };

@@ -199,7 +199,7 @@
         {
           matches = [
             {
-              app-id = "^org\.gnome\.World\.Secrets$";
+              app-id = "^org.gnome.World.Secrets$";
             }
           ];
           block-out-from = "screen-capture";
@@ -221,7 +221,7 @@
       spawn-at-startup = [
         { command = [ "xwayland-satellite" ]; }
         {
-          command = [ "${pkgs.mate.mate-polkit}/libexec/polkit-mate-authentication-agent-1" ];
+          command = [ "${pkgs.mate-polkit}/libexec/polkit-mate-authentication-agent-1" ];
         }
       ];
 
