@@ -201,7 +201,7 @@
                 ./mods/services/ssh/default.nix
                 ./mods/services/minecraft/nix-minecraft.nix
                 ./mods/services/minecraft/mcbugus.nix
-                ./mods/services/tailscale.nix
+                ./mods/services/tailscale/default.nix
               ];
           };
 
