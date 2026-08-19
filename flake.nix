@@ -198,7 +198,7 @@
                 ./mods/themes/darksol/oswide.nix
                 ./mods/softwares/internet/firefox.nix
                 ./mods/services/SolOS_Private/miniserver.nix
-                ./mods/services/SolOS_Private/zeroclaw.nix
+                ./mods/services/SolOS_Private/sayuki/zeroclaw.nix
                 ./mods/services/ssh/default.nix
                 ./mods/services/minecraft/nix-minecraft.nix
                 ./mods/services/minecraft/mcbugus.nix
