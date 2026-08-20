@@ -1,15 +1,23 @@
 { pkgs, ... }:
 
 {
-  services.greetd = {
+  programs.regreet = {
     enable = true;
     settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet -r --theme 'button=black;action=black;' --cmd niri";
-        user = "greeter";
+      commands = {
+        reboot = [
+          "systemctl"
+          "reboot"
+        ];
+        poweroff = [
+          "systemctl"
+          "poweroff"
+        ];
       };
     };
   };
+
+  services.displayManager.sessionPackages = [ pkgs.niri ];
 
   imports = [ ./default.nix ];
 }
