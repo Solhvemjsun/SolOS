@@ -222,7 +222,8 @@
             system = "x86_64-linux";
             modules = tuiModules ++ [
               nixos-wsl.nixosModules.default
-              ./users/blux/user.nix
+              home-manager.nixosModules.home-manager
+              ./users/Sol/user.nix
               ./mods/core/platforms/wsl.nix
             ];
           };
