@@ -3,17 +3,17 @@
 {
   wsl = {
     enable = true;
-    defaultUser = "blux";
+    defaultUser = "Sol";
     startMenuLaunchers = true;
     interop.register = true;
     wslConf = {
-      network.hostname = "bluxos-wsl";
+      network.hostname = "SolOS-WSL";
     };
     # useWindowsDriver = true;
   };
-  networking.hostName = "bluxos-wsl";
+  networking.hostName = "SolOS-WSL";
   home-manager.sharedModules = [
-    { 
+    {
       home.sessionVariables = {
         BROWSER = "wslview";
         QT_QPA_PLATFORM = "xcb";

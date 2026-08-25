@@ -63,6 +63,7 @@
         ./mods/core/drivers/network/networkmanager.nix
       ];
       tuiModules = coreModules ++ [
+        stylix.nixosModules.stylix
         nixvim.nixosModules.nixvim
         ./mods/softwares/shell/fish.nix
         ./mods/softwares/filemanager/yazi.nix
@@ -72,7 +73,6 @@
       ];
       guiModules = tuiModules ++ [
         minegrub-theme.nixosModules.default
-        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         ./mods/core/homemanager/default.nix
         ./mods/gui/common.nix
@@ -151,6 +151,7 @@
                 ./mods/core/drivers/filesystems/ntfs.nix
                 ./mods/gui/niri/launcher.nix
                 ./mods/themes/darksol/oswide.nix
+                ./mods/themes/darksol/launcher.nix
                 ./mods/services/tailscale/default.nix
                 ./mods/softwares/net/clash.nix
               ];
@@ -173,6 +174,7 @@
                 ./mods/core/kernels/linux-zen.nix # High-performance core for Desktop
                 ./mods/gui/niri/launcher.nix # Choose Niri as the default user interface
                 ./mods/themes/darksol/oswide.nix # Global theme by Sol
+                ./mods/themes/darksol/launcher.nix
                 ./mods/core/drivers/nvidia/nvidia.nix # So Nvidia, Fuck You
                 ./mods/core/drivers/usb/bolt.nix # USB4 driver
                 ./mods/core/drivers/firmwares/closed.nix # Enable close-sourced firmwares
@@ -196,6 +198,7 @@
                 ./users/Sol/home.nix
                 ./mods/gui/niri/launcher.nix
                 ./mods/themes/darksol/oswide.nix
+                ./mods/themes/darksol/launcher.nix
                 ./mods/softwares/internet/firefox.nix
                 ./mods/services/SolOS_Private/miniserver.nix
                 ./mods/services/SolOS_Private/sayuki/zeroclaw.nix
@@ -225,6 +228,7 @@
               home-manager.nixosModules.home-manager
               ./users/Sol/user.nix
               ./mods/core/platforms/wsl.nix
+              ./mods/themes/darksol/oswide.nix
             ];
           };
 
