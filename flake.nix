@@ -131,13 +131,35 @@
 
       flake = {
         nixosConfigurations = {
+          "SolXPS26" = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules =
+              guiModules
+              ++ niriDesktop
+              ++ createSoftwares
+              ++ personalSoftwares
+              ++ [
+                ./hosts/SolXPS26/device-specific.nix
+                ./users/Sol/user.nix
+                ./users/Sol/home.nix
+                ./mods/core/drivers/usb/bolt.nix
+                ./mods/core/drivers/firmwares/closed.nix
+                ./mods/core/drivers/filesystems/ntfs.nix
+		./mods/core/drivers/zramswap/default.nix
+                ./mods/gui/niri/launcher.nix
+                ./mods/themes/darksol/oswide.nix
+                ./mods/themes/darksol/launcher.nix
+                ./mods/services/tailscale/default.nix
+                ./mods/softwares/net/clash.nix
+              ];
+          };
+
           "SolZ13" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules =
               guiModules
               ++ niriDesktop
               ++ kdeDesktop
-              ++ gnomeDesktop
               ++ gnomeDesktop
               ++ createSoftwares
               ++ personalSoftwares
