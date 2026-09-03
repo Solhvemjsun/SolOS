@@ -41,6 +41,7 @@
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
       flake-parts,
       nixos-wsl,
@@ -145,7 +146,7 @@
                 ./mods/core/drivers/usb/bolt.nix
                 ./mods/core/drivers/firmwares/closed.nix
                 ./mods/core/drivers/filesystems/ntfs.nix
-		./mods/core/drivers/zramswap/default.nix
+                ./mods/core/drivers/zramswap/default.nix
                 ./mods/gui/niri/launcher.nix
                 ./mods/themes/darksol/oswide.nix
                 ./mods/themes/darksol/launcher.nix
@@ -283,6 +284,47 @@
               ];
           };
 
+          "SOLOSISO" = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-gnome.nix"
+              "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"
+
+              ({ pkgs, ... }: {
+                nixpkgs.config.allowUnfree = true;
+                isoImage.contents = [
+                  {
+                    source = self.nixosConfigurations.SolXPS26.config.system.build.toplevel;
+                    target = "/target-system";
+                  }
+                ];
+                # environment.etc."nixos-config".source = ./.;
+                hardware.enableAllFirmware = true;
+              })
+            ];
+          };
+
+          "SOLOSISO2" = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules =
+              guiModules
+              ++ niriDesktop
+              ++ [
+                "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-base.nix"
+                "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"
+
+                # ({ pkgs, ... }: {
+                #   isoImage.contents = [
+                #     {
+                #       source = self.nixosConfigurations.SolXPS26.config.system.build.toplevel;
+                #       target = "/target-system";
+                #     }
+                #   ];
+                # })
+                ./users/Sol/user.nix
+                ./users/Sol/home.nix
+              ];
+          };
         };
       };
       perSystem =
