@@ -1,19 +1,19 @@
 { pkgs, ... }:
 
 {
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
     settings = {
-      commands = {
-        reboot = [
-          "systemctl"
-          "reboot"
-        ];
-        poweroff = [
-          "systemctl"
-          "poweroff"
-        ];
-      };
+      #   commands = {
+      #     reboot = [
+      #       "systemctl"
+      #       "reboot"
+      #     ];
+      #     poweroff = [
+      #       "systemctl"
+      #       "poweroff"
+      #     ];
+      #   };
     };
   };
 
