@@ -5,7 +5,7 @@
     system.nixos.tags = [ "KDE" ];
 
     services.displayManager.sddm.enable = lib.mkForce false;
-    services.xserver.displayManager.gdm.enable = lib.mkForce false;
+    services.displayManager.gdm.enable = lib.mkForce false;
     services.greetd.enable = lib.mkForce true;
     services.displayManager.defaultSession = lib.mkForce "plasma";
 

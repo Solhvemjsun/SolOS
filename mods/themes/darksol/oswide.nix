@@ -60,7 +60,7 @@
   ## LAUNCHER ##
   ##############
 
-  programs.regreet.settings = {
+  services.displayManager.regreet.settings = {
     background = {
       path = "./assets/nixos.png";
       fit = "Cover";

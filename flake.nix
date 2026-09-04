@@ -137,6 +137,7 @@
             modules =
               guiModules
               ++ niriDesktop
+              ++ kdeDesktop
               ++ createSoftwares
               ++ personalSoftwares
               ++ [

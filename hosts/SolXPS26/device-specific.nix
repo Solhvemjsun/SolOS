@@ -13,9 +13,6 @@
     {
       programs.niri = {
         settings = {
-          layout = {
-            default-column-width = lib.mkForce { proportion = 1. / 3.; };
-          };
           outputs = {
             "XPS1326Inner" = {
               name = "LG Display 0x0804 Unknown";
