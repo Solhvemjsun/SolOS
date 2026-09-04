@@ -93,23 +93,6 @@
           background-color = "#000000";
           backdrop-color = "#000000";
         };
-
-        "Albert_Alienware" = {
-          name = "Dell Inc. AW3423DWF G8672S3";
-          mode = {
-            width = 3440;
-            height = 1440;
-            refresh = 120.000;
-          };
-          scale = 1.0;
-          position = {
-            x = 2560;
-            y = 0;
-          };
-          background-color = "#000000";
-          backdrop-color = "#000000";
-        };
-
         "Xreal" = {
           name = "Nreal Air 2 Pro 0x88888800";
           mode = {
