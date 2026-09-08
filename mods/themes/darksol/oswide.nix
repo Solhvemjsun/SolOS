@@ -62,8 +62,6 @@
 
   services.displayManager.regreet.settings = {
     background = {
-      path = "./assets/nixos.png";
-      fit = "Cover";
       GTK = {
         application_prefer_dark_theme = true;
         font_name = "Noto Sans 11";
@@ -94,18 +92,26 @@
 
   stylix = {
     enable = true;
+    polarity = "dark";
+    image = ./assets/nixos.png;
+    imageScalingMode = "fill";
+    cursor = {
+      package = (pkgs.callPackage ./pkgs/hatsune-miku-cursors/package.nix { });
+      name = "miku-cursor";
+      size = 64;
+    };
+    icons = {
+      enable = true;
+      package = pkgs.sweet-folders;
+      dark = "Sweet-Rainbow";
+      light = "Sweet-Rainbow";
+    };
     targets = {
       grub.enable = false;
       nixvim.enable = false;
       plymouth.enable = false;
       fish.enable = false;
       kmscon.enable = false;
-
-      regreet = {
-        image.enable = true;
-        imageScalingMode.enable = true;
-        polarity.enable = true;
-      };
     };
     base16Scheme = {
       system = "base24";
