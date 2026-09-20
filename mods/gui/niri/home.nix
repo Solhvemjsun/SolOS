@@ -210,7 +210,7 @@
 
       # To-do: add suspend actions
       switch-events = {
-        lid-close.action.spawn = "hyprlock";
+        lid-close.action.spawn = "hyprlock & sleep 1 && systemctl suspend-then-hibernate";
         # lid-open.action.spawn = "hyprlock";
         # tablet-mode-on.action.spawn = ["gsettings" "set" "org.gnome.desktop.a11y.applications" "screen-keyboard-enabled" "true"];
         # tablet-mode-off.action.spawn = ["gsettings" "set" "org.gnome.desktop.a11y.applications" "screen-keyboard-enabled" "false"];

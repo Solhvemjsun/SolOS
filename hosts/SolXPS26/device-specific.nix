@@ -9,6 +9,8 @@
 
   boot.loader.timeout = null;
 
+  boot.resumeDevice = "/dev/disk/by-uuid/74e1f410-06b2-4e79-9e79-b1b6632e68fe";
+
   home-manager.sharedModules = [
     {
       programs.niri = {
