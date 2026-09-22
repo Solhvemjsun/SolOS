@@ -83,8 +83,8 @@
         { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
         ./mods/gui/kde/specialisation.nix
       ];
-      gnomeDesktop = [
-        ./mods/gui/gnome/specialization.nix
+      cosmicDesktop = [
+        ./mods/gui/cosmic/specialization.nix
       ];
       niriDesktop = [
         ./mods/gui/niri/specialisation.nix
@@ -167,6 +167,7 @@
               guiModules
               ++ niriDesktop
               ++ kdeDesktop
+              ++ cosmicDesktop
               ++ flatpakModules
               ++ createSoftwares
               ++ personalSoftwares
@@ -193,8 +194,8 @@
               guiModules # Basic modules for gui system
               ++ niriDesktop # Scrolling desktop enviroment
               ++ kdeDesktop # Windows-like desktop enviroment
-              ++ gnomeDesktop # MacOS-like desktop environment
-              ++ flatpakModules
+              ++ cosmicDesktop # An lightweight desktop environment
+              ++ flatpakModules # Easier package management
               ++ createSoftwares # Softwares for work
               ++ personalSoftwares # All default softwares enabled
               ++ [
