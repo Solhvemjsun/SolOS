@@ -2,11 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
-    prismlauncher
-    zulu8
+    hmcl
+    temurin-bin-21
   ];
 
   environment.variables = {
-    JAVA_HOME = pkgs.jdk21;
+    JAVA_HOME = pkgs.temurin-bin-21;
   };
 }
