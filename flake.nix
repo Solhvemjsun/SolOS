@@ -9,11 +9,10 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-avf.url = "github:nix-community/nixos-avf/trunk";
-    nixos-avf.inputs.nixpkgs.follows = "nixpkgs";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
     minegrub-theme.inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +45,7 @@
       flake-parts,
       nixos-wsl,
       home-manager,
+      nix-flatpak,
       minegrub-theme,
       nixvim,
       nixos-vscode-server,
@@ -103,6 +103,10 @@
         ./mods/core/locales/china/timezone.nix
         ./mods/core/locales/china/mirrors.nix
       ];
+      flatpakModules = [
+        nix-flatpak.nixosModules.nix-flatpak
+        ./mods/services/flatpak/default.nix
+      ];
       basicSoftwares = [
         ./mods/softwares/streaming/obs.nix
         ./mods/softwares/internet/chat.nix
@@ -138,6 +142,7 @@
               guiModules
               ++ niriDesktop
               ++ kdeDesktop
+              ++ flatpakModules
               ++ createSoftwares
               ++ personalSoftwares
               ++ [
@@ -162,7 +167,7 @@
               guiModules
               ++ niriDesktop
               ++ kdeDesktop
-              ++ gnomeDesktop
+              ++ flatpakModules
               ++ createSoftwares
               ++ personalSoftwares
               ++ [
@@ -189,6 +194,7 @@
               ++ niriDesktop # Scrolling desktop enviroment
               ++ kdeDesktop # Windows-like desktop enviroment
               ++ gnomeDesktop # MacOS-like desktop environment
+              ++ flatpakModules
               ++ createSoftwares # Softwares for work
               ++ personalSoftwares # All default softwares enabled
               ++ [
