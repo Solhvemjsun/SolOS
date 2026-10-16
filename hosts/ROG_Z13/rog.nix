@@ -7,7 +7,10 @@
 
   services.hardware.openrgb.enable = true;
   hardware.i2c.enable = true;
-  boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
+  boot.kernelModules = [
+    "i2c-dev"
+    "i2c-piix4"
+  ];
 
   ##########
   ## ASUS ##
@@ -19,7 +22,7 @@
 
   programs.rog-control-center = {
     enable = true;
-    autoStart = true;
+    # autoStart = true;
   };
 
   environment.systemPackages = with pkgs; [
