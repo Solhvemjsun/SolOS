@@ -109,7 +109,7 @@
       basicSoftwares = [
         ./mods/softwares/streaming/obs.nix
         ./mods/softwares/internet/chat.nix
-        ./mods/softwares/office/collabora.nix
+        ./mods/softwares/office/eurooffice.nix
         ./mods/softwares/internet/firefox.nix
         ./mods/softwares/net/remote.nix
       ];
