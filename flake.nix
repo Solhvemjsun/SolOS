@@ -141,6 +141,7 @@
               guiModules
               ++ niriDesktop
               ++ kdeDesktop
+              ++ cosmicDesktop
               ++ flatpakModules
               ++ createSoftwares
               ++ personalSoftwares
