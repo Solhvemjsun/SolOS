@@ -184,6 +184,7 @@
                 ./mods/themes/darksol/launcher.nix
                 ./mods/services/tailscale/default.nix
                 ./mods/softwares/net/clash.nix
+                ./mods/softwares/virtualize/waydroid.nix
               ];
           };
 
