@@ -28,7 +28,7 @@
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    astal-shell.url = "github:knoopx/astal-shell";
+    astal-shell.url = "github:Oprain/astal-shell";
     astal-shell.inputs.nixpkgs.follows = "nixpkgs";
 
     plasma-manager.url = "github:nix-community/plasma-manager";
@@ -91,7 +91,6 @@
         {
           nixpkgs.overlays = [
             niri.overlays.niri
-            astal-shell.overlays.default
           ];
           home-manager.sharedModules = [
             niri.homeModules.niri
