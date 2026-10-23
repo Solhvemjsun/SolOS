@@ -4,7 +4,7 @@
   programs.obs-studio = {
     enable = true;
 
-    enableVirtualCamera = true;
+    # enableVirtualCamera = true;
 
     # optional Nvidia hardware acceleration
     # package = (
