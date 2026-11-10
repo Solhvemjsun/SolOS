@@ -126,6 +126,47 @@
         ./mods/softwares/gaming/minecraft.nix
         ./mods/softwares/gaming/steam.nix
       ];
+      installedDesktop = import ./installer/target/desktop.nix;
+      installedUser = import ./installer/target/username.nix;
+      installedDesktopModules = builtins.getAttr installedDesktop {
+        niri = [
+          ./mods/gui/niri/launcher.nix
+          {
+            nixpkgs.overlays = [ niri.overlays.niri ];
+            home-manager.sharedModules = [
+              niri.homeModules.niri
+              astal-shell.homeManagerModules.default
+              ./installer/target/niri-home.nix
+            ];
+          }
+        ];
+        kde = [
+          ./mods/gui/kde/launcher.nix
+          { home-manager.sharedModules = [ plasma-manager.homeModules.plasma-manager ]; }
+        ];
+        cosmic = [ ./mods/gui/cosmic/launcher.nix ];
+      };
+      solosInstallerOverlay = final: prev: let
+        prepareTarget = final.writeShellScriptBin "solos-prepare-target"
+          "exec ${final.python3}/bin/python3 ${./installer/prepare_target.py} \"$@\"\n";
+      in {
+        calamares-nixos-extensions = prev.calamares-nixos-extensions.overrideAttrs (old: {
+          nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ final.python3 ];
+          postPatch = (old.postPatch or "") + builtins.concatStringsSep "\n" [
+            ""
+            "cp ${./installer/packagechooser.conf} config/modules/packagechooser.conf"
+            "${final.python3}/bin/python3 ${./installer/patch_calamares.py} modules/nixos/main.py ${prepareTarget}/bin/solos-prepare-target"
+            ""
+          ];
+        });
+        calamares-nixos = final.calamares.override {
+          extraWrapperArgs = [
+            "--prefix XDG_DATA_DIRS : ${final.calamares-nixos-extensions}/share"
+            "--prefix XDG_CONFIG_DIRS : ${final.calamares-nixos-extensions}/etc"
+            "--add-flag --xdg-config"
+          ];
+        };
+      };
     in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
@@ -135,6 +176,19 @@
 
       flake = {
         nixosConfigurations = {
+          "SolOSInstalled" = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              home-manager.nixosModules.home-manager
+              ./mods/core/nix/default.nix
+              ./mods/core/drivers/network/networkmanager.nix
+              ./mods/core/homemanager/default.nix
+              ./mods/gui/common.nix
+              ./installer/target/configuration.nix
+              { home-manager.users.${installedUser} = { }; }
+            ] ++ installedDesktopModules;
+          };
+
           "SolXPS26" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules =
@@ -300,14 +354,10 @@
               "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares.nix"
 
               ({ pkgs, ... }: {
+                nixpkgs.overlays = [ solosInstallerOverlay ];
                 nixpkgs.config.allowUnfree = true;
-                isoImage.contents = [
-                  {
-                    source = self.nixosConfigurations.SolXPS26.config.system.build.toplevel;
-                    target = "/target-system";
-                  }
-                ];
-                # environment.etc."nixos-config".source = ./.;
+                nix.settings.experimental-features = [ "nix-command" "flakes" ];
+                environment.etc."solos-installer-source".source = self.outPath;
                 hardware.enableAllFirmware = true;
               })
             ];

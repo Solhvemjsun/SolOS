@@ -1,3 +1,5 @@
 nixos.wsl
 result
+result-iso
 *.kate-swp
+__pycache__/

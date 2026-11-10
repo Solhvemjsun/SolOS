@@ -14,8 +14,7 @@ server:
 	git submodule update --init --recursive
 	nh os boot '.?submodules=1'
 iso:
-	git add .
-	nix build .#nixosConfigurations.SOLOSISO.config.system.build.isoImage
+	nix build --out-link result-iso .#nixosConfigurations.SOLOSISO.config.system.build.isoImage
 wsltar:
 	git add .
 	sudo nix run .#nixosConfigurations.SolOS-WSL.config.system.build.tarballBuilder
